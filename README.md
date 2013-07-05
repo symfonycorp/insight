@@ -1,15 +1,45 @@
-# SensioLabs Insight SDK
+SensioLabsInsight SDK
+=====================
 
-## About
+About
+-----
 
-This is the official SDK for the SensioLabs Insight API.
+This is the official SDK for the SensioLabsInsight API.
 
-## Installation
+Installation
+------------
 
-Add `sensiolabs/insigh-sdk` to the list of requirements of your application's
+Add `sensiolabs/insight` to the list of requirements of your application's
 `composer.json` file.
 
-## Configuration
+Command Line Tool
+-----------------
+
+The easiest way to use the SensioLabsInsight API is via the built-in command
+line tool.
+
+List all the projects in your account:
+
+    $ ./bin/insight projects
+
+The first time, you will be prompted for your SensioLabsInsight API key and
+user UUID (which can be found under the "Account" section on the website).
+These information are then stored locally, but can still be overridden via the
+`--api-token` and `--user-uuid` options.
+
+To run an analysis:
+
+    $ ./bin/insight analyze UUID
+
+where `UUID` is the UUID of the project you want to analyze (the UUIDs are
+listed by the `projects` command).
+
+To export an analysis report:
+
+    $ ./bin/insight analysis UUID --xml # or --json
+
+Configuration
+-------------
 
     use SensioLabs\Insight\Sdk\Api;
 
@@ -38,7 +68,7 @@ If you want, your can give a `Guzzle\Http\Client` and a
     $api = new Api($config, $client, null, $logger);
 
 You can also give a `cache` folder. The SDK will only cache metadatas for
-serialization. And you can also give a `debug` flag.
+serialization. And you can also give a `debug` flag:
 
     $api = new Api(array(
         'api_token' => 'your api token',
@@ -47,8 +77,8 @@ serialization. And you can also give a `debug` flag.
         'debug'     => true,
     ));
 
-
-## Usage
+Usage
+-----
 
 ### List all projects:
 
@@ -106,6 +136,7 @@ If something went wrong, an
     all form errors.
 * `ApiServerException` If something went wrong with the API.
 
-## License
+License
+-------
 
 This library is licensed under the MIT license.
