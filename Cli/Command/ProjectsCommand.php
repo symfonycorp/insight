@@ -28,7 +28,16 @@ class ProjectsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $api = $this->getApplication()->getApi();
-        $projects = $api->getProjects()->getProjects();
+
+        $projectsResource = $api->getProjects();
+        $projects = $projectsResource->getProjects();
+        $nbPage = ceil($projectsResource->getTotal() / 10);
+        $page = 1;
+        while ($page < $nbPage) {
+            $page++;
+            $projects = array_merge($projects, $api->getProjects($page)->getProjects());
+        }
+
         if (!$projects) {
             $output->writeln('There are no projects');
         }
