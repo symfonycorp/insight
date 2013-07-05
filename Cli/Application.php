@@ -84,16 +84,16 @@ class Application extends BaseApplication
 
     protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output)
     {
-        $storagePath = getenv('SENSIOLABS_HOME');
+        $storagePath = getenv('INSIGHT_HOME');
         if (!$storagePath) {
             if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
                 if (!getenv('APPDATA')) {
-                    throw new \RuntimeException('The APPDATA or SENSIOLABS_HOME environment variable must be set for insight to run correctly');
+                    throw new \RuntimeException('The APPDATA or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }
                 $storagePath = strtr(getenv('APPDATA'), '\\', '/') . '/Sensiolabs';
             } else {
                 if (!getenv('HOME')) {
-                    throw new \RuntimeException('The HOME or SENSIOLABS_HOME environment variable must be set for insight to run correctly');
+                    throw new \RuntimeException('The HOME or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }
                 $storagePath = rtrim(getenv('HOME'), '/') . '/.sensiolabs';
             }
