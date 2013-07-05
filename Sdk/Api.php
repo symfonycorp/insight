@@ -215,11 +215,11 @@ class Api
 
     private function logException(\Exception $e)
     {
-        $this->logger and $this->logger->error(sprintf(
-            "Error:Exception: \"%s\", Message: \"%s\", Response:\n%s",
+        $message = sprintf("Exception: Class: \"%s\", Message: \"%s\", Response:\n%s",
             get_class($e),
             $e->getMessage(),
             (string) $e->getResponse()
-        ));
+        );
+        $this->logger and $this->logger->error($message, array('exception' => $e));
     }
 }
