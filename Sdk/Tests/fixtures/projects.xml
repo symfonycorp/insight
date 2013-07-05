@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects total="12" page="1" limit="10">
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=1" rel="first" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=1" rel="previous" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=1" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=2" rel="next" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=2" rel="last" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/835d328a-1bd6-4794-8b35-d9ad3aebcd58?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/835d328a-1bd6-4794-8b35-d9ad3aebcd58/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[835d328a-1bd6-4794-8b35-d9ad3aebcd58]]></id>
+    <name><![CDATA[foobar]]></name>
+    <public>false</public>
+    <report-available>true</report-available>
+    <type>11</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/2a1bc27e-b3bf-4b71-838f-facc44c4a86b?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/2a1bc27e-b3bf-4b71-838f-facc44c4a86b/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[2a1bc27e-b3bf-4b71-838f-facc44c4a86b]]></id>
+    <name><![CDATA[foobar2]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>1</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/fdcb533c-f082-4343-8731-12ef4c648a35?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/fdcb533c-f082-4343-8731-12ef4c648a35/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[fdcb533c-f082-4343-8731-12ef4c648a35]]></id>
+    <last-analysis>
+      <grades>
+        <entry><![CDATA[error]]></entry>
+        <entry><![CDATA[bronze]]></entry>
+        <entry><![CDATA[silver]]></entry>
+        <entry><![CDATA[gold]]></entry>
+        <entry><![CDATA[platinum]]></entry>
+      </grades>
+      <id>47</id>
+      <failed>true</failed>
+      <failure-message><![CDATA[The private SensioLabs repository has not been created yet.]]></failure-message>
+      <begin-at><![CDATA[2013-06-25T11:40:45+0200]]></begin-at>
+      <altered>false</altered>
+      <status><![CDATA[finished]]></status>
+      <remediation-cost>0</remediation-cost>
+      <remediation-cost-for-next-grade>0</remediation-cost-for-next-grade>
+      <nb-violations>0</nb-violations>
+    </last-analysis>
+    <name><![CDATA[greg]]></name>
+    <repository-url><![CDATA[git@git.sensiolabs.com:lyrixx/greg.git]]></repository-url>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>6</type>
+    <description><![CDATA[Added private repo]]></description>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/5b2f3baf-85d5-462b-b015-94839de61282?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/5b2f3baf-85d5-462b-b015-94839de61282/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[5b2f3baf-85d5-462b-b015-94839de61282]]></id>
+    <name><![CDATA[Team Up (Wes)]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>4</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/9cec8cee-26c1-44a9-8994-d7c87c2b2f87?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/9cec8cee-26c1-44a9-8994-d7c87c2b2f87/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[9cec8cee-26c1-44a9-8994-d7c87c2b2f87]]></id>
+    <name><![CDATA[Lifestream from insight]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>10</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/1345d511-8899-493f-85d1-fb19fc5b97e7?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/1345d511-8899-493f-85d1-fb19fc5b97e7/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[1345d511-8899-493f-85d1-fb19fc5b97e7]]></id>
+    <name><![CDATA[Lifestream from insight2]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>10</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/2b1b6721-577e-4be0-acbc-e84da74f3185?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/2b1b6721-577e-4be0-acbc-e84da74f3185/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[2b1b6721-577e-4be0-acbc-e84da74f3185]]></id>
+    <name><![CDATA[and another one more]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>7</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/97d95d0d-e112-4d7f-8333-b476543e777d?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/97d95d0d-e112-4d7f-8333-b476543e777d/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[97d95d0d-e112-4d7f-8333-b476543e777d]]></id>
+    <name><![CDATA[And the last one]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>9</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/d2c10091-d2cf-404d-971b-f3093e9ed9e0?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/d2c10091-d2cf-404d-971b-f3093e9ed9e0/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[d2c10091-d2cf-404d-971b-f3093e9ed9e0]]></id>
+    <name><![CDATA[and one more]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>11</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[fc94cd0a-e079-4489-b2da-1003c045b564]]></id>
+    <last-analysis>
+      <grades>
+        <entry><![CDATA[error]]></entry>
+        <entry><![CDATA[bronze]]></entry>
+        <entry><![CDATA[silver]]></entry>
+        <entry><![CDATA[gold]]></entry>
+        <entry><![CDATA[platinum]]></entry>
+      </grades>
+      <id>49</id>
+      <failed>false</failed>
+      <grade><![CDATA[error]]></grade>
+      <next-grade><![CDATA[bronze]]></next-grade>
+      <begin-at><![CDATA[2013-06-25T19:37:20+0200]]></begin-at>
+      <end-at><![CDATA[2013-06-25T19:37:53+0200]]></end-at>
+      <duration>0</duration>
+      <altered>false</altered>
+      <status><![CDATA[finished]]></status>
+      <remediation-cost>181.75</remediation-cost>
+      <remediation-cost-for-next-grade>55.5</remediation-cost-for-next-grade>
+      <nb-violations>250</nb-violations>
+    </last-analysis>
+    <name><![CDATA[demo]]></name>
+    <repository-url><![CDATA[git@github.com:lyrixx/demoer.git]]></repository-url>
+    <public>true</public>
+    <report-available>true</report-available>
+    <type>1</type>
+    <configuration><![CDATA[global_exclude_dirs:
+    - vendor
+    - vendors
+    - test
+    - tests
+    - Tests
+    - samples]]></configuration>
+  </project>
+  <project-new>
+    <input type="checkbox" value="1" name="insight_project[createRepository]" required="required"/>
+    <input type="text" name="insight_project[repositoryUrl]" required="required"/>
+    <input type="text" name="insight_project[name]" required="required"/>
+    <input type="checkbox" value="1" name="insight_project[public]"/>
+    <textarea name="insight_project[description]"><![CDATA[]]></textarea>
+    <input type="text" name="insight_project[branch]" required="required"/>
+    <select name="insight_project[type]" required="required">
+      <option value=""/>
+      <option value="10">Symfony2 Web Project</option>
+      <option value="11">symfony1 Web Project</option>
+      <option value="9">Silex Web Project</option>
+      <option value="8">Laravel Web Project</option>
+      <option value="2">Symfony2 Bundle</option>
+      <option value="4">symfony1 Plugin</option>
+      <option value="7">Drupal Module</option>
+      <option value="0">PHP Web Project</option>
+      <option value="1">PHP Library</option>
+      <option value="6">Other</option>
+    </select>
+    <textarea name="insight_project[configuration]" required="required"><![CDATA[]]></textarea>
+    <input type="hidden" value="7add74288755ae8c3bef27eb0ccf39974528be51" name="insight_project[_token]"/>
+  </project-new>
+</projects>

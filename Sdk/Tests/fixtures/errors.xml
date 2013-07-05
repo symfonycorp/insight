@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<error type="client">
+    <entity>
+        <body>
+            <parameter name="foo">
+                <message xml:lang="en">This value should not be null.</message>
+                <message xml:lang="en">This value should not be blank.</message>
+            </parameter>
+            <parameter name="bar">
+                <message xml:lang="en">This value should be equals to 6.</message>
+            </parameter>
+        </body>
+    </entity>
+</error>

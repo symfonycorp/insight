@@ -1,0 +1,35 @@
+{
+    "name": "sensiolabs/insight",
+    "description": "SensioLabs Insight SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grégoire Pineau",
+            "email": "lyrixx@lyrixx.info"
+        }
+    ],
+    "require": {
+        "guzzle/guzzle": "~3.4",
+        "jms/serializer": "dev-master",
+        "psr/log": "~1.0",
+        "symfony/console": "~2.3"
+    },
+    "require-dev": {
+        "monolog/monolog": "~1.4"
+    },
+    "suggest": {
+        "monolog/monolog": "Will add some log capability to this library"
+    },
+    "autoload": {
+        "psr-0": {
+            "SensioLabs\\Insight\\": ""
+        }
+    },
+    "target-dir": "SensioLabs/Insight",
+    "bin": ["bin/insight"],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

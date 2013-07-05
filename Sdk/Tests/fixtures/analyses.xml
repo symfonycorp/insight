@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analyses total="2" page="1" limit="10">
+  <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=1" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <analysis>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/49?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/49/status?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="status" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="project" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/2" rel="self" type="text/html"/>
+    <grades>
+      <entry><![CDATA[error]]></entry>
+      <entry><![CDATA[bronze]]></entry>
+      <entry><![CDATA[silver]]></entry>
+      <entry><![CDATA[gold]]></entry>
+      <entry><![CDATA[platinum]]></entry>
+    </grades>
+    <id>49</id>
+    <failed>false</failed>
+    <grade><![CDATA[error]]></grade>
+    <next-grade><![CDATA[bronze]]></next-grade>
+    <begin-at><![CDATA[2013-06-25T19:37:20+0200]]></begin-at>
+    <end-at><![CDATA[2013-06-25T19:37:53+0200]]></end-at>
+    <duration>0</duration>
+    <altered>false</altered>
+    <status><![CDATA[finished]]></status>
+    <remediation-cost>181.75</remediation-cost>
+    <remediation-cost-for-next-grade>55.5</remediation-cost-for-next-grade>
+    <nb-violations>250</nb-violations>
+  </analysis>
+  <analysis>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/48?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/48/status?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="status" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="project" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/1" rel="self" type="text/html"/>
+    <grades>
+      <entry><![CDATA[error]]></entry>
+      <entry><![CDATA[bronze]]></entry>
+      <entry><![CDATA[silver]]></entry>
+      <entry><![CDATA[gold]]></entry>
+      <entry><![CDATA[platinum]]></entry>
+    </grades>
+    <id>48</id>
+    <failed>true</failed>
+    <failure-message><![CDATA[
+
+                                                                                                                    
+  [InvalidArgumentException]                                                                                        
+  The "/home/greg/dev/product/insight/app/../build/fc94cd0a-e079-4489-b2da-1003c045b564" directory does not exist.  
+                                                                                                                    
+
+
+insight:analyze:wax [--feedback="..."] [--artefacts="..."] [--measure="..."] [--validate="..."] name id path payload
+
+
+]]></failure-message>
+    <grade><![CDATA[platinum]]></grade>
+    <begin-at><![CDATA[2013-06-25T19:36:19+0200]]></begin-at>
+    <end-at><![CDATA[2013-06-25T19:36:43+0200]]></end-at>
+    <duration>0</duration>
+    <altered>false</altered>
+    <status><![CDATA[finished]]></status>
+    <remediation-cost>0</remediation-cost>
+    <remediation-cost-for-next-grade>0</remediation-cost-for-next-grade>
+    <nb-violations>0</nb-violations>
+  </analysis>
+</analyses>

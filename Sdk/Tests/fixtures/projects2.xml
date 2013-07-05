@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects total="12" page="2" limit="10">
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=1" rel="first" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=1" rel="previous" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=2" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=2" rel="next" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80&amp;page=2" rel="last" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/1294ffe6-29c8-4a00-bac1-50ed21a52d4b?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/1294ffe6-29c8-4a00-bac1-50ed21a52d4b/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[1294ffe6-29c8-4a00-bac1-50ed21a52d4b]]></id>
+    <name><![CDATA[renommage]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>7</type>
+  </project>
+  <project>
+    <link href="https://insight.sensiolabs.com/api/projects/92635b15-a526-4156-a4d4-fdaf9f9740f4?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <link href="https://insight.sensiolabs.com/api/projects/92635b15-a526-4156-a4d4-fdaf9f9740f4/analyses?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="analyses" type="application/vnd.insight.analyses"/>
+    <link href="https://insight.sensiolabs.com/api/projects?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
+    <id><![CDATA[92635b15-a526-4156-a4d4-fdaf9f9740f4]]></id>
+    <name><![CDATA[again and again]]></name>
+    <public>false</public>
+    <report-available>false</report-available>
+    <type>4</type>
+  </project>
+  <project-new>
+    <input type="checkbox" value="1" name="insight_project[createRepository]" required="required"/>
+    <input type="text" name="insight_project[repositoryUrl]" required="required"/>
+    <input type="text" name="insight_project[name]" required="required"/>
+    <input type="checkbox" value="1" name="insight_project[public]"/>
+    <textarea name="insight_project[description]"><![CDATA[]]></textarea>
+    <input type="text" name="insight_project[branch]" required="required"/>
+    <select name="insight_project[type]" required="required">
+      <option value=""/>
+      <option value="10">Symfony2 Web Project</option>
+      <option value="11">symfony1 Web Project</option>
+      <option value="9">Silex Web Project</option>
+      <option value="8">Laravel Web Project</option>
+      <option value="2">Symfony2 Bundle</option>
+      <option value="4">symfony1 Plugin</option>
+      <option value="7">Drupal Module</option>
+      <option value="0">PHP Web Project</option>
+      <option value="1">PHP Library</option>
+      <option value="6">Other</option>
+    </select>
+    <textarea name="insight_project[configuration]" required="required"><![CDATA[]]></textarea>
+    <input type="hidden" value="9607a8d708021c167c329a5c41ba1e8bae97cbe7" name="insight_project[_token]"/>
+  </project-new>
+</projects>

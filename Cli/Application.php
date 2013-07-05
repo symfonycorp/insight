@@ -1,0 +1,145 @@
+<?php
+
+/*
+ * This file is part of the SensioLabsInsight package.
+ *
+ * (c) SensioLabs <contact@sensiolabs.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace SensioLabs\Insight\Cli;
+
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+use SensioLabs\Insight\Cli\Command as LocalCommand;
+use SensioLabs\Insight\Sdk\Api;
+use Symfony\Component\Console\Application as BaseApplication;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class Application extends BaseApplication
+{
+    const APPLICATION_NAME = 'SensioLabs Insight CLI';
+    const APPLICATION_VERSION = '1.0';
+
+    private $api;
+    private $apiConfig;
+    private $enableLog;
+
+    public function __construct($endpoint = null)
+    {
+        $this->apiConfig = array(
+            'base_url' => $endpoint ?: Api::ENDPOINT,
+        );
+        parent::__construct(static::APPLICATION_NAME, static::APPLICATION_VERSION);
+    }
+
+    public function getApi()
+    {
+        if ($this->api) {
+            return $this->api;
+        }
+
+        $this->api = new Api($this->apiConfig);
+
+        if ($this->enableLog) {
+            if (!class_exists('Monolog\Logger')) {
+                throw new \InvalidArgumentException('You must include monolog if you want to log (run "composer install --dev")');
+            }
+
+            $logger = new Logger('insight');
+            $logger->pushHandler(new StreamHandler(__DIR__.'/../insight.log', Logger::DEBUG));
+
+            $this->api->setLogger($logger);
+        }
+
+        return $this->api;
+    }
+
+    protected function getDefaultInputDefinition()
+    {
+        $definition = parent::getDefaultInputDefinition();
+
+        $definition->addOption(new InputOption('api-token', null, InputOption::VALUE_OPTIONAL, 'Your api token.'));
+        $definition->addOption(new InputOption('user-uuid', null, InputOption::VALUE_OPTIONAL, 'Your user uuid.'));
+        $definition->addOption(new InputOption('log', null, InputOption::VALUE_NONE, 'Add some log capability.'));
+
+        return $definition;
+    }
+
+    protected function getDefaultCommands()
+    {
+        $defaultCommands = parent::getDefaultCommands();
+
+        $defaultCommands[] = new LocalCommand\AnalysisCommand();
+        $defaultCommands[] = new LocalCommand\AnalyzeCommand();
+        $defaultCommands[] = new LocalCommand\ProjectsCommand();
+
+        return $defaultCommands;
+    }
+
+    protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output)
+    {
+        $storagePath = getenv('HOME').'/.sensiolabs';
+        if (!is_dir($storagePath)) {
+            mkdir($storagePath);
+        }
+        $configPath = $storagePath.'/insight.json';
+
+        $config = array('api_token' => null, 'user_uuid' => null);
+        if (file_exists($configPath)) {
+            $config = array_replace($config, json_decode(file_get_contents($configPath), true));
+        }
+
+        $newConfig = array(
+            'api_token' => $this->getValue($input, $output, '--api-token', 'INSIGHT_API_TOKEN', 'api token', $config['api_token']),
+            'user_uuid' => $this->getValue($input, $output, '--user-uuid', 'INSIGHT_USER_UUID', 'user uuid', $config['user_uuid']),
+        );
+
+        if ($config !== $newConfig && $input->isInteractive()) {
+            $dialog = $this->getHelperSet()->get('dialog');
+            if ($dialog->askConfirmation($output, sprintf('Do you to store your api token and your user uuid in "%s" <comment>[y/N]</comment>?', $storagePath), false)) {
+                file_put_contents($configPath, json_encode($newConfig));
+            }
+        }
+
+        $this->apiConfig = array_merge($this->apiConfig, $newConfig);
+
+        $this->enableLog = false !== $input->getParameterOption('--log');
+
+        return parent::doRunCommand($command, $input, $output);
+    }
+
+    private function getValue($input, $output, $cliVarName, $envVarName, $varname, $defaulValue = null)
+    {
+        $value = $input->getParameterOption($cliVarName, getenv($envVarName) ?: null);
+        if ($defaulValue) {
+            return $value ?: $defaulValue;
+        }
+
+        // The is not value on cli, env, nor default value, we fallback with dialog
+        $dialog = $this->getHelperSet()->get('dialog');
+        if (!$value && $input->isInteractive()) {
+            $value = $dialog->askAndValidate(
+                $output,
+                $question = sprintf('What is your %s? ', $varname),
+                function ($v) use ($question) {
+                    if (!$v) {
+                        throw new \InvalidArgumentException($question);
+                    }
+
+                    return $v;
+                }
+            );
+        }
+        if (!$value) {
+            throw new \InvalidArgumentException(sprintf('You should provide your %s', $varname));
+        }
+
+        return $value;
+    }
+}

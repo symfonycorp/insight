@@ -1,0 +1,5 @@
+/cache/
+/composer.lock
+/build/
+/insight.log
+/vendor/

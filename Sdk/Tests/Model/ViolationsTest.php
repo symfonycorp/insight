@@ -1,0 +1,45 @@
+<?php
+
+/*
+ * This file is part of the SensioLabsInsight package.
+ *
+ * (c) SensioLabs <contact@sensiolabs.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace SensioLabs\Insight\Tests\Sdk\Model;
+
+use SensioLabs\Insight\Sdk\Model\Violations;
+
+class ViolationsTest extends \PHPUnit_Framework_TestCase
+{
+    public function testCount()
+    {
+        $violations = new Violations();
+
+        $reflector = new \ReflectionObject($violations);
+        $violationsAttr = $reflector->getProperty('violations');
+        $violationsAttr->setAccessible(true);
+        $violationsAttr->setValue($violations, range(1, 10));
+        $violationsAttr->setAccessible(false);
+
+        $this->assertSame(10, count($violations));
+    }
+
+    public function testIterable()
+    {
+        $violations = new Violations();
+
+        $reflector = new \ReflectionObject($violations);
+        $violationsAttr = $reflector->getProperty('violations');
+        $violationsAttr->setAccessible(true);
+        $violationsAttr->setValue($violations, range(0, 10));
+        $violationsAttr->setAccessible(false);
+
+        foreach ($violations as $k => $violation) {
+            $this->assertSame($k, $violation);
+        }
+    }
+}
