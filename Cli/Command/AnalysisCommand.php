@@ -12,7 +12,6 @@
 namespace SensioLabs\Insight\Cli\Command;
 
 use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
-use SensioLabs\Insight\Sdk\Model\Analysis;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
