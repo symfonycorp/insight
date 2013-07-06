@@ -31,6 +31,9 @@ class Parser
         if (!$document->loadXML($content, LIBXML_NONET | (defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0))) {
             libxml_disable_entity_loader($disableEntities);
 
+            libxml_clear_errors();
+            libxml_use_internal_errors($internalErrors);
+
             throw new ApiParserException('Could not transform this xml to a \DOMDocument instance.');
         }
 
