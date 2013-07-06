@@ -36,7 +36,7 @@ listed by the `projects` command).
 
 To export an analysis report:
 
-    $ ./bin/insight analysis UUID --xml # or --json
+    $ ./bin/insight analysis UUID --format="xml" # or --format="json"
 
 Configuration
 -------------

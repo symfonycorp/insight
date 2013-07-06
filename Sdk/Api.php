@@ -197,7 +197,7 @@ class Api
         }
     }
 
-    private function processClientError($e)
+    private function processClientError(ClientErrorResponseException $e)
     {
         $statusCode = $e->getResponse()->getStatusCode();
         $reasonPhrase = $e->getResponse()->getReasonPhrase();
@@ -213,13 +213,13 @@ class Api
         throw new ApiClientException($message, $error, 0, $e);
     }
 
-    private function logException($e)
+    private function logException(\Exception $e)
     {
-        $this->logger and $this->logger->error(sprintf(
-            "Error:Exception: \"%s\", Message: \"%s\", Response:\n%s",
+        $message = sprintf("Exception: Class: \"%s\", Message: \"%s\", Response:\n%s",
             get_class($e),
             $e->getMessage(),
             (string) $e->getResponse()
-        ));
+        );
+        $this->logger and $this->logger->error($message, array('exception' => $e));
     }
 }

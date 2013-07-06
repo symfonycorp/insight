@@ -84,9 +84,26 @@ class Application extends BaseApplication
 
     protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output)
     {
-        $storagePath = getenv('HOME').'/.sensiolabs';
-        if (!is_dir($storagePath)) {
-            mkdir($storagePath);
+        $storagePath = getenv('INSIGHT_HOME');
+        if (!$storagePath) {
+            if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
+                if (!getenv('APPDATA')) {
+                    throw new \RuntimeException('The APPDATA or INSIGHT_HOME environment variable must be set for insight to run correctly');
+                }
+                $storagePath = strtr(getenv('APPDATA'), '\\', '/') . '/Sensiolabs';
+            } else {
+                if (!getenv('HOME')) {
+                    throw new \RuntimeException('The HOME or INSIGHT_HOME environment variable must be set for insight to run correctly');
+                }
+                $storagePath = rtrim(getenv('HOME'), '/') . '/.sensiolabs';
+            }
+        }
+        if (!is_dir($storagePath) && ! @mkdir($storagePath, 0777, true)) {
+            throw new \RuntimeException(sprintf('The directory "%s" does not exist and could not be created.', $storagePath));
+        }
+
+        if (!is_writable($storagePath)) {
+            throw new \RuntimeException(sprintf('The directory "%s" is not writable.', $storagePath));
         }
         $configPath = $storagePath.'/insight.json';
 
@@ -102,7 +119,7 @@ class Application extends BaseApplication
 
         if ($config !== $newConfig && $input->isInteractive()) {
             $dialog = $this->getHelperSet()->get('dialog');
-            if ($dialog->askConfirmation($output, sprintf('Do you to store your api token and your user uuid in "%s" <comment>[y/N]</comment>?', $storagePath), false)) {
+            if ($dialog->askConfirmation($output, sprintf('Do you want to store your api token and your user uuid in "%s" <comment>[y/N]</comment>?', $storagePath), false)) {
                 file_put_contents($configPath, json_encode($newConfig));
             }
         }
@@ -114,11 +131,11 @@ class Application extends BaseApplication
         return parent::doRunCommand($command, $input, $output);
     }
 
-    private function getValue($input, $output, $cliVarName, $envVarName, $varname, $defaulValue = null)
+    private function getValue(InputInterface $input, OutputInterface $output, $cliVarName, $envVarName, $varname, $defaultValue = null)
     {
         $value = $input->getParameterOption($cliVarName, getenv($envVarName) ?: null);
-        if ($defaulValue) {
-            return $value ?: $defaulValue;
+        if ($defaultValue) {
+            return $value ?: $defaultValue;
         }
 
         // The is not value on cli, env, nor default value, we fallback with dialog

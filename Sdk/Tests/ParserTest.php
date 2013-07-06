@@ -22,6 +22,25 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new Parser();
     }
 
+    public function getParseErrorsFailedIfDocumentIfInvalidTests()
+    {
+        return array(
+            array(null),
+            array(''),
+            array('403'),
+        );
+    }
+
+    /**
+     * @expectedException SensioLabs\Insight\Sdk\Exception\ApiParserException
+     * @expectedExceptionMessage Could not transform this xml to a \DOMDocument instance.
+     * @dataProvider getParseErrorsFailedIfDocumentIfInvalidTests
+     */
+    public function testParseErrorsFailedIfDocumentIfInvalid($xml)
+    {
+        $error = $this->parser->parseError($xml);
+    }
+
     public function testParseErrors()
     {
         $xml = file_get_contents(__DIR__.'/fixtures/errors.xml');

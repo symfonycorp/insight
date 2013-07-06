@@ -58,7 +58,7 @@ class TextDescriptor extends AbstractDescriptor
         ));
         $output->writeln('');
 
-        if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
+        if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity() && $analysis->getViolations()) {
             $template = <<<EOL
 Resource: <comment>{{ resource }}:{{ line }}</comment>
 Category: <comment>{{ category }}</comment> Criticity: <comment>{{ criticity }}</comment>

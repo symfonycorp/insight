@@ -18,11 +18,26 @@ class Parser
 {
     public function parseError($content)
     {
-        $document = new \DOMDocument();
-
-        if (!$document->loadXML($content)) {
+        if (!$content) {
             throw new ApiParserException('Could not transform this xml to a \DOMDocument instance.');
-        };
+        }
+
+        $internalErrors = libxml_use_internal_errors(true);
+        $disableEntities = libxml_disable_entity_loader(true);
+        libxml_clear_errors();
+
+        $document = new \DOMDocument();
+        $document->validateOnParse = true;
+        if (!$document->loadXML($content, LIBXML_NONET | (defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0))) {
+            libxml_disable_entity_loader($disableEntities);
+
+            throw new ApiParserException('Could not transform this xml to a \DOMDocument instance.');
+        }
+
+        $document->normalizeDocument();
+
+        libxml_use_internal_errors($internalErrors);
+        libxml_disable_entity_loader($disableEntities);
 
         $xpath = new \DOMXpath($document);
 

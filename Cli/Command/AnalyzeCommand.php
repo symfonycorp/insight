@@ -12,7 +12,6 @@
 namespace SensioLabs\Insight\Cli\Command;
 
 use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
-use SensioLabs\Insight\Sdk\Model\Analysis;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -41,16 +40,20 @@ class AnalyzeCommand extends Command
         $position = 0;
         while (true) {
             // we don't check the status too often
-            if ($position % 5) {
+            if (0 == $position % 2) {
                 $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getId());
             }
-            $output->write(sprintf("%s %-80s\r", $chars[$position++ % 4], $analysis->getStatusMessage()));
+            if ('txt' === $input->getOption('format')) {
+                $output->write(sprintf("%s %-80s\r", $chars[$position % 4], $analysis->getStatusMessage()));
+            }
+
+            usleep(200000);
 
             if ($analysis->isFinished()) {
                 break;
             }
 
-            usleep(200000);
+            $position++;
         }
 
         $analysis = $api->getAnalysis($projectUuid, $analysis->getId());
