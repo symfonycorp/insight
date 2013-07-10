@@ -47,11 +47,11 @@ class AnalyzeCommand extends Command
                 $output->write(sprintf("%s %-80s\r", $chars[$position % 4], $analysis->getStatusMessage()));
             }
 
-            usleep(200000);
-
             if ($analysis->isFinished()) {
                 break;
             }
+
+            usleep(200000);
 
             $position++;
         }
