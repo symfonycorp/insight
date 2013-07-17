@@ -36,7 +36,7 @@ listed by the `projects` command).
 
 To export an analysis report:
 
-    $ ./bin/insight analysis UUID --format="xml" # or --format="json"
+    $ ./bin/insight analysis UUID --format="xml" # or --format="json" or --format="pmd"
 
 Configuration
 -------------
@@ -135,6 +135,38 @@ If something went wrong, an
     contains a `SensioLabs\Insight\Sdk\Model\Error` object. Which will contains
     all form errors.
 * `ApiServerException` If something went wrong with the API.
+
+Jenkins/Hudson Integration
+--------------------------
+Thanks to [Jenkins PMD Plugin](https://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin) and SensioLabsInsight SDK PMD output you can easily
+embed SensioLabsInsight reports into your build workflow, following these steps:
+
+*It is assumed you already have your project up and building in Jenkins and SensioLabsInsight SDK installed*
+
+1. Retrieve your `SensioLabsInsight API Token`, `User UUID` and `Project UUID`
+on your [account page](https://insight.sensiolabs.com/account)
+2. Install the Jenkins `PMD plugin`:
+[How to install a jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Howtoinstallplugins)
+3. Optionnaly you can also install the `Setenv Plugin`
+4. Edit your project configuration
+5. If you have Setenv Plugin installed,
+enabled `Set environment variables` then add and adapt the following lines to variables name:
+
+        INSIGHT_API_TOKEN="Your API Token"
+        INSIGHT_USER_UUID="Your user UUID"
+        INSIGHT_PROJECT_UUID="Your project UUID"
+
+6. Add a `Execute shell` build step
+7. In the new shell step add and adapt the following command (if you don't have Setenv plugin, replace variables by plain values):
+
+        /path/to/insight-sdk/bin/insight analysis \
+        --user-uuid $INSIGHT_USER_UUID \
+        --api-token $INSIGHT_API_TOKEN \
+        $INSIGHT_PROJECT_UUID --format=pmd > insight-pmd.xml
+
+8. Enable `Publish PMD analysis results` using `insight-pmd.xml` as PMD result filename
+9. Optionnaly, you can add the `insight-pmd.xml` file to artifacts to archive
+10. Save and build!
 
 License
 -------
