@@ -15,6 +15,7 @@ use JMS\Serializer\Serializer;
 use SensioLabs\Insight\Cli\Descriptor\JsonDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\TextDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\XmlDescriptor;
+use SensioLabs\Insight\Cli\Descriptor\PmdDescriptor;
 use Symfony\Component\Console\Descriptor\DescriptorInterface;
 use Symfony\Component\Console\Helper\DescriptorHelper as BaseDescriptorHelper;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,6 +28,7 @@ class DescriptorHelper extends BaseDescriptorHelper
     {
         $this
             ->register('txt',  new TextDescriptor())
+            ->register('pmd',  new PmdDescriptor())
             ->register('xml',  new XmlDescriptor($serializer))
             ->register('json', new JsonDescriptor($serializer))
         ;
