@@ -1,0 +1,38 @@
+---------------------------------------------------------------------------
+
+by tucksaun at 2013-07-12T15:16:36Z
+
+Here it is some screenshots displaying how it integrates within a Hudson configured with PMD plugin:
+![screen shot 2013-07-12 at 5 11 19 pm](https://f.cloud.github.com/assets/870118/788884/c49db02c-eb05-11e2-953f-1c1006e4f05c.png)
+![screen shot 2013-07-12 at 5 13 29 pm](https://f.cloud.github.com/assets/870118/788883/c49ab098-eb05-11e2-9a1e-5228d3cbe2d0.png)
+
+---------------------------------------------------------------------------
+
+by fabpot at 2013-07-12T23:25:52Z
+
+That's impressive... and the code is so short. I like it.
+
+---------------------------------------------------------------------------
+
+by tucksaun at 2013-07-13T17:51:46Z
+
+@lyrixx Where do you want me put the doc? in README.md or in a dedicated file? ping @fabpot
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2013-07-13T18:06:04Z
+
+In the readme ;) Thanks.
+
+---------------------------------------------------------------------------
+
+by fabpot at 2013-07-13T22:16:08Z
+
+README file sounds good to me.
+
+---------------------------------------------------------------------------
+
+by tucksaun at 2013-07-17T10:40:27Z
+
+Doc added
+ping @lyrixx @fabpot
