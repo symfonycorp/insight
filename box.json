@@ -3,26 +3,7 @@
     "main": "bin/insight",
     "output": "build/insight.phar",
     "stub": true,
-    "directories": [
-        "bin",
-        "Cli",
-        "Sdk",
-        "vendor/composer",
-        "vendor/doctrine",
-        "vendor/guzzle",
-        "vendor/herrera-io",
-        "vendor/jms",
-        "vendor/monolog",
-        "vendor/phpcollection",
-        "vendor/phpseclib",
-        "vendor/phpoption",
-        "vendor/psr",
-        "vendor/symfony/console",
-        "vendor/symfony/event-dispatcher"
-    ],
-    "files": [
-        "vendor/autoload.php"
-    ],
+    "directories": ["."],
     "map": [
         { "Cli": "SensioLabs/Insight/Cli" },
         { "Sdk": "SensioLabs/Insight/Sdk" }

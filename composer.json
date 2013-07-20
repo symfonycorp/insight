@@ -15,9 +15,7 @@
         "symfony/console": "~2.3"
     },
     "require-dev": {
-        "monolog/monolog": "~1.4",
-        "kherge/box": "~2.2.0",
-        "phpseclib/phpseclib": "0.3.*@dev"
+        "monolog/monolog": "~1.4"
     },
     "suggest": {
         "monolog/monolog": "Will add some log capability to this library"
