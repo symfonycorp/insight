@@ -52,7 +52,7 @@ class Application extends BaseApplication
             }
 
             $logger = new Logger('insight');
-            $logger->pushHandler(new StreamHandler(__DIR__.'/../insight.log', Logger::DEBUG));
+            $logger->pushHandler(new StreamHandler(getcwd().'/insight.log', Logger::DEBUG));
 
             $this->api->setLogger($logger);
         }
