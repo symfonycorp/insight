@@ -1,0 +1,29 @@
+---------------------------------------------------------------------------
+
+by lyrixx at 2013-07-24T09:08:02Z
+
+I `require` only what I need. If you want more package, require `sensiolabs/insight` and other packages you want in your application.
+
+---------------------------------------------------------------------------
+
+by fabpot at 2013-07-24T09:10:03Z
+
+@lyrixx That's exactly the purpose of this PR, requiring **less**, not **more** ;)
+
+---------------------------------------------------------------------------
+
+by thewilkybarkid at 2013-07-24T09:10:15Z
+
+I'm confused - this PR isn't adding anything, it's actually removing the parts of Guzzle that you're not using...
+
+---------------------------------------------------------------------------
+
+by stof at 2013-07-24T09:12:38Z
+
+@lyrixx ``guzzle/guzzle`` is the full guzzle framework. what you are doing currently is equivalent to requiring ``symfony/symfony`` when all you need is ``symfony/http-foundation``
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2013-07-24T09:48:20Z
+
+Oh sorry. I miss read ;)
