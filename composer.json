@@ -9,12 +9,13 @@
         }
     ],
     "require": {
-        "guzzle/guzzle": "~3.4",
+        "guzzle/http": "~3.4",
         "jms/serializer": "0.12.*",
         "psr/log": "~1.0",
         "symfony/console": "~2.3"
     },
     "require-dev": {
+        "guzzle/plugin-mock": "~3.4",
         "monolog/monolog": "~1.4"
     },
     "suggest": {
