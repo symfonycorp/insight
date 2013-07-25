@@ -1,0 +1,11 @@
+{
+    "chmod": "0755",
+    "main": "bin/insight",
+    "output": "build/insight.phar",
+    "stub": true,
+    "directories": ["."],
+    "map": [
+        { "Cli": "SensioLabs/Insight/Cli" },
+        { "Sdk": "SensioLabs/Insight/Sdk" }
+    ]
+}
