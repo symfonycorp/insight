@@ -39,1494 +39,1494 @@
     <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="project" type="application/vnd.com.sensiolabs.insight+xml"/>
     <link href="https://insight.sensiolabs.com/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/2" rel="self" type="text/html"/>
     <violations>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/001-HelloWorld.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[printf() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/001-HelloWorld.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_001.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_001.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_001.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>12</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_001.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>18</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_001.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>6</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_002.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_002.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_002.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_003.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_003.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_003.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_004.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_004.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>25</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_004.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_005.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_005.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_005.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>33</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_005.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>60</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_005.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>5</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_006.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>12</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_006.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>15</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_007.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_007.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_008.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_008.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>12</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_008.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_008.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_009.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_009.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>5</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_010.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>9</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_010.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_011.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_012.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_012.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_013.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_013.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>18</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>25</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>34</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>37</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>45</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>48</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>53</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>54</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>59</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>60</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>9</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>14</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>15</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>16</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>17</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>18</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>20</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>21</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>24</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>25</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>27</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>29</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>30</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>16</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_018.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>17</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_018.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>18</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_018.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>12</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>9</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_020.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_020.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_020.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_020.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>14</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_021.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_024.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>9</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_024.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_024.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>14</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_024.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>16</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_024.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>5</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_025.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_026.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_026.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_026.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_026.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_026.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_027.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_028.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_028.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_029.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_029.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>5</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_029.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>5</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_030.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>6</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_030.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_031.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_031.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_032.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print_r() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_033.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_033.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_034.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>5</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_035.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_035.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_036.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_036.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>24</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_036.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>15</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_037.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_037.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>25</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_037.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>32</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>33</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>35</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>39</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>40</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>43</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>32</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>33</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>35</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>39</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>40</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>43</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>9</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>9</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>14</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>14</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>15</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>29</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>39</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>40</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>41</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>42</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>43</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>45</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>46</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>47</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>48</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>49</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>53</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>54</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>55</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>56</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>57</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>59</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>60</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>61</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>63</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>1</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_042.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[print() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>12</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>12</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>18</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>20</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>24</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>27</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>30</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>31</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>32</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>34</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>35</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>36</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>38</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_043.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>6</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>6</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>18</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>19</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>20</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>24</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>27</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>28</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>30</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>31</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>32</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>34</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>35</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>36</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>38</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_044.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_045.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[var_dump() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>21</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>22</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>23</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>25</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>26</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>27</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>31</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>32</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>33</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>35</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>36</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="critical" category="security">
+      <violation severity="critical" category="security">
         <line>38</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>PHP debug statements found</title>
         <message><![CDATA[echo() should only be used for debug, and not committed to the source code repository.]]></message>
       </violation>
-      <violation criticity="info" category="codestyle">
+      <violation severity="info" category="codestyle">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_014.php]]></resource>
         <title>Class should be unique per PHP file</title>
         <message><![CDATA[This file contains 3 classes. Keeping only one class per file is a standard in the PHP community, since it promotes interoperability and maintenability.]]></message>
       </violation>
-      <violation criticity="info" category="codestyle">
+      <violation severity="info" category="codestyle">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_037.php]]></resource>
         <title>Class should be unique per PHP file</title>
         <message><![CDATA[This file contains 2 classes. Keeping only one class per file is a standard in the PHP community, since it promotes interoperability and maintenability.]]></message>
       </violation>
-      <violation criticity="info" category="codestyle">
+      <violation severity="info" category="codestyle">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_038.php]]></resource>
         <title>Class should be unique per PHP file</title>
         <message><![CDATA[This file contains 2 classes. Keeping only one class per file is a standard in the PHP community, since it promotes interoperability and maintenability.]]></message>
       </violation>
-      <violation criticity="info" category="codestyle">
+      <violation severity="info" category="codestyle">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_039.php]]></resource>
         <title>Class should be unique per PHP file</title>
         <message><![CDATA[This file contains 2 classes. Keeping only one class per file is a standard in the PHP community, since it promotes interoperability and maintenability.]]></message>
       </violation>
-      <violation criticity="info" category="codestyle">
+      <violation severity="info" category="codestyle">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_041.php]]></resource>
         <title>Class should be unique per PHP file</title>
         <message><![CDATA[This file contains 2 classes. Keeping only one class per file is a standard in the PHP community, since it promotes interoperability and maintenability.]]></message>
       </violation>
-      <violation criticity="info" category="codestyle">
+      <violation severity="info" category="codestyle">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_046.php]]></resource>
         <title>Class should be unique per PHP file</title>
         <message><![CDATA[This file contains 2 classes. Keeping only one class per file is a standard in the PHP community, since it promotes interoperability and maintenability.]]></message>
       </violation>
-      <violation criticity="major" category="security">
+      <violation severity="major" category="security">
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>File permissions should be restricted</title>
         <message><![CDATA[This file has permissive file permissions 755. Restrict write and execution rights to avoid opening a security breach.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>Unused method, property, variable or parameter</title>
         <message><![CDATA[This errno argument is declared but never used. You should remove it.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>4</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_020.php]]></resource>
         <title>Unused method, property, variable or parameter</title>
         <message><![CDATA[This test attribute is declared but never used. You should remove it.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>2</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_031.php]]></resource>
         <title>Unused method, property, variable or parameter</title>
         <message><![CDATA[This errfile argument is declared but never used. You should remove it.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>2</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_031.php]]></resource>
         <title>Unused method, property, variable or parameter</title>
         <message><![CDATA[This errline argument is declared but never used. You should remove it.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>2</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_031.php]]></resource>
         <title>Unused method, property, variable or parameter</title>
         <message><![CDATA[This errno argument is declared but never used. You should remove it.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>10</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_033.php]]></resource>
         <title>Unused method, property, variable or parameter</title>
         <message><![CDATA[This func method is declared but never used. You should remove it.]]></message>
       </violation>
-      <violation criticity="minor" category="deadcode">
+      <violation severity="minor" category="deadcode">
         <line>4</line>
         <resource><![CDATA[Demoer/Command/RunCommand.php]]></resource>
         <title>Unused use statement should be avoided</title>
         <message><![CDATA[The class Symfony\Component\Finder\Finder is declared but never used. You should remove the use statement.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>6</line>
         <resource><![CDATA[snippets/001-HelloWorld.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[sayHello adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_003.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[run adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_004.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[run adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_008.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[replace_spaces adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_013.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[foo adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_015.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[myErrorHandler adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_016.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[foo adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>7</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[test adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>8</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[$lambda adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>11</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[$GLOBALS adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>13</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_019.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[$GLOBALS adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_027.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[test adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>2</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_031.php]]></resource>
         <title>Global variable or function should never be used</title>
         <message><![CDATA[foo adds to the global scope. Prefer class properties or methods to let other developers know what this relates to.]]></message>
       </violation>
-      <violation criticity="major" category="architecture">
+      <violation severity="major" category="architecture">
         <line>3</line>
         <resource><![CDATA[snippets/test-php-closure-php.5.4/closure_032.php]]></resource>
         <title>Global variable or function should never be used</title>
