@@ -32,7 +32,7 @@ class Violation
      * @Type("string")
      * @XmlAttribute
      */
-    private $criticity;
+    private $severity;
 
     /**
      * @Type("string")
@@ -60,14 +60,13 @@ class Violation
         return $this->line;
     }
 
-    public function getCriticity()
+    public function getSeverity()
     {
-        return $this->criticity;
+        return $this->severity;
     }
 
     public function getCategory()
     {
         return $this->category;
     }
-
 }

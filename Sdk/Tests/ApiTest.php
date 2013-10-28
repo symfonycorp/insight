@@ -187,7 +187,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violation', $firstViolation);
 
         $this->assertSame(7, $firstViolation->getLine());
-        $this->assertSame('critical', $firstViolation->getCriticity());
+        $this->assertSame('critical', $firstViolation->getSeverity());
         $this->assertSame('security', $firstViolation->getCategory());
         $this->assertSame('snippets/001-HelloWorld.php', $firstViolation->getResource());
     }
