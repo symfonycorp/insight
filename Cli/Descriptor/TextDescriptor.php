@@ -61,7 +61,7 @@ class TextDescriptor extends AbstractDescriptor
         if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity() && $analysis->getViolations()) {
             $template = <<<EOL
 Resource: <comment>{{ resource }}:{{ line }}</comment>
-Category: <comment>{{ category }}</comment> Criticity: <comment>{{ criticity }}</comment>
+Category: <comment>{{ category }}</comment> Severity: <comment>{{ severity }}</comment>
 Title:    <comment>{{ title }}</comment>
 Message:  <comment>{{ message }}</comment>
 
@@ -71,7 +71,7 @@ EOL;
                     '{{ resource }}' => $violation->getResource(),
                     '{{ line }}' => $violation->getLine(),
                     '{{ category }}' => $violation->getCategory(),
-                    '{{ criticity }}' => $violation->getCriticity(),
+                    '{{ severity }}' => $violation->getSeverity(),
                     '{{ title }}' => $violation->getTitle(),
                     '{{ message }}' => $violation->getMessage(),
                 )));
