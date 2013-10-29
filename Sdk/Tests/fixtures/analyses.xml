@@ -14,7 +14,7 @@
       <entry><![CDATA[gold]]></entry>
       <entry><![CDATA[platinum]]></entry>
     </grades>
-    <id>49</id>
+    <number>49</number>
     <failed>false</failed>
     <grade><![CDATA[error]]></grade>
     <next-grade><![CDATA[bronze]]></next-grade>
@@ -39,14 +39,14 @@
       <entry><![CDATA[gold]]></entry>
       <entry><![CDATA[platinum]]></entry>
     </grades>
-    <id>48</id>
+    <number>48</number>
     <failed>true</failed>
     <failure-message><![CDATA[
 
-                                                                                                                    
-  [InvalidArgumentException]                                                                                        
-  The "/home/greg/dev/product/insight/app/../build/fc94cd0a-e079-4489-b2da-1003c045b564" directory does not exist.  
-                                                                                                                    
+
+  [InvalidArgumentException]
+  The "/home/greg/dev/product/insight/app/../build/fc94cd0a-e079-4489-b2da-1003c045b564" directory does not exist.
+
 
 
 insight:analyze:wax [--feedback="..."] [--artefacts="..."] [--measure="..."] [--validate="..."] name id path payload
