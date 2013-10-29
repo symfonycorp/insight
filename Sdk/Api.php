@@ -132,9 +132,9 @@ class Api
         );
     }
 
-    public function getAnalysis($projectUuid, $analysesId)
+    public function getAnalysis($projectUuid, $analysesNumber)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesId));
+        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -143,9 +143,9 @@ class Api
         );
     }
 
-    public function getAnalysisStatus($projectUuid, $analysesId)
+    public function getAnalysisStatus($projectUuid, $analysesNumber)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesId));
+        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesNumber));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),

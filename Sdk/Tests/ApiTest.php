@@ -166,7 +166,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $analysis = $this->api->getAnalysis('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
-        $this->assertSame(49, $analysis->getId());
+        $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('error', $analysis->getGrade());
         $this->assertSame('bronze', $analysis->getNextGrade());
         $this->assertSame(array('error', 'bronze', 'silver', 'gold', 'platinum'), $analysis->getGrades());
@@ -198,7 +198,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $analysis = $this->api->getAnalysisStatus('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
-        $this->assertSame(49, $analysis->getId());
+        $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('2013-06-25T19:37:20+02:00', $analysis->getBeginAt()->format('c'));
         $this->assertSame('2013-06-25T19:37:53+02:00', $analysis->getEndAt()->format('c'));
         $this->assertSame('finished', $analysis->getStatus());

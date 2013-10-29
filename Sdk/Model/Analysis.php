@@ -30,7 +30,7 @@ class Analysis
     private $links;
 
     /** @Type("integer") */
-    private $id;
+    private $number;
 
     /** @Type("string") */
     private $grade;
@@ -115,9 +115,9 @@ class Analysis
         return $this->links;
     }
 
-    public function getId()
+    public function getNumber()
     {
-        return $this->id;
+        return $this->number;
     }
 
     public function getGrade()

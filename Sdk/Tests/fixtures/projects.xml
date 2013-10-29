@@ -128,7 +128,7 @@
         <entry><![CDATA[gold]]></entry>
         <entry><![CDATA[platinum]]></entry>
       </grades>
-      <id>49</id>
+      <number>49</number>
       <failed>false</failed>
       <grade><![CDATA[error]]></grade>
       <next-grade><![CDATA[bronze]]></next-grade>
