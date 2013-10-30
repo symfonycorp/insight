@@ -67,7 +67,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->logger
             ->expects($this->at(1))
             ->method('debug')
-            ->with($this->stringContains('/api/projects?apiToken=my-token&userUuid=my-user-uuid&page=2'))
+            ->with($this->stringContains('/api/projects?page=2'))
         ;
 
         $this->pluginMockResponse->addResponse($this->createResponse('projects2'));
