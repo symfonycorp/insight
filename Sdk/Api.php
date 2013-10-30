@@ -52,13 +52,7 @@ class Api
         $this->client->setDefaultHeaders(array(
             'accept' => 'application/vnd.com.sensiolabs.insight+xml',
         ));
-
-        $this->client->getEventDispatcher()->addListener('client.create_request', function(Event $event) {
-            $url = $event['request']->getUrl(true);
-            $url->getQuery()->set('apiToken', $event['client']->getConfig()->get('api_token'));
-            $url->getQuery()->set('userUuid', $event['client']->getConfig()->get('user_uuid'));
-            $event['request']->setUrl($url);
-        });
+        $this->client->setDefaultOption('auth', array($options['user_uuid'], $options['api_token'], 'Basic'));
 
         $serializerBuilder = SerializerBuilder::create()
             ->addMetadataDir(__DIR__.'/Model')
@@ -132,9 +126,9 @@ class Api
         );
     }
 
-    public function getAnalysis($projectUuid, $analysesId)
+    public function getAnalysis($projectUuid, $analysesNumber)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesId));
+        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -143,9 +137,9 @@ class Api
         );
     }
 
-    public function getAnalysisStatus($projectUuid, $analysesId)
+    public function getAnalysisStatus($projectUuid, $analysesNumber)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesId));
+        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesNumber));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),

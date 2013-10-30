@@ -4,7 +4,7 @@
   <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/49?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="parent" type="application/vnd.com.sensiolabs.insight+xml"/>
   <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="project" type="application/vnd.com.sensiolabs.insight+xml"/>
   <project_uuid><![CDATA[fc94cd0a-e079-4489-b2da-1003c045b564]]></project_uuid>
-  <id>49</id>
+  <number>49</number>
   <status><![CDATA[finished]]></status>
   <status-message><![CDATA[]]></status-message>
   <begin-at><![CDATA[2013-06-25T19:37:20+0200]]></begin-at>
