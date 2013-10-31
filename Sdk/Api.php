@@ -13,7 +13,6 @@ namespace SensioLabs\Insight\Sdk;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Guzzle\Common\Collection;
-use Guzzle\Common\Event;
 use Guzzle\Http\Client;
 use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Http\Exception\ClientErrorResponseException;
