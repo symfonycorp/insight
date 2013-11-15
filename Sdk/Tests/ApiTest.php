@@ -204,6 +204,14 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('finished', $analysis->getStatus());
     }
 
+    public function testTriggerAnalysis()
+    {
+        $this->pluginMockResponse->addResponse($this->createResponse('analysis'));
+        $analysis = $this->api->triggerAnalyse('6718526f-ecdf-497d-bffb-8512f0b402ea', 'SHA');
+
+        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
+    }
+
     public function tearDown()
     {
         $this->logger = null;
