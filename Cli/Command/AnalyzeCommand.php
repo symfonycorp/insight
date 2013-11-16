@@ -26,6 +26,7 @@ class AnalyzeCommand extends Command
             ->setName('analyze')
             ->addArgument('project-uuid', InputArgument::REQUIRED)
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'To output in other formats', 'txt')
+            ->addOption('reference', null, InputOption::VALUE_REQUIRED, 'The git reference to analyze')
             ->setDescription('Analyze a project')
         ;
     }
@@ -34,7 +35,7 @@ class AnalyzeCommand extends Command
     {
         $projectUuid = $input->getArgument('project-uuid');
         $api = $this->getApplication()->getApi();
-        $analysis = $api->triggerAnalyse($projectUuid);
+        $analysis = $api->triggerAnalyse($projectUuid, $input->getOption('reference'));
 
         $chars = array('-', '\\', '|', '/');
         $position = 0;
