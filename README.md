@@ -18,9 +18,19 @@ Command Line Tool
 The easiest way to use the SensioLabsInsight API is via the built-in command
 line tool.
 
+A phar version of the command line tool exists to avoid installation of this
+project. Download it, then use it like the command line tool:
+
+    $ curl -o insight.phar -s http://sensiolabs-insight-public.s3.amazonaws.com/insight.phar
+    # or
+    $ wget http://sensiolabs-insight-public.s3.amazonaws.com/insight.phar
+
+    # Then
+    $ php insight.phar
+
 List all the projects in your account:
 
-    $ ./bin/insight projects
+    $ php insight.phar projects
 
 The first time, you will be prompted for your SensioLabsInsight API key and
 user UUID (which can be found under the "Account" section on the website).
@@ -29,14 +39,14 @@ These information are then stored locally, but can still be overridden via the
 
 To run an analysis:
 
-    $ ./bin/insight analyze UUID
+    $ php insight.phar analyze UUID
 
 where `UUID` is the UUID of the project you want to analyze (the UUIDs are
 listed by the `projects` command).
 
 To export an analysis report:
 
-    $ ./bin/insight analysis UUID --format="xml" # or --format="json" or --format="pmd"
+    $ php insight.phar analysis UUID --format="xml" # or --format="json" or --format="pmd"
 
 Configuration
 -------------
