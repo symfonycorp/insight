@@ -147,9 +147,9 @@ class Api
         );
     }
 
-    public function triggerAnalyse($projectUuid)
+    public function triggerAnalyse($projectUuid, $reference = null)
     {
-        $request = $this->client->createRequest('POST', sprintf('/api/projects/%s/analyses', $projectUuid));
+        $request = $this->client->createRequest('POST', sprintf('/api/projects/%s/analyses', $projectUuid), array(), array('reference' => $reference));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
