@@ -78,6 +78,7 @@ class Application extends BaseApplication
         $defaultCommands[] = new LocalCommand\AnalysisCommand();
         $defaultCommands[] = new LocalCommand\AnalyzeCommand();
         $defaultCommands[] = new LocalCommand\ProjectsCommand();
+        $defaultCommands[] = new LocalCommand\SelfUpdateCommand();
 
         return $defaultCommands;
     }
