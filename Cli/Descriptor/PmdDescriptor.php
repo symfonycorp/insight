@@ -60,7 +60,7 @@ class PmdDescriptor extends AbstractDescriptor
 
     private function getPriority(Violation $violation)
     {
-        switch ($violation->getCriticity()) {
+        switch ($violation->getSeverity()) {
             case 'critical':
                 return self::PHPMD_PRIORITY_HIGH;
 
