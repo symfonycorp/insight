@@ -35,7 +35,7 @@ class AnalyzeCommand extends Command
     {
         $projectUuid = $input->getArgument('project-uuid');
         $api = $this->getApplication()->getApi();
-        $analysis = $api->triggerAnalyse($projectUuid, $input->getOption('reference'));
+        $analysis = $api->analyze($projectUuid, $input->getOption('reference'));
 
         $chars = array('-', '\\', '|', '/');
         $position = 0;

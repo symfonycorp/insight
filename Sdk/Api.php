@@ -147,7 +147,7 @@ class Api
         );
     }
 
-    public function triggerAnalyse($projectUuid, $reference = null)
+    public function analyze($projectUuid, $reference = null)
     {
         $request = $this->client->createRequest('POST', sprintf('/api/projects/%s/analyses', $projectUuid), array(), array('reference' => $reference));
 
