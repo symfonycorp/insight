@@ -46,7 +46,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $remoteFilename = 'http://sensiolabs-insight-public.s3.amazonaws.com/insight.phar';
+        $remoteFilename = 'http://get.insight.sensiolabs.com/insight.phar';
         $localFilename = $_SERVER['argv'][0];
         $tempFilename = basename($localFilename, '.phar').'-temp.phar';
 

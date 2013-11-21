@@ -21,9 +21,9 @@ line tool.
 A phar version of the command line tool exists to avoid installation of this
 project. Download it, then use it like the command line tool:
 
-    $ curl -o insight.phar -s http://sensiolabs-insight-public.s3.amazonaws.com/insight.phar
+    $ curl -o insight.phar -s http://get.insight.sensiolabs.com/insight.phar
     # or
-    $ wget http://sensiolabs-insight-public.s3.amazonaws.com/insight.phar
+    $ wget http://get.insight.sensiolabs.com/insight.phar
 
     # Then
     $ php insight.phar
