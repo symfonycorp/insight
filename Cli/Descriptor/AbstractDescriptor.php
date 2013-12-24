@@ -18,9 +18,8 @@ abstract class AbstractDescriptor implements DescriptorInterface
 {
     public function describe($object, array $options = array())
     {
-        switch (true) {
-            case $object instanceof Analysis:
-                return $this->describeAnalysis($object, $options);
+        if ($object instanceof Analysis) {
+            return $this->describeAnalysis($object, $options);
         }
 
         throw new \InvalidArgumentException(sprintf('Object of type "%s" is not describable.', get_class($object)));
