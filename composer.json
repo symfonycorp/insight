@@ -12,8 +12,8 @@
         "guzzle/http": "~3.4",
         "jms/serializer": "0.12.*",
         "psr/log": "~1.0",
-        "symfony/console": "~2.3",
-        "symfony/expression-language": "2.4.x-dev"
+        "symfony/console": "2.3.*",
+        "symfony/expression-language": "2.4.*"
     },
     "require-dev": {
         "guzzle/plugin-mock": "~3.4",
