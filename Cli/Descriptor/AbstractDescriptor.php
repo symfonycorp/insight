@@ -12,9 +12,8 @@
 namespace SensioLabs\Insight\Cli\Descriptor;
 
 use SensioLabs\Insight\Sdk\Model\Analysis;
-use Symfony\Component\Console\Descriptor\DescriptorInterface;
 
-abstract class AbstractDescriptor implements DescriptorInterface
+abstract class AbstractDescriptor
 {
     public function describe($object, array $options = array())
     {
