@@ -12,6 +12,7 @@
 namespace SensioLabs\Insight\Cli\Helper;
 
 use JMS\Serializer\Serializer;
+use SensioLabs\Insight\Cli\Descriptor\AbstractDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\JsonDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\PmdDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\TextDescriptor;
@@ -49,7 +50,7 @@ class DescriptorHelper extends Helper
         $this->descriptors[$options['format']]->describe($object, $options);
     }
 
-    public function register($format, $descriptor)
+    public function register($format, AbstractDescriptor $descriptor)
     {
         $this->descriptors[$format] = $descriptor;
 
