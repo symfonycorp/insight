@@ -13,28 +13,26 @@ namespace SensioLabs\Insight\Cli\Helper;
 
 use JMS\Serializer\Serializer;
 use SensioLabs\Insight\Cli\Descriptor\JsonDescriptor;
+use SensioLabs\Insight\Cli\Descriptor\PmdDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\TextDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\XmlDescriptor;
-use SensioLabs\Insight\Cli\Descriptor\PmdDescriptor;
-use Symfony\Component\Console\Descriptor\DescriptorInterface;
-use Symfony\Component\Console\Helper\DescriptorHelper as BaseDescriptorHelper;
+use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DescriptorHelper extends BaseDescriptorHelper
+class DescriptorHelper extends Helper
 {
     private $descriptors = array();
 
     public function __construct(Serializer $serializer)
     {
         $this
-            ->register('txt',  new TextDescriptor())
-            ->register('pmd',  new PmdDescriptor())
-            ->register('xml',  new XmlDescriptor($serializer))
             ->register('json', new JsonDescriptor($serializer))
+            ->register('pmd',  new PmdDescriptor())
+            ->register('txt',  new TextDescriptor())
+            ->register('xml',  new XmlDescriptor($serializer))
         ;
     }
 
-    // hack to be almost forward compatible with https://github.com/symfony/symfony/issues/8371
     public function describe(OutputInterface $output, $object, $format = null, $raw = false, $namespace = null)
     {
         $options = array(
@@ -51,10 +49,18 @@ class DescriptorHelper extends BaseDescriptorHelper
         $this->descriptors[$options['format']]->describe($object, $options);
     }
 
-    public function register($format, DescriptorInterface $descriptor)
+    public function register($format, $descriptor)
     {
         $this->descriptors[$format] = $descriptor;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'descriptor';
     }
 }
