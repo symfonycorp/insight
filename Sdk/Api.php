@@ -173,10 +173,10 @@ class Api
     private function send(Request $request)
     {
         try {
-            $this->logger and $this->logger->debug(sprintf('%s "%s"', $request->getMethod(), $request->getUrl()));
-            $this->logger and $this->logger->debug(sprintf("Request:\n%s", (string) $request));
+            $this->logger && $this->logger->debug(sprintf('%s "%s"', $request->getMethod(), $request->getUrl()));
+            $this->logger && $this->logger->debug(sprintf("Request:\n%s", (string) $request));
             $response = $request->send();
-            $this->logger and $this->logger->debug(sprintf("Response:\n%s", (string) $response));
+            $this->logger && $this->logger->debug(sprintf("Response:\n%s", (string) $response));
 
             return $response;
         } catch (ClientErrorResponseException $e) {
@@ -213,6 +213,6 @@ class Api
             $e->getMessage(),
             (string) $e->getResponse()
         );
-        $this->logger and $this->logger->error($message, array('exception' => $e));
+        $this->logger && $this->logger->error($message, array('exception' => $e));
     }
 }
