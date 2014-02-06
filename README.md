@@ -58,7 +58,7 @@ Configuration
         'user_uuid' => 'your user uuid',
     ));
 
-If you want, your can give a `Guzzle\Http\Client` and a
+If you want, you can give a `Guzzle\Http\Client` and a
 `Psr\Log\LoggerInterface` to this library:
 
     use Guzzle\Http\Client;
