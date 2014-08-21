@@ -34,11 +34,16 @@ class ParametersHandler implements SubscribingHandlerInterface
         );
     }
 
-    public function unserializeXmlParameters(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element, array $type, Context $context)
+    public function unserializeXmlParameters(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element)
     {
-        $result = [];
-        foreach ($element->children() as $name => $value) {
-            $result[self::$parametersMapping[$name]] = (string) $value;
+        $result = array();
+        foreach ($element->children() as $node) {
+            $name = (string) $node->attributes()['name'];
+            if (!isset(self::$parametersMapping[$name])) {
+                continue;
+            }
+
+            $result[self::$parametersMapping[$name]] = (string) $node;
         }
 
         return $result;

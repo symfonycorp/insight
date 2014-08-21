@@ -21,35 +21,39 @@ class Configuration
     /**
      * @Type("array<string>")
      * @XmlList(entry="branch")
-     * @SerializedName("ignore_branches")
+     * @SerializedName("ignored-branches")
      */
     private $ignoredBranches;
 
     /**
      * @Type("string")
+     * @SerializedName("pre-composer-script")
      */
     private $preComposerScript;
 
     /**
      * @Type("string")
+     * @SerializedName("post-composer-script")
      */
     private $postComposerScript;
 
     /**
      * @Type("string")
+     * @SerializedName("php-ini")
      */
     private $phpIni;
 
     /**
      * @Type("array<string>")
      * @XmlList(entry="dir")
+     * @SerializedName("global-excluded-dirs")
      */
-    private $globalExcludeDirs;
+    private $globalExcludedDirs;
 
     /**
      * @Type("array<string>")
      * @XmlList(entry="pattern")
-     * @SerializedName("exclude_patterns")
+     * @SerializedName("excluded-patterns")
      */
     private $excludedPatterns;
 
@@ -88,9 +92,9 @@ class Configuration
         return $this->phpIni;
     }
 
-    public function getGlobalExcludeDirs()
+    public function getGlobalExcludedDirs()
     {
-        return $this->globalExcludeDirs;
+        return $this->globalExcludedDirs;
     }
 
     public function getExcludedPatterns()

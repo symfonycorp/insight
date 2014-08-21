@@ -30,9 +30,9 @@ class PatternsHandler implements SubscribingHandlerInterface
         );
     }
 
-    public function unserializeXmlPatterns(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element, array $type, Context $context)
+    public function unserializeXmlPatterns(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element)
     {
-        $result = [];
+        $result = array();
         foreach ($element->children() as $type => $patterns) {
             $result[$type] = array();
             foreach ($patterns as $pattern) {

@@ -30,14 +30,35 @@ class RulesHandler implements SubscribingHandlerInterface
         );
     }
 
-    public function unserializeXmlRules(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element, array $type, Context $context)
+    public function unserializeXmlRules(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element)
     {
-        $result = [];
-        foreach ($element->children() as $ruleName => $ruleOptions) {
-            $result[$ruleName] = array();
-            foreach ($ruleOptions->children() as $optionName => $optionValue) {
-                $result[$ruleName][$optionName] = (string) $optionValue;
+        $result = array();
+        foreach ($element->children() as $rule) {
+            $attributes = $rule->attributes();
+
+            $ruleOptions = array('enabled' => (string) $attributes['enabled'] !== 'false');
+            foreach ($rule->children() as $optionName => $optionValue) {
+                $ruleOptions[$optionName] = $this->parseParameterOption($optionValue);
             }
+
+            $ruleName = (string) $attributes['name'];
+            $result[$ruleName] = $ruleOptions;
+        }
+
+        return $result;
+    }
+
+    private function parseParameterOption(\SimpleXMLElement $parameterOption)
+    {
+        if (!$parameterOption->children()->count()) {
+            $value = (string) $parameterOption;
+
+            return str_replace('-', '_', $value);
+        }
+
+        $result = [];
+        foreach ($parameterOption as $subOptions) {
+            $result[] = $this->parseParameterOption($subOptions);
         }
 
         return $result;

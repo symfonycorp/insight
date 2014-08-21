@@ -207,7 +207,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             'Fixtures',
             'DataFixtures',
             'var'
-        ], $configuration->getGlobalExcludeDirs());
+        ], $configuration->getGlobalExcludedDirs());
 
         $this->assertEquals([
             'app/check.php',
@@ -224,11 +224,12 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(['projectType' => Project::TYPE_SYMFONY2_WEB_PROJECT], $configuration->getParameters());
         $this->assertEquals([
-            'composer.apc_class_loader_should_be_enabled' => ['enabled' => 0],
-            'php.class_too_long' => ['max_length' => 500, 'threshold' => 5],
+            'composer.apc_class_loader_should_be_enabled' => ['enabled' => false],
+            'php.class_too_long' => ['enabled' => true, 'max_length' => '500', 'threshold' => '5'],
+            'php.absolute_path_present' => ['enabled' => true, 'allowed_paths' => ['/dev', '/etc', '/proc']],
         ], $configuration->getRules());
 
-        $this->assertEquals(['abcdef', 'ghijkl', 'mnopqr'], $analysis->getPreviousAnalysisHashes());
+        $this->assertEquals(['abcdef', 'ghijkl', 'mnopqr'], $analysis->getPreviousAnalysisReferences());
 
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);
