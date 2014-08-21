@@ -190,6 +190,46 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violations', $analysis->getViolations());
         $this->assertCount(250, $analysis->getViolations()->getViolations());
 
+        // Check configuration
+        $configuration = $analysis->getConfiguration();
+        $this->assertEquals(['gh-pages'], $configuration->getIgnoredBranches());
+        $this->assertEquals('echo "Pre composer script!"', $configuration->getPreComposerScript());
+        $this->assertEquals('echo "Post composer script!"', $configuration->getPostComposerScript());
+        $this->assertEquals("extension=openssl.so\nextension=mcrypt.so\n", $configuration->getPhpIni());
+        $this->assertEquals([
+            'vendor',
+            'vendors',
+            'test',
+            'tests',
+            'Tests',
+            'spec',
+            'features',
+            'Fixtures',
+            'DataFixtures',
+            'var'
+        ], $configuration->getGlobalExcludeDirs());
+
+        $this->assertEquals([
+            'app/check.php',
+            'app/SymfonyRequirements.php',
+            'web/config.php',
+            'web/app_*.php',
+        ], $configuration->getExcludedPatterns());
+
+        $this->assertEquals([
+            'file' => ['*.yml', 'composer.*', '*.xml', '*.yaml'],
+            'php'  => ['*.php'],
+            'twig' => ['*.twig'],
+        ], $configuration->getPatterns());
+
+        $this->assertEquals(['projectType' => Project::TYPE_SYMFONY2_WEB_PROJECT], $configuration->getParameters());
+        $this->assertEquals([
+            'composer.apc_class_loader_should_be_enabled' => ['enabled' => 0],
+            'php.class_too_long' => ['max_length' => 500, 'threshold' => 5],
+        ], $configuration->getRules());
+
+        $this->assertEquals(['abcdef', 'ghijkl', 'mnopqr'], $analysis->getPreviousAnalysisHashes());
+
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violation', $firstViolation);

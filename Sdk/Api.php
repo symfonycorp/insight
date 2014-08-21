@@ -11,12 +11,7 @@
 
 namespace SensioLabs\Insight\Sdk;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use Guzzle\Common\Collection;
-use Guzzle\Http\Client;
-use Guzzle\Http\Exception\BadResponseException;
-use Guzzle\Http\Exception\ClientErrorResponseException;
-use Guzzle\Http\Message\RequestInterface;
+use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
@@ -24,6 +19,9 @@ use SensioLabs\Insight\Sdk\Exception\ApiClientException;
 use SensioLabs\Insight\Sdk\Exception\ApiServerException;
 use SensioLabs\Insight\Sdk\Model\Analyses;
 use SensioLabs\Insight\Sdk\Model\Analysis;
+use SensioLabs\Insight\Sdk\Handler\ParametersHandler;
+use SensioLabs\Insight\Sdk\Handler\PatternsHandler;
+use SensioLabs\Insight\Sdk\Handler\RulesHandler;
 use SensioLabs\Insight\Sdk\Model\Project;
 use SensioLabs\Insight\Sdk\Model\Projects;
 
@@ -59,6 +57,12 @@ class Api
 
         $serializerBuilder = SerializerBuilder::create()
             ->addMetadataDir(__DIR__.'/Model')
+            ->addDefaultHandlers()
+            ->configureHandlers(function (HandlerRegistry $registry) {
+                $registry->registerSubscribingHandler(new PatternsHandler());
+                $registry->registerSubscribingHandler(new ParametersHandler());
+                $registry->registerSubscribingHandler(new RulesHandler());
+            })
             ->setDebug($options->get('debug'))
         ;
         if ($cache = $options->get('cache')) {

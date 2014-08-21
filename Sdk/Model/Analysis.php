@@ -111,6 +111,18 @@ class Analysis
     private $violations;
 
     /**
+     * @Type("SensioLabs\Insight\Sdk\Model\Configuration")
+     */
+    private $configuration;
+
+    /**
+     * @Type("array<string>")
+     * @XmlList(entry="analysis")
+     * @SerializedName("previous-analyses")
+     */
+    private $previousAnalysisHashes;
+
+    /**
      * @return Link[]
      */
     public function getLinks()
@@ -260,5 +272,15 @@ class Analysis
     public function getViolations()
     {
         return $this->violations;
+    }
+
+    public function getConfiguration()
+    {
+        return $this->configuration;
+    }
+
+    public function getPreviousAnalysisHashes()
+    {
+        return $this->previousAnalysisHashes;
     }
 }

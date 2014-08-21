@@ -1518,4 +1518,63 @@
   <remediation-cost>181.75</remediation-cost>
   <remediation-cost-for-next-grade>55.5</remediation-cost-for-next-grade>
   <nb-violations>250</nb-violations>
+  <configuration>
+    <ignore_branches>
+      <branch><![CDATA[gh-pages]]></branch>
+    </ignore_branches>
+    <pre_composer_script><![CDATA[echo "Pre composer script!"]]></pre_composer_script>
+    <post_composer_script><![CDATA[echo "Post composer script!"]]></post_composer_script>
+      <php_ini><![CDATA[extension=openssl.so
+extension=mcrypt.so
+]]></php_ini>
+    <global_exclude_dirs>
+      <dir><![CDATA[vendor]]></dir>
+      <dir><![CDATA[vendors]]></dir>
+      <dir><![CDATA[test]]></dir>
+      <dir><![CDATA[tests]]></dir>
+      <dir><![CDATA[Tests]]></dir>
+      <dir><![CDATA[spec]]></dir>
+      <dir><![CDATA[features]]></dir>
+      <dir><![CDATA[Fixtures]]></dir>
+      <dir><![CDATA[DataFixtures]]></dir>
+      <dir><![CDATA[var]]></dir>
+    </global_exclude_dirs>
+    <exclude_patterns>
+      <pattern><![CDATA[app/check.php]]></pattern>
+      <pattern><![CDATA[app/SymfonyRequirements.php]]></pattern>
+      <pattern><![CDATA[web/config.php]]></pattern>
+      <pattern><![CDATA[web/app_*.php]]></pattern>
+    </exclude_patterns>
+    <patterns>
+      <file>
+        <pattern><![CDATA[*.yml]]></pattern>
+        <pattern><![CDATA[composer.*]]></pattern>
+        <pattern><![CDATA[*.xml]]></pattern>
+        <pattern><![CDATA[*.yaml]]></pattern>
+      </file>
+      <php>
+        <pattern><![CDATA[*.php]]></pattern>
+      </php>
+      <twig>
+        <pattern><![CDATA[*.twig]]></pattern>
+      </twig>
+    </patterns>
+    <rules>
+      <composer.apc_class_loader_should_be_enabled>
+        <enabled><![CDATA[0]]></enabled>
+      </composer.apc_class_loader_should_be_enabled>
+      <php.class_too_long>
+        <max_length>500</max_length>
+        <threshold>5</threshold>
+      </php.class_too_long>
+    </rules>
+    <parameters>
+      <project_type>10</project_type>
+    </parameters>
+  </configuration>
+  <previous-analyses>
+    <analysis>abcdef</analysis>
+    <analysis>ghijkl</analysis>
+    <analysis>mnopqr</analysis>
+  </previous-analyses>
 </analysis>
