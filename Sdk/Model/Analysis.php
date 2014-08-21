@@ -118,9 +118,9 @@ class Analysis
     /**
      * @Type("array<string>")
      * @XmlList(entry="analysis-reference")
-     * @SerializedName("previous-analysis-references")
+     * @SerializedName("previous-analyses-references")
      */
-    private $previousAnalysisReferences;
+    private $previousAnalysesReferences;
 
     /**
      * @return Link[]
@@ -279,8 +279,8 @@ class Analysis
         return $this->configuration;
     }
 
-    public function getPreviousAnalysisReferences()
+    public function getPreviousAnalysesReferences()
     {
-        return $this->previousAnalysisReferences;
+        return $this->previousAnalysesReferences;
     }
 }

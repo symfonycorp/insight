@@ -38,6 +38,7 @@ class RulesHandler implements SubscribingHandlerInterface
 
             $ruleOptions = array('enabled' => (string) $attributes['enabled'] !== 'false');
             foreach ($rule->children() as $optionName => $optionValue) {
+                $optionName = str_replace('-', '_', $optionName);
                 $ruleOptions[$optionName] = $this->parseParameterOption($optionValue);
             }
 
@@ -51,9 +52,7 @@ class RulesHandler implements SubscribingHandlerInterface
     private function parseParameterOption(\SimpleXMLElement $parameterOption)
     {
         if (!$parameterOption->children()->count()) {
-            $value = (string) $parameterOption;
-
-            return str_replace('-', '_', $value);
+            return (string) $parameterOption;
         }
 
         $result = [];

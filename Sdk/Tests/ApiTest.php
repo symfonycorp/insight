@@ -192,11 +192,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
         // Check configuration
         $configuration = $analysis->getConfiguration();
-        $this->assertEquals(['gh-pages'], $configuration->getIgnoredBranches());
+        $this->assertEquals(array('gh-pages'), $configuration->getIgnoredBranches());
         $this->assertEquals('echo "Pre composer script!"', $configuration->getPreComposerScript());
         $this->assertEquals('echo "Post composer script!"', $configuration->getPostComposerScript());
         $this->assertEquals("extension=openssl.so\nextension=mcrypt.so\n", $configuration->getPhpIni());
-        $this->assertEquals([
+        $this->assertEquals(array(
             'vendor',
             'vendors',
             'test',
@@ -207,29 +207,29 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             'Fixtures',
             'DataFixtures',
             'var'
-        ], $configuration->getGlobalExcludedDirs());
+        ), $configuration->getGlobalExcludedDirs());
 
-        $this->assertEquals([
+        $this->assertEquals(array(
             'app/check.php',
             'app/SymfonyRequirements.php',
             'web/config.php',
             'web/app_*.php',
-        ], $configuration->getExcludedPatterns());
+        ), $configuration->getExcludedPatterns());
 
-        $this->assertEquals([
-            'file' => ['*.yml', 'composer.*', '*.xml', '*.yaml'],
-            'php'  => ['*.php'],
-            'twig' => ['*.twig'],
-        ], $configuration->getPatterns());
+        $this->assertEquals(array(
+            'file' => array('*.yml', 'composer.*', '*.xml', '*.yaml'),
+            'php'  => array('*.php'),
+            'twig' => array('*.twig'),
+        ), $configuration->getPatterns());
 
-        $this->assertEquals(['projectType' => Project::TYPE_SYMFONY2_WEB_PROJECT], $configuration->getParameters());
-        $this->assertEquals([
-            'composer.apc_class_loader_should_be_enabled' => ['enabled' => false],
-            'php.class_too_long' => ['enabled' => true, 'max_length' => '500', 'threshold' => '5'],
-            'php.absolute_path_present' => ['enabled' => true, 'allowed_paths' => ['/dev', '/etc', '/proc']],
-        ], $configuration->getRules());
+        $this->assertEquals(array('projectType' => Project::TYPE_SYMFONY2_WEB_PROJECT), $configuration->getParameters());
+        $this->assertEquals(array(
+            'composer.apc_class_loader_should_be_enabled' => array('enabled' => false),
+            'php.class_too_long' => array('enabled' => true, 'max_length' => '500', 'threshold' => '5'),
+            'php.absolute_path_present' => array('enabled' => true, 'allowed_paths' => ['/dev', '/etc', '/proc']),
+        ), $configuration->getRules());
 
-        $this->assertEquals(['abcdef', 'ghijkl', 'mnopqr'], $analysis->getPreviousAnalysisReferences());
+        $this->assertEquals(array('abcdef', 'ghijkl', 'mnopqr'), $analysis->getPreviousAnalysesReferences());
 
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);

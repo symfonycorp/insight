@@ -1562,14 +1562,14 @@ extension=mcrypt.so
    <rules>
      <rule name="composer.apc_class_loader_should_be_enabled" enabled="false"/>
      <rule name="php.absolute_path_present" enabled="true">
-       <allowed_paths>
+       <allowed-paths>
          <pattern><![CDATA[/dev]]></pattern>
          <pattern><![CDATA[/etc]]></pattern>
          <pattern><![CDATA[/proc]]></pattern>
-       </allowed_paths>
+       </allowed-paths>
      </rule>
      <rule name="php.class_too_long" enabled="true">
-       <max_length>500</max_length>
+       <max-length>500</max-length>
        <threshold>5</threshold>
      </rule>
    </rules>
@@ -1577,9 +1577,9 @@ extension=mcrypt.so
      <parameter name="project_type">10</parameter>
    </parameters>
   </configuration>
-  <previous-analysis-references>
+  <previous-analyses-references>
     <analysis-reference>abcdef</analysis-reference>
     <analysis-reference>ghijkl</analysis-reference>
     <analysis-reference>mnopqr</analysis-reference>
-  </previous-analysis-references>
+  </previous-analyses-references>
 </analysis>
