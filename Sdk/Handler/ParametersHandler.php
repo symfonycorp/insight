@@ -18,9 +18,9 @@ use JMS\Serializer\XmlDeserializationVisitor;
 
 class ParametersHandler implements SubscribingHandlerInterface
 {
-    private static $parametersMapping = [
+    private static $parametersMapping = array(
         'project_type' => 'projectType',
-    ];
+    );
 
     public static function getSubscribingMethods()
     {

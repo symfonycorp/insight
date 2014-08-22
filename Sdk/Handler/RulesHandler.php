@@ -55,7 +55,7 @@ class RulesHandler implements SubscribingHandlerInterface
             return (string) $parameterOption;
         }
 
-        $result = [];
+        $result = array();
         foreach ($parameterOption as $subOptions) {
             $result[] = $this->parseParameterOption($subOptions);
         }
