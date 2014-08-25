@@ -33,7 +33,8 @@ class PreviousReferencesHandler implements SubscribingHandlerInterface
     {
         $result = array();
         foreach ($element->children() as $reference) {
-            $result[(int) $reference->attributes()['number']] = (string) $reference;
+            $attributes = $reference->attributes();
+            $result[(int) $attributes['number']] = (string) $reference;
         }
 
         return $result;

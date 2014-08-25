@@ -17,10 +17,6 @@ use JMS\Serializer\XmlDeserializationVisitor;
 
 class ParametersHandler implements SubscribingHandlerInterface
 {
-    private static $parametersMapping = array(
-        'project_type' => 'projectType',
-    );
-
     public static function getSubscribingMethods()
     {
         return array(
@@ -37,12 +33,9 @@ class ParametersHandler implements SubscribingHandlerInterface
     {
         $result = array();
         foreach ($element->children() as $node) {
-            $name = (string) $node->attributes()['name'];
-            if (!isset(self::$parametersMapping[$name])) {
-                continue;
-            }
-
-            $result[self::$parametersMapping[$name]] = (string) $node;
+            $attributes = $node->attributes();
+            $name = (string) $attributes['name'];
+            $result[$name] = (string) $node;
         }
 
         return $result;

@@ -222,7 +222,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             'twig' => array('*.twig'),
         ), $configuration->getPatterns());
 
-        $this->assertEquals(array('projectType' => Project::TYPE_SYMFONY2_WEB_PROJECT), $configuration->getParameters());
+        $this->assertEquals(array('project_type' => Project::TYPE_SYMFONY2_WEB_PROJECT), $configuration->getParameters());
         $this->assertEquals(array(
             'composer.apc_class_loader_should_be_enabled' => array('enabled' => false),
             'php.class_too_long' => array('enabled' => true, 'max_length' => '500', 'threshold' => '5'),

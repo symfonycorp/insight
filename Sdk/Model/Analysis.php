@@ -119,7 +119,7 @@ class Analysis
      * @Type("previousAnalysesReferences")
      * @SerializedName("previous-analyses-references")
      */
-    private $previousAnalysesReferencesByNumber;
+    private $previousAnalysesReferencesByNumber = array();
 
     /**
      * @return Link[]
