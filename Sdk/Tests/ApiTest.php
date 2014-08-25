@@ -226,10 +226,10 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array(
             'composer.apc_class_loader_should_be_enabled' => array('enabled' => false),
             'php.class_too_long' => array('enabled' => true, 'max_length' => '500', 'threshold' => '5'),
-            'php.absolute_path_present' => array('enabled' => true, 'allowed_paths' => ['/dev', '/etc', '/proc']),
+            'php.absolute_path_present' => array('enabled' => true, 'allowed_paths' => array('/dev', '/etc', '/proc')),
         ), $configuration->getRules());
 
-        $this->assertEquals(array('abcdef', 'ghijkl', 'mnopqr'), $analysis->getPreviousAnalysesReferences());
+        $this->assertEquals(array(3 => 'abcdef', 2 => 'ghijkl', 1 => 'mnopqr'), $analysis->getPreviousAnalysesReferencesByNumber());
 
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);

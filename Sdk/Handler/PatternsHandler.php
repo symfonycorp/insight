@@ -11,7 +11,6 @@
 
 namespace SensioLabs\Insight\Sdk\Handler;
 
-use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigator;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\XmlDeserializationVisitor;

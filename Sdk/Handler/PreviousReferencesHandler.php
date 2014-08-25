@@ -15,34 +15,25 @@ use JMS\Serializer\GraphNavigator;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\XmlDeserializationVisitor;
 
-class ParametersHandler implements SubscribingHandlerInterface
+class PreviousReferencesHandler implements SubscribingHandlerInterface
 {
-    private static $parametersMapping = array(
-        'project_type' => 'projectType',
-    );
-
     public static function getSubscribingMethods()
     {
         return array(
             array(
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'type' => 'parameters',
+                'type' => 'previousAnalysesReferences',
                 'format' => 'xml',
-                'method' => 'unserializeXmlParameters',
+                'method' => 'unserializeAnalysesReferences',
             )
         );
     }
 
-    public function unserializeXmlParameters(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element)
+    public function unserializeAnalysesReferences(XmlDeserializationVisitor $visitor, \SimpleXMLElement $element)
     {
         $result = array();
-        foreach ($element->children() as $node) {
-            $name = (string) $node->attributes()['name'];
-            if (!isset(self::$parametersMapping[$name])) {
-                continue;
-            }
-
-            $result[self::$parametersMapping[$name]] = (string) $node;
+        foreach ($element->children() as $reference) {
+            $result[(int) $reference->attributes()['number']] = (string) $reference;
         }
 
         return $result;

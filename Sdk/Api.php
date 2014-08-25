@@ -26,6 +26,7 @@ use SensioLabs\Insight\Sdk\Model\Analyses;
 use SensioLabs\Insight\Sdk\Model\Analysis;
 use SensioLabs\Insight\Sdk\Handler\ParametersHandler;
 use SensioLabs\Insight\Sdk\Handler\PatternsHandler;
+use SensioLabs\Insight\Sdk\Handler\PreviousReferencesHandler;
 use SensioLabs\Insight\Sdk\Handler\RulesHandler;
 use SensioLabs\Insight\Sdk\Model\Project;
 use SensioLabs\Insight\Sdk\Model\Projects;
@@ -66,6 +67,7 @@ class Api
             ->configureHandlers(function (HandlerRegistry $registry) {
                 $registry->registerSubscribingHandler(new PatternsHandler());
                 $registry->registerSubscribingHandler(new ParametersHandler());
+                $registry->registerSubscribingHandler(new PreviousReferencesHandler());
                 $registry->registerSubscribingHandler(new RulesHandler());
             })
             ->setDebug($options->get('debug'))

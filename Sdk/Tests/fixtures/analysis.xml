@@ -1578,8 +1578,8 @@ extension=mcrypt.so
    </parameters>
   </configuration>
   <previous-analyses-references>
-    <analysis-reference>abcdef</analysis-reference>
-    <analysis-reference>ghijkl</analysis-reference>
-    <analysis-reference>mnopqr</analysis-reference>
+    <analysis-reference number="3">abcdef</analysis-reference>
+    <analysis-reference number="2">ghijkl</analysis-reference>
+    <analysis-reference number="1">mnopqr</analysis-reference>
   </previous-analyses-references>
 </analysis>
