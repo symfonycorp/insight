@@ -35,7 +35,7 @@ class PatternsHandler implements SubscribingHandlerInterface
         foreach ($element->children() as $type => $patterns) {
             $result[$type] = array();
             foreach ($patterns as $pattern) {
-                $result[$type][] = $pattern;
+                $result[$type][] = (string) $pattern;
             }
         }
 

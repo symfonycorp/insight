@@ -116,4 +116,19 @@ class Configuration
     {
         return $this->rules;
     }
+
+    public function toInsightConfigArray()
+    {
+        return array(
+            'ignore_branches' => $this->ignoredBranches,
+            'pre_composer_script' => $this->preComposerScript,
+            'post_composer_script' => $this->postComposerScript,
+            'php_ini' => $this->phpIni,
+            'global_exclude_dirs' => $this->globalExcludedDirs,
+            'exclude_patterns' => $this->excludedPatterns,
+            'patterns' => $this->patterns,
+            'rules' => $this->rules,
+            'parameters' => $this->parameters,
+        );
+    }
 }
