@@ -19,6 +19,6 @@ if (file_exists($a = __DIR__.'/../../../../../autoload.php')) {
 
 use SensioLabs\Insight\Cli\Application;
 
-$application = new Application(getenv('INSIGHT_API_ENDPOINT'));
+$application = new Application();
 
 $application->run();
