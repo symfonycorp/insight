@@ -30,11 +30,12 @@ class Application extends BaseApplication
     private $apiConfig;
     private $enableLog;
 
-    public function __construct($endpoint = null)
+    public function __construct()
     {
         $this->apiConfig = array(
-            'base_url' => $endpoint ?: Api::ENDPOINT,
+            'base_url' => Api::ENDPOINT,
         );
+
         parent::__construct(static::APPLICATION_NAME, static::APPLICATION_VERSION);
     }
 
@@ -44,7 +45,11 @@ class Application extends BaseApplication
             return $this->api;
         }
 
-        $this->api = new Api($this->apiConfig);
+        $config = $this->apiConfig;
+        if (array_key_exists('api_endpoint', $config)) {
+            $config['base_url'] = $config['api_endpoint'];
+        }
+        $this->api = new Api($config);
 
         if ($this->enableLog) {
             if (!class_exists('Monolog\Logger')) {
@@ -64,8 +69,9 @@ class Application extends BaseApplication
     {
         $definition = parent::getDefaultInputDefinition();
 
-        $definition->addOption(new InputOption('api-token', null, InputOption::VALUE_OPTIONAL, 'Your api token.'));
-        $definition->addOption(new InputOption('user-uuid', null, InputOption::VALUE_OPTIONAL, 'Your user uuid.'));
+        $definition->addOption(new InputOption('api-token', null, InputOption::VALUE_REQUIRED, 'Your api token.'));
+        $definition->addOption(new InputOption('user-uuid', null, InputOption::VALUE_REQUIRED, 'Your user uuid.'));
+        $definition->addOption(new InputOption('api-endpoint', null, InputOption::VALUE_REQUIRED, 'The api endpoint.'));
         $definition->addOption(new InputOption('log', null, InputOption::VALUE_NONE, 'Add some log capability.'));
 
         return $definition;
@@ -108,7 +114,7 @@ class Application extends BaseApplication
         }
         $configPath = $storagePath.'/insight.json';
 
-        $config = array('api_token' => null, 'user_uuid' => null);
+        $config = array('api_token' => null, 'user_uuid' => null, 'api_endpoint' => Api::ENDPOINT);
         if (file_exists($configPath)) {
             $config = array_replace($config, json_decode(file_get_contents($configPath), true));
         }
@@ -116,11 +122,12 @@ class Application extends BaseApplication
         $newConfig = array(
             'api_token' => $this->getValue($input, $output, '--api-token', 'INSIGHT_API_TOKEN', 'api token', $config['api_token']),
             'user_uuid' => $this->getValue($input, $output, '--user-uuid', 'INSIGHT_USER_UUID', 'user uuid', $config['user_uuid']),
+            'api_endpoint' => $this->getValue($input, $output, '--api-endpoint', 'INSIGHT_API_ENDPOINT', 'api endpoint', $config['api_endpoint']),
         );
 
         if ($config !== $newConfig && $input->isInteractive()) {
             $dialog = $this->getHelperSet()->get('dialog');
-            if ($dialog->askConfirmation($output, sprintf('Do you want to store your api token and your user uuid in "%s" <comment>[y/N]</comment>?', $storagePath), false)) {
+            if ($dialog->askConfirmation($output, sprintf('Do you want to store your configuration in "%s" <comment>[y/N]</comment>?', $storagePath), false)) {
                 file_put_contents($configPath, json_encode($newConfig));
             }
         }
