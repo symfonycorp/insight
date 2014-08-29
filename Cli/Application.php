@@ -28,7 +28,7 @@ class Application extends BaseApplication
 
     private $api;
     private $apiConfig;
-    private $enableLog;
+    private $logFile;
 
     public function __construct()
     {
@@ -51,13 +51,12 @@ class Application extends BaseApplication
         }
         $this->api = new Api($config);
 
-        if ($this->enableLog) {
+        if ($this->logFile) {
             if (!class_exists('Monolog\Logger')) {
                 throw new \InvalidArgumentException('You must include monolog if you want to log (run "composer install --dev")');
             }
-
             $logger = new Logger('insight');
-            $logger->pushHandler(new StreamHandler(getcwd().'/insight.log', Logger::DEBUG));
+            $logger->pushHandler(new StreamHandler($this->logFile, Logger::DEBUG));
 
             $this->api->setLogger($logger);
         }
@@ -72,7 +71,7 @@ class Application extends BaseApplication
         $definition->addOption(new InputOption('api-token', null, InputOption::VALUE_REQUIRED, 'Your api token.'));
         $definition->addOption(new InputOption('user-uuid', null, InputOption::VALUE_REQUIRED, 'Your user uuid.'));
         $definition->addOption(new InputOption('api-endpoint', null, InputOption::VALUE_REQUIRED, 'The api endpoint.'));
-        $definition->addOption(new InputOption('log', null, InputOption::VALUE_NONE, 'Add some log capability.'));
+        $definition->addOption(new InputOption('log', null, InputOption::VALUE_OPTIONAL, 'Add some log capability. Specify a log file if you want to change the log location.'));
 
         return $definition;
     }
@@ -134,7 +133,9 @@ class Application extends BaseApplication
 
         $this->apiConfig = array_merge($this->apiConfig, $newConfig);
 
-        $this->enableLog = false !== $input->getParameterOption('--log');
+        if (false !== $input->getParameterOption('--log')) {
+            $this->logFile = $input->getParameterOption('--log') ?: getcwd().'/insight.log';
+        }
 
         return parent::doRunCommand($command, $input, $output);
     }
