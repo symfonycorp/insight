@@ -15,6 +15,9 @@ use SensioLabs\Insight\Sdk\Parser;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Parser
+     */
     private $parser;
 
     public function setUp()

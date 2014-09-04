@@ -52,7 +52,7 @@ class Project
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
-    private $links;
+    private $links = array();
 
     /**
      * @Type("string")
@@ -105,16 +105,25 @@ class Project
         );
     }
 
+    /**
+     * @return Link[]
+     */
     public function getLinks()
     {
         return $this->links;
     }
 
+    /**
+     * @return string
+     */
     public function getUuid()
     {
         return $this->uuid;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
@@ -127,6 +136,9 @@ class Project
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getConfiguration()
     {
         return $this->configuration;
@@ -139,6 +151,9 @@ class Project
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         return $this->description;
@@ -151,6 +166,9 @@ class Project
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getType()
     {
         return $this->type;
@@ -167,6 +185,9 @@ class Project
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getRepositoryUrl()
     {
         return $this->repositoryUrl;
@@ -179,6 +200,9 @@ class Project
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function isPublic()
     {
         return !$this->private;
@@ -191,6 +215,9 @@ class Project
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function isPrivate()
     {
         return $this->private;
@@ -203,11 +230,17 @@ class Project
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function isReportAvailable()
     {
         return $this->reportAvailable;
     }
 
+    /**
+     * @return Analysis|null
+     */
     public function getLastAnalysis()
     {
         return $this->lastAnalysis;

@@ -20,19 +20,25 @@ class Analyses
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
-    private $links;
+    private $links = array();
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Analysis>")
      * @XmlList(inline = true, entry = "analysis")
      */
-    private $analyses;
+    private $analyses = array();
 
+    /**
+     * @return Link[]
+     */
     public function getLinks()
     {
         return $this->links;
     }
 
+    /**
+     * @return Analysis[]
+     */
     public function getAnalyses()
     {
         return $this->analyses;

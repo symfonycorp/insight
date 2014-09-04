@@ -43,37 +43,51 @@ class Projects
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
-    private $links;
+    private $links = array();
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Project>")
      * @XmlList(inline = true, entry = "project")
      */
-    private $projects;
+    private $projects = array();
 
+    /**
+     * @return int
+     */
     public function getPage()
     {
         return $this->page;
     }
 
+    /**
+     * @return int
+     */
     public function getTotal()
     {
         return $this->total;
     }
 
+    /**
+     * @return int
+     */
     public function getLimit()
     {
         return $this->limit;
     }
 
+    /**
+     * @return Link[]
+     */
     public function getLinks()
     {
         return $this->links;
     }
 
+    /**
+     * @return Project[]
+     */
     public function getProjects()
     {
         return $this->projects;
     }
-
 }

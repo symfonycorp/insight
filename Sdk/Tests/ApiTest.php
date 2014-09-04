@@ -19,8 +19,15 @@ use SensioLabs\Insight\Sdk\Model\Project;
 
 class ApiTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Api
+     */
     private $api;
     private $logger;
+
+    /**
+     * @var MockPlugin
+     */
     private $pluginMockResponse;
 
     public function setUp()
