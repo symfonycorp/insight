@@ -25,7 +25,7 @@ class PatternsHandler implements SubscribingHandlerInterface
                 'type' => 'patterns',
                 'format' => 'xml',
                 'method' => 'unserializeXmlPatterns',
-            )
+            ),
         );
     }
 

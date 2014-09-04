@@ -25,7 +25,7 @@ class RulesHandler implements SubscribingHandlerInterface
                 'type' => 'rules',
                 'format' => 'xml',
                 'method' => 'unserializeXmlRules',
-            )
+            ),
         );
     }
 

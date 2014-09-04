@@ -25,7 +25,7 @@ class ParametersHandler implements SubscribingHandlerInterface
                 'type' => 'parameters',
                 'format' => 'xml',
                 'method' => 'unserializeXmlParameters',
-            )
+            ),
         );
     }
 

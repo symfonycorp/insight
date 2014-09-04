@@ -16,6 +16,7 @@ use Guzzle\Common\Collection;
 use Guzzle\Http\Client;
 use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Http\Exception\ClientErrorResponseException;
+use Guzzle\Http\Message\RequestInterface;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -247,6 +248,11 @@ class Api
     public function getSerializer()
     {
         return $this->serializer;
+    }
+
+    public function getClient()
+    {
+        return $this->client;
     }
 
     private function send(RequestInterface $request)

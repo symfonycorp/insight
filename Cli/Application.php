@@ -26,9 +26,9 @@ class Application extends BaseApplication
     const APPLICATION_NAME = 'SensioLabs Insight CLI';
     const APPLICATION_VERSION = '1.1';
 
-    private $api;
-    private $apiConfig;
-    private $logFile;
+    protected $api;
+    protected $apiConfig;
+    protected $logFile;
 
     public function __construct()
     {

@@ -25,7 +25,7 @@ class PreviousReferencesHandler implements SubscribingHandlerInterface
                 'type' => 'previousAnalysesReferences',
                 'format' => 'xml',
                 'method' => 'unserializeAnalysesReferences',
-            )
+            ),
         );
     }
 
