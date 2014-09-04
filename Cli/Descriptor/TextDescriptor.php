@@ -22,6 +22,9 @@ class TextDescriptor extends AbstractDescriptor
         if (OutputInterface::VERBOSITY_VERY_VERBOSE <= $output->getVerbosity()) {
             $output->write(sprintf('Began at: <comment>%s</comment>', $analysis->getBeginAt()->format('Y-m-d h:i:s')));
         }
+
+
+
         if (!$analysis->isFinished()) {
             if (OutputInterface::VERBOSITY_VERY_VERBOSE <= $output->getVerbosity()) {
                 $output->writeln('');
