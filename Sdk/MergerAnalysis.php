@@ -1,12 +1,12 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-/**
+/*
+ * This file is part of the SensioLabsInsight package.
  *
- * @category    PhpStorm
- * @author     aurelien
- * @copyright  2014 Efidev
- * @version    CVS: Id:$
+ * (c) SensioLabs <contact@sensiolabs.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace SensioLabs\Insight\Sdk;
