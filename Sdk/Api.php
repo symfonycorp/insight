@@ -16,7 +16,7 @@ use Guzzle\Common\Collection;
 use Guzzle\Http\Client;
 use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Http\Exception\ClientErrorResponseException;
-use Guzzle\Http\Message\Request;
+use Guzzle\Http\Message\RequestInterface;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
@@ -33,7 +33,7 @@ class Api
     private $parser;
     private $logger;
 
-    public function __construct($options = array(), Client $client = null, Parser $parser = null, LoggerInterface $logger = null)
+    public function __construct(array $options = array(), Client $client = null, Parser $parser = null, LoggerInterface $logger = null)
     {
         $this->client = $client ?: new Client();
         $this->parser = $parser ?: new Parser();
@@ -170,7 +170,7 @@ class Api
         return $this->serializer;
     }
 
-    private function send(Request $request)
+    private function send(RequestInterface $request)
     {
         try {
             $this->logger and $this->logger->debug(sprintf('%s "%s"', $request->getMethod(), $request->getUrl()));
@@ -206,7 +206,7 @@ class Api
         throw new ApiClientException($message, $error, 0, $e);
     }
 
-    private function logException(\Exception $e)
+    private function logException(BadResponseException $e)
     {
         $message = sprintf("Exception: Class: \"%s\", Message: \"%s\", Response:\n%s",
             get_class($e),
