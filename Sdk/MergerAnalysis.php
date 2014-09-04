@@ -5,12 +5,11 @@
  *
  * @category    PhpStorm
  * @author     aurelien
- * @copyright  2014 Efidev 
+ * @copyright  2014 Efidev
  * @version    CVS: Id:$
  */
 
 namespace SensioLabs\Insight\Sdk;
-
 
 use SensioLabs\Insight\Sdk\Model\Analysis;
 
@@ -40,4 +39,4 @@ class MergerAnalysis
         $reportStatusProperty->setAccessible(false);
         $statusProperty->setAccessible(false);
     }
-} 
+}
