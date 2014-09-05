@@ -94,6 +94,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('git@github.com:lyrixx/demoer.git', $project->getRepositoryUrl());
         $this->assertTrue($project->isPublic());
         $this->assertTrue($project->isReportAvailable());
+        $this->assertSame(1, $project->getType());
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $project->getLastAnalysis());
     }
