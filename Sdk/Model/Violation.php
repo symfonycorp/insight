@@ -40,31 +40,49 @@ class Violation
      */
     private $category;
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getMessage()
     {
         return $this->message;
     }
 
+    /**
+     * @return string
+     */
     public function getResource()
     {
         return $this->resource;
     }
 
+    /**
+     * @return int
+     */
     public function getLine()
     {
         return $this->line;
     }
 
+    /**
+     * @return string
+     */
     public function getSeverity()
     {
         return $this->severity;
     }
 
+    /**
+     * @return string
+     */
     public function getCategory()
     {
         return $this->category;

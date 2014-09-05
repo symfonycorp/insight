@@ -34,16 +34,25 @@ class Link
      */
     private $type;
 
+    /**
+     * @return string
+     */
     public function getHref()
     {
         return $this->href;
     }
 
+    /**
+     * @return string
+     */
     public function getRel()
     {
         return $this->rel;
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;

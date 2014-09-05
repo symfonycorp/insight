@@ -22,7 +22,10 @@ use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
 use SensioLabs\Insight\Sdk\Exception\ApiClientException;
 use SensioLabs\Insight\Sdk\Exception\ApiServerException;
+use SensioLabs\Insight\Sdk\Model\Analyses;
+use SensioLabs\Insight\Sdk\Model\Analysis;
 use SensioLabs\Insight\Sdk\Model\Project;
+use SensioLabs\Insight\Sdk\Model\Projects;
 
 class Api
 {
@@ -67,6 +70,11 @@ class Api
         $this->logger = $logger;
     }
 
+    /**
+     * @param int $page
+     *
+     * @return Projects
+     */
     public function getProjects($page = 1)
     {
         $request = $this->client->createRequest('GET', '/api/projects');
@@ -81,6 +89,11 @@ class Api
         );
     }
 
+    /**
+     * @param string $uuid
+     *
+     * @return Project
+     */
     public function getProject($uuid)
     {
         $request = $this->client->createRequest('GET', sprintf('/api/projects/%s', $uuid));
@@ -92,6 +105,11 @@ class Api
         );
     }
 
+    /**
+     * @param Project $project
+     *
+     * @return Project
+     */
     public function updateProject(Project $project)
     {
         $request = $this->client->createRequest('PUT', sprintf('/api/projects/%s', $project->getUuid()), null, array('insight_project' => $project->toArray()));
@@ -103,6 +121,11 @@ class Api
         );
     }
 
+    /**
+     * @param Project $project
+     *
+     * @return Project
+     */
     public function createProject(Project $project)
     {
         $request = $this->client->createRequest('POST', '/api/projects', null, array('insight_project' => $project->toArray()));
@@ -114,6 +137,11 @@ class Api
         );
     }
 
+    /**
+     * @param string $projectUuid
+     *
+     * @return Analyses
+     */
     public function getAnalyses($projectUuid)
     {
         $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses', $projectUuid));
@@ -125,6 +153,12 @@ class Api
         );
     }
 
+    /**
+     * @param string $projectUuid
+     * @param int    $analysesNumber
+     *
+     * @return Analysis
+     */
     public function getAnalysis($projectUuid, $analysesNumber)
     {
         $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber));
@@ -136,6 +170,12 @@ class Api
         );
     }
 
+    /**
+     * @param string $projectUuid
+     * @param int    $analysesNumber
+     *
+     * @return Analysis an incomplete Analysis object
+     */
     public function getAnalysisStatus($projectUuid, $analysesNumber)
     {
         $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesNumber));
@@ -147,6 +187,12 @@ class Api
         );
     }
 
+    /**
+     * @param string      $projectUuid
+     * @param string|null $reference   A git reference. It can be a commit sha, a tag name or a branch name
+     *
+     * @return Analysis
+     */
     public function analyze($projectUuid, $reference = null)
     {
         $request = $this->client->createRequest('POST', sprintf('/api/projects/%s/analyses', $projectUuid), array(), array('reference' => $reference));
@@ -183,6 +229,9 @@ class Api
         return $this;
     }
 
+    /**
+     * @return Serializer
+     */
     public function getSerializer()
     {
         return $this->serializer;

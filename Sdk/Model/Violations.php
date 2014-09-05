@@ -20,7 +20,7 @@ class Violations implements \Countable, \IteratorAggregate
      * @Type("array<SensioLabs\Insight\Sdk\Model\Violation>")
      * @XmlList(inline = true, entry = "violation")
      */
-    private $violations;
+    private $violations = array();
 
     public function count()
     {
@@ -32,6 +32,9 @@ class Violations implements \Countable, \IteratorAggregate
         return new \ArrayIterator($this->violations);
     }
 
+    /**
+     * @return Violation[]
+     */
     public function getViolations()
     {
         return $this->violations;
