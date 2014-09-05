@@ -1,0 +1,29 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-09-01T13:00:18Z
+
+what is the goal ?
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-09-01T13:48:51Z
+
+Allow to call undocumented and "private" method of the api, and keep log / error system.
+
+---------------------------------------------------------------------------
+
+by stof at 2014-09-01T13:57:21Z
+
+Please add some phpdoc explaining it (and potentially explaining that you are on your own when using them, depending on your BC policy for these undocumented methods)
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-09-05T07:34:50Z
+
+Done.
+
+---------------------------------------------------------------------------
+
+by stof at 2014-09-05T08:44:46Z
+
+:+1:
