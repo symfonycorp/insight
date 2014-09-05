@@ -38,7 +38,8 @@ class Api
 
     public function __construct(array $options = array(), Client $client = null, Parser $parser = null, LoggerInterface $logger = null)
     {
-        $this->client = $client ?: new Client();
+        $sslAuthority = defined('PHP_WINDOWS_VERSION_BUILD') ? true : 'system'; // The system certs cannot be found by curl on Windows.
+        $this->client = $client ?: new Client('', array(Client::SSL_CERT_AUTHORITY => $sslAuthority));
         $this->parser = $parser ?: new Parser();
 
         $defaultOptions = array(
@@ -48,7 +49,7 @@ class Api
         );
         $requiredOptions = array('api_token', 'base_url', 'user_uuid');
         $options = Collection::fromConfig($options, $defaultOptions, $requiredOptions);
-        $this->client->setConfig($options);
+        $this->client->getConfig()->merge($options);
 
         $this->client->setBaseUrl($options->get('base_url'));
         $this->client->setDefaultHeaders(array(
