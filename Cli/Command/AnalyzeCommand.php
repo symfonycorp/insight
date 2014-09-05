@@ -42,7 +42,8 @@ class AnalyzeCommand extends Command
         while (true) {
             // we don't check the status too often
             if (0 == $position % 2) {
-                $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
+                $status = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
+                $api->getMergerAnalysis($status, $analysis);
             }
             if ('txt' === $input->getOption('format')) {
                 $output->write(sprintf("%s %-80s\r", $chars[$position % 4], $analysis->getStatusMessage()));
@@ -58,6 +59,7 @@ class AnalyzeCommand extends Command
         }
 
         $analysis = $api->getAnalysis($projectUuid, $analysis->getNumber());
+
         if ($analysis->isFailed()) {
             $output->writeln(sprintf('There was an error: "%s"', $analysis->getFailureMessage()));
 

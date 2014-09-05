@@ -32,11 +32,13 @@ class Api
     private $serializer;
     private $parser;
     private $logger;
+    private $merger;
 
     public function __construct(array $options = array(), Client $client = null, Parser $parser = null, LoggerInterface $logger = null)
     {
         $this->client = $client ?: new Client();
         $this->parser = $parser ?: new Parser();
+        $this->merger = new MergerAnalysis();
 
         $defaultOptions = array(
             'base_url' => static::ENDPOINT,
@@ -65,6 +67,11 @@ class Api
         AnnotationRegistry::registerLoader('class_exists');
 
         $this->logger = $logger;
+    }
+
+    public function getMergerAnalysis()
+    {
+        return $this->merger;
     }
 
     public function getProjects($page = 1)

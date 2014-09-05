@@ -35,13 +35,18 @@ class AnalysisCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $api = $this->getApplication()->getApi();
-        $analysis = $api->getProject($input->getArgument('project-uuid'))->getLastAnalysis();
+        $projectUuid = $input->getArgument('project-uuid');
+
+        $analysis = $api->getProject($projectUuid)->getLastAnalysis();
 
         if (!$analysis) {
             $output->writeln('<error>There are no analyses</error>');
 
             return 1;
         }
+
+        $status = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
+        $api->getMergerAnalysis()->merge($status, $analysis);
 
         $helper = new DescriptorHelper($api->getSerializer());
         $helper->describe($output, $analysis, $input->getOption('format'));

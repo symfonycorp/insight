@@ -182,7 +182,7 @@ class Analysis
 
     public function isFinished()
     {
-        return static::STATUS_FINISHED == $this->status;
+        return static::STATUS_FINISHED == strtolower($this->status);
     }
 
     public function getStatus()
