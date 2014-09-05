@@ -46,7 +46,7 @@ class Api
         );
         $requiredOptions = array('api_token', 'base_url', 'user_uuid');
         $options = Collection::fromConfig($options, $defaultOptions, $requiredOptions);
-        $this->client->setConfig($options);
+        $this->client->getConfig()->merge($options);
 
         $this->client->setBaseUrl($options->get('base_url'));
         $this->client->setDefaultHeaders(array(
