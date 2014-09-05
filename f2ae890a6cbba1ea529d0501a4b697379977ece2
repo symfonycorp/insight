@@ -1,0 +1,11 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-09-05T09:21:20Z
+
+note that for Unix systems, I keep using the system certificates as they may be more uptodate than the Guzzle3 certificates
+
+---------------------------------------------------------------------------
+
+by stof at 2014-09-05T09:34:23Z
+
+I added another bug fix in a separate commit. I haven't submitted it separately as it is necessary for the Windows support to work, but I think it would be worth keeping the 2 separate commits when merging rather than squashing them
