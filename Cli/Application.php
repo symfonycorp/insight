@@ -96,12 +96,12 @@ class Application extends BaseApplication
                 if (!getenv('APPDATA')) {
                     throw new \RuntimeException('The APPDATA or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }
-                $storagePath = strtr(getenv('APPDATA'), '\\', '/') . '/Sensiolabs';
+                $storagePath = strtr(getenv('APPDATA'), '\\', '/').'/Sensiolabs';
             } else {
                 if (!getenv('HOME')) {
                     throw new \RuntimeException('The HOME or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }
-                $storagePath = rtrim(getenv('HOME'), '/') . '/.sensiolabs';
+                $storagePath = rtrim(getenv('HOME'), '/').'/.sensiolabs';
             }
         }
         if (!is_dir($storagePath) && ! @mkdir($storagePath, 0777, true)) {
