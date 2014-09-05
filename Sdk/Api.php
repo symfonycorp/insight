@@ -158,6 +158,24 @@ class Api
         );
     }
 
+    /**
+     * Use this method to call a specific API resource.
+     */
+    public function call($method = 'GET', $uri = null, $headers = null, $body = null, array $options = array(), $classToUnserialize = null)
+    {
+        $request = $this->client->createRequest($method, $uri, $headers, $body, $options);
+
+        if ($classToUnserialize) {
+            return $this->serializer->deserialize(
+                (string) $this->send($request)->getBody(),
+                $classToUnserialize,
+                'xml'
+            );
+        }
+
+        return $this->send($request);
+    }
+
     public function setLogger(LoggerInterface $logger)
     {
         $this->logger = $logger;
