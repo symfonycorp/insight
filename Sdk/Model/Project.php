@@ -69,7 +69,7 @@ class Project
     /** @Type("string") */
     private $description;
 
-    /** @Type("string") */
+    /** @Type("integer") */
     private $type;
 
     /**
