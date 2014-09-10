@@ -22,7 +22,7 @@ class Configuration
      * @XmlList(entry="branch")
      * @SerializedName("ignored-branches")
      */
-    private $ignoredBranches;
+    private $ignoredBranches = array();
 
     /**
      * @Type("string")
@@ -47,75 +47,105 @@ class Configuration
      * @XmlList(entry="dir")
      * @SerializedName("global-excluded-dirs")
      */
-    private $globalExcludedDirs;
+    private $globalExcludedDirs = array();
 
     /**
      * @Type("array<string>")
      * @XmlList(entry="pattern")
      * @SerializedName("excluded-patterns")
      */
-    private $excludedPatterns;
+    private $excludedPatterns = array();
 
     /**
      * @Type("patterns")
      */
-    private $patterns;
+    private $patterns = array();
 
     /**
      * @Type("parameters")
      */
-    private $parameters;
+    private $parameters = array();
 
     /**
      * @Type("rules")
      */
-    private $rules;
+    private $rules = array();
 
+    /**
+     * @return array
+     */
     public function getIgnoredBranches()
     {
         return $this->ignoredBranches;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPreComposerScript()
     {
         return $this->preComposerScript;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPostComposerScript()
     {
         return $this->postComposerScript;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPhpIni()
     {
         return $this->phpIni;
     }
 
+    /**
+     * @return array
+     */
     public function getGlobalExcludedDirs()
     {
         return $this->globalExcludedDirs;
     }
 
+    /**
+     * @return array
+     */
     public function getExcludedPatterns()
     {
         return $this->excludedPatterns;
     }
 
+    /**
+     * @return array
+     */
     public function getPatterns()
     {
         return $this->patterns;
     }
 
+    /**
+     * @return array
+     */
     public function getParameters()
     {
         return $this->parameters;
     }
 
+    /**
+     * @return array
+     */
     public function getRules()
     {
         return $this->rules;
     }
 
+    /**
+     * @return array
+     */
     public function toInsightConfigArray()
     {
         return array(

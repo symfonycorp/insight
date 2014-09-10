@@ -11,6 +11,7 @@
 
 namespace SensioLabs\Insight\Cli;
 
+use Guzzle\Http\Client;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use SensioLabs\Insight\Cli\Command as LocalCommand;
@@ -26,9 +27,9 @@ class Application extends BaseApplication
     const APPLICATION_NAME = 'SensioLabs Insight CLI';
     const APPLICATION_VERSION = '1.1';
 
-    protected $api;
-    protected $apiConfig;
-    protected $logFile;
+    private $api;
+    private $apiConfig;
+    private $logFile;
 
     public function __construct()
     {
@@ -39,7 +40,7 @@ class Application extends BaseApplication
         parent::__construct(static::APPLICATION_NAME, static::APPLICATION_VERSION);
     }
 
-    public function getApi()
+    public function getApi(Client $client = null)
     {
         if ($this->api) {
             return $this->api;
@@ -49,7 +50,7 @@ class Application extends BaseApplication
         if (array_key_exists('api_endpoint', $config)) {
             $config['base_url'] = $config['api_endpoint'];
         }
-        $this->api = new Api($config);
+        $this->api = new Api($config, $client);
 
         if ($this->logFile) {
             if (!class_exists('Monolog\Logger')) {

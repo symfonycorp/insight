@@ -229,7 +229,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             'php.absolute_path_present' => array('enabled' => true, 'allowed_paths' => array('/dev', '/etc', '/proc')),
         ), $configuration->getRules());
 
-        $this->assertEquals(array(3 => 'abcdef', 2 => 'ghijkl', 1 => 'mnopqr'), $analysis->getPreviousAnalysesReferencesByNumber());
+        $this->assertEquals(array(3 => 'abcdef', 2 => 'ghijkl', 1 => 'mnopqr'), $analysis->getPreviousAnalysesReferences());
 
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);

@@ -250,11 +250,6 @@ class Api
         return $this->serializer;
     }
 
-    public function getClient()
-    {
-        return $this->client;
-    }
-
     private function send(RequestInterface $request)
     {
         try {

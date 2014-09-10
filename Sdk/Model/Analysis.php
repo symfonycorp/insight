@@ -119,7 +119,7 @@ class Analysis
      * @Type("previousAnalysesReferences")
      * @SerializedName("previous-analyses-references")
      */
-    private $previousAnalysesReferencesByNumber = array();
+    private $previousAnalysesReferences = array();
 
     /**
      * @return Link[]
@@ -273,13 +273,19 @@ class Analysis
         return $this->violations;
     }
 
+    /**
+     * @return Configuration|null
+     */
     public function getConfiguration()
     {
         return $this->configuration;
     }
 
-    public function getPreviousAnalysesReferencesByNumber()
+    /**
+     * @return array
+     */
+    public function getPreviousAnalysesReferences()
     {
-        return $this->previousAnalysesReferencesByNumber;
+        return $this->previousAnalysesReferences;
     }
 }
