@@ -34,7 +34,7 @@ use SensioLabs\Insight\Sdk\Model\Projects;
 
 class Api
 {
-    const ENDPOINT = 'https://insight.sensiolabs.com';
+    const ENDPOINT = 'https://insight.sensiolabs.com/';
 
     private $client;
     private $serializer;
@@ -56,7 +56,7 @@ class Api
         $options = Collection::fromConfig($options, $defaultOptions, $requiredOptions);
         $this->client->getConfig()->merge($options);
 
-        $this->client->setBaseUrl($options->get('base_url'));
+        $this->client->setBaseUrl(rtrim($options->get('base_url'), '/').'/');
         $this->client->setDefaultHeaders(array(
             'accept' => 'application/vnd.com.sensiolabs.insight+xml',
         ));
@@ -90,7 +90,7 @@ class Api
      */
     public function getProjects($page = 1)
     {
-        $request = $this->client->createRequest('GET', '/api/projects');
+        $request = $this->client->createRequest('GET', 'api/projects');
         $url = $request->getUrl(true);
         $url->getQuery()->set('page', (int) $page);
         $request->setUrl($url);
@@ -109,7 +109,7 @@ class Api
      */
     public function getProject($uuid)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s', $uuid));
+        $request = $this->client->createRequest('GET', sprintf('api/projects/%s', $uuid));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -125,7 +125,7 @@ class Api
      */
     public function updateProject(Project $project)
     {
-        $request = $this->client->createRequest('PUT', sprintf('/api/projects/%s', $project->getUuid()), null, array('insight_project' => $project->toArray()));
+        $request = $this->client->createRequest('PUT', sprintf('api/projects/%s', $project->getUuid()), null, array('insight_project' => $project->toArray()));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -141,7 +141,7 @@ class Api
      */
     public function createProject(Project $project)
     {
-        $request = $this->client->createRequest('POST', '/api/projects', null, array('insight_project' => $project->toArray()));
+        $request = $this->client->createRequest('POST', 'api/projects', null, array('insight_project' => $project->toArray()));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -157,7 +157,7 @@ class Api
      */
     public function getAnalyses($projectUuid)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses', $projectUuid));
+        $request = $this->client->createRequest('GET', sprintf('api/projects/%s/analyses', $projectUuid));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -174,7 +174,7 @@ class Api
      */
     public function getAnalysis($projectUuid, $analysesNumber)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber));
+        $request = $this->client->createRequest('GET', sprintf('api/projects/%s/analyses/%s', $projectUuid, $analysesNumber));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -191,7 +191,7 @@ class Api
      */
     public function getAnalysisStatus($projectUuid, $analysesNumber)
     {
-        $request = $this->client->createRequest('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesNumber));
+        $request = $this->client->createRequest('GET', sprintf('api/projects/%s/analyses/%s/status', $projectUuid, $analysesNumber));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
@@ -208,7 +208,7 @@ class Api
      */
     public function analyze($projectUuid, $reference = null)
     {
-        $request = $this->client->createRequest('POST', sprintf('/api/projects/%s/analyses', $projectUuid), array(), array('reference' => $reference));
+        $request = $this->client->createRequest('POST', sprintf('api/projects/%s/analyses', $projectUuid), array(), array('reference' => $reference));
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
