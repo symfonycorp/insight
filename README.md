@@ -123,10 +123,10 @@ Note: If something went wrong, see *Error management* section
 ### Run an analysis
 
     // on the default branch
-    $api->analyze('project uuid', 'origin/master');
+    $api->analyze('project uuid', 'master');
 
     // for a specific branch or reference
-    $api->analyze('project uuid', 'origin/1.0');
+    $api->analyze('project uuid', '1.0');
 
 ### Get all analyses
 
