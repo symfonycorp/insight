@@ -1518,4 +1518,68 @@
   <remediation-cost>181.75</remediation-cost>
   <remediation-cost-for-next-grade>55.5</remediation-cost-for-next-grade>
   <nb-violations>250</nb-violations>
+  <configuration>
+    <ignored-branches>
+      <branch><![CDATA[gh-pages]]></branch>
+    </ignored-branches>
+    <pre-composer-script><![CDATA[echo "Pre composer script!"]]></pre-composer-script>
+    <post-composer-script><![CDATA[echo "Post composer script!"]]></post-composer-script>
+    <php-ini><![CDATA[extension=openssl.so
+extension=mcrypt.so
+]]></php-ini>
+   <global-excluded-dirs>
+     <dir><![CDATA[vendor]]></dir>
+     <dir><![CDATA[vendors]]></dir>
+     <dir><![CDATA[test]]></dir>
+     <dir><![CDATA[tests]]></dir>
+     <dir><![CDATA[Tests]]></dir>
+     <dir><![CDATA[spec]]></dir>
+     <dir><![CDATA[features]]></dir>
+     <dir><![CDATA[Fixtures]]></dir>
+     <dir><![CDATA[DataFixtures]]></dir>
+     <dir><![CDATA[var]]></dir>
+   </global-excluded-dirs>
+   <excluded-patterns>
+     <pattern><![CDATA[app/check.php]]></pattern>
+     <pattern><![CDATA[app/SymfonyRequirements.php]]></pattern>
+     <pattern><![CDATA[web/config.php]]></pattern>
+     <pattern><![CDATA[web/app_*.php]]></pattern>
+   </excluded-patterns>
+   <patterns>
+     <file>
+       <pattern><![CDATA[*.yml]]></pattern>
+       <pattern><![CDATA[composer.*]]></pattern>
+       <pattern><![CDATA[*.xml]]></pattern>
+       <pattern><![CDATA[*.yaml]]></pattern>
+     </file>
+     <php>
+       <pattern><![CDATA[*.php]]></pattern>
+     </php>
+     <twig>
+       <pattern><![CDATA[*.twig]]></pattern>
+     </twig>
+   </patterns>
+   <rules>
+     <rule name="composer.apc_class_loader_should_be_enabled" enabled="false"/>
+     <rule name="php.absolute_path_present" enabled="true">
+       <allowed-paths>
+         <pattern><![CDATA[/dev]]></pattern>
+         <pattern><![CDATA[/etc]]></pattern>
+         <pattern><![CDATA[/proc]]></pattern>
+       </allowed-paths>
+     </rule>
+     <rule name="php.class_too_long" enabled="true">
+       <max-length>500</max-length>
+       <threshold>5</threshold>
+     </rule>
+   </rules>
+   <parameters>
+     <parameter name="project_type">10</parameter>
+   </parameters>
+  </configuration>
+  <previous-analyses-references>
+    <analysis-reference number="3">abcdef</analysis-reference>
+    <analysis-reference number="2">ghijkl</analysis-reference>
+    <analysis-reference number="1">mnopqr</analysis-reference>
+  </previous-analyses-references>
 </analysis>

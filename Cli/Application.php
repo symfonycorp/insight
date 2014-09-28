@@ -11,6 +11,7 @@
 
 namespace SensioLabs\Insight\Cli;
 
+use Guzzle\Http\Client;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use SensioLabs\Insight\Cli\Command as LocalCommand;
@@ -39,7 +40,7 @@ class Application extends BaseApplication
         parent::__construct(static::APPLICATION_NAME, static::APPLICATION_VERSION);
     }
 
-    public function getApi()
+    public function getApi(Client $client = null)
     {
         if ($this->api) {
             return $this->api;
@@ -49,7 +50,7 @@ class Application extends BaseApplication
         if (array_key_exists('api_endpoint', $config)) {
             $config['base_url'] = $config['api_endpoint'];
         }
-        $this->api = new Api($config);
+        $this->api = new Api($config, $client);
 
         if ($this->logFile) {
             if (!class_exists('Monolog\Logger')) {
@@ -96,12 +97,12 @@ class Application extends BaseApplication
                 if (!getenv('APPDATA')) {
                     throw new \RuntimeException('The APPDATA or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }
-                $storagePath = strtr(getenv('APPDATA'), '\\', '/') . '/Sensiolabs';
+                $storagePath = strtr(getenv('APPDATA'), '\\', '/').'/Sensiolabs';
             } else {
                 if (!getenv('HOME')) {
                     throw new \RuntimeException('The HOME or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }
-                $storagePath = rtrim(getenv('HOME'), '/') . '/.sensiolabs';
+                $storagePath = rtrim(getenv('HOME'), '/').'/.sensiolabs';
             }
         }
         if (!is_dir($storagePath) && ! @mkdir($storagePath, 0777, true)) {

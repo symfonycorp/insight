@@ -190,6 +190,47 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violations', $analysis->getViolations());
         $this->assertCount(250, $analysis->getViolations()->getViolations());
 
+        // Check configuration
+        $configuration = $analysis->getConfiguration();
+        $this->assertEquals(array('gh-pages'), $configuration->getIgnoredBranches());
+        $this->assertEquals('echo "Pre composer script!"', $configuration->getPreComposerScript());
+        $this->assertEquals('echo "Post composer script!"', $configuration->getPostComposerScript());
+        $this->assertEquals("extension=openssl.so\nextension=mcrypt.so\n", $configuration->getPhpIni());
+        $this->assertEquals(array(
+            'vendor',
+            'vendors',
+            'test',
+            'tests',
+            'Tests',
+            'spec',
+            'features',
+            'Fixtures',
+            'DataFixtures',
+            'var',
+        ), $configuration->getGlobalExcludedDirs());
+
+        $this->assertEquals(array(
+            'app/check.php',
+            'app/SymfonyRequirements.php',
+            'web/config.php',
+            'web/app_*.php',
+        ), $configuration->getExcludedPatterns());
+
+        $this->assertEquals(array(
+            'file' => array('*.yml', 'composer.*', '*.xml', '*.yaml'),
+            'php'  => array('*.php'),
+            'twig' => array('*.twig'),
+        ), $configuration->getPatterns());
+
+        $this->assertEquals(array('project_type' => Project::TYPE_SYMFONY2_WEB_PROJECT), $configuration->getParameters());
+        $this->assertEquals(array(
+            'composer.apc_class_loader_should_be_enabled' => array('enabled' => false),
+            'php.class_too_long' => array('enabled' => true, 'max_length' => '500', 'threshold' => '5'),
+            'php.absolute_path_present' => array('enabled' => true, 'allowed_paths' => array('/dev', '/etc', '/proc')),
+        ), $configuration->getRules());
+
+        $this->assertEquals(array(3 => 'abcdef', 2 => 'ghijkl', 1 => 'mnopqr'), $analysis->getPreviousAnalysesReferences());
+
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violation', $firstViolation);

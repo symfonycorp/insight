@@ -111,6 +111,17 @@ class Analysis
     private $violations;
 
     /**
+     * @Type("SensioLabs\Insight\Sdk\Model\Configuration")
+     */
+    private $configuration;
+
+    /**
+     * @Type("previousAnalysesReferences")
+     * @SerializedName("previous-analyses-references")
+     */
+    private $previousAnalysesReferences = array();
+
+    /**
      * @return Link[]
      */
     public function getLinks()
@@ -260,5 +271,21 @@ class Analysis
     public function getViolations()
     {
         return $this->violations;
+    }
+
+    /**
+     * @return Configuration|null
+     */
+    public function getConfiguration()
+    {
+        return $this->configuration;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPreviousAnalysesReferences()
+    {
+        return $this->previousAnalysesReferences;
     }
 }
