@@ -15,7 +15,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ProjectsCommand extends Command
+class ProjectsCommand extends Command implements NeedConfigurationInterface
 {
     protected function configure()
     {

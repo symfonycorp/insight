@@ -19,7 +19,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-class AnalysisCommand extends Command
+class AnalysisCommand extends Command implements NeedConfigurationInterface
 {
     protected function configure()
     {
