@@ -18,7 +18,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class AnalyzeCommand extends Command
+class AnalyzeCommand extends Command implements NeedConfigurationInterface
 {
     protected function configure()
     {
