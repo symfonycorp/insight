@@ -9,7 +9,7 @@ This is the official SDK for the SensioLabsInsight API.
 Installation
 ------------
 
-To install the DSK, run the command below and you will get the latest version:
+To install the SDK, run the command below and you will get the latest version:
 
     composer require sensiolabs/insight
 
