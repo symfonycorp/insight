@@ -9,8 +9,9 @@ This is the official SDK for the SensioLabsInsight API.
 Installation
 ------------
 
-Add `sensiolabs/insight` to the list of requirements of your application's
-`composer.json` file.
+To install the DSK, run the command below and you will get the latest version:
+
+    composer require sensiolabs/insight
 
 Command Line Tool
 -----------------
