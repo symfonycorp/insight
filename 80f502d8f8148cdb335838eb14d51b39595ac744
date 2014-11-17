@@ -1,0 +1,5 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-09-05T12:30:05Z
+
+OK, looking at the code, I think I know why #21 was seeing a very large column. I suspect that one of the project was displaying the string ``This project has no analyses`` in the column (lower than the parrt visible in the screenshot), which indeed requires it to be much larger. We should probably shorten this message too
