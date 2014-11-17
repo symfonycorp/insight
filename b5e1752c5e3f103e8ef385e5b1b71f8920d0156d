@@ -1,0 +1,17 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-11-15T10:58:46Z
+
+This looks wrong to me. ``getViolations()`` is meant to return a Violations collection object, not an array. so it should be initialized with an empty Violations object in the constructor instead
+
+---------------------------------------------------------------------------
+
+by dunglas at 2014-11-15T14:57:59Z
+
+@stof It does not work because the constructor is not called when JMSSerializer deserializes the object. The other solution is to let the entity as it was and add a test for `null` value in the command.
+
+---------------------------------------------------------------------------
+
+by dunglas at 2014-11-15T17:51:27Z
+
+Pushed a cleaner fix.
