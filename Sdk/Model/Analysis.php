@@ -255,7 +255,7 @@ class Analysis
     }
 
     /**
-     * @return Violations
+     * @return Violations|null
      */
     public function getViolations()
     {

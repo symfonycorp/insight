@@ -57,17 +57,21 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
 
         $el = new ExpressionLanguage();
         $counts = array();
-        foreach ($analysis->getViolations() as $violation) {
-            if (!isset($counts[$violation->getCategory()])) {
-                $counts[$violation->getCategory()] = 0;
-            }
-            ++$counts[$violation->getCategory()];
 
-            if (!isset($counts[$violation->getSeverity()])) {
-                $counts[$violation->getSeverity()] = 0;
+        $violations = $analysis->getViolations();
+        if ($violations) {
+            foreach ($violations as $violation) {
+                if (!isset($counts[$violation->getCategory()])) {
+                    $counts[$violation->getCategory()] = 0;
+                }
+                ++$counts[$violation->getCategory()];
+
+                if (!isset($counts[$violation->getSeverity()])) {
+                    $counts[$violation->getSeverity()] = 0;
+                }
+                ++$counts[$violation->getSeverity()];
             }
-            ++$counts[$violation->getSeverity()];
-        };
+        }
         $vars = array(
            'analysis' => $analysis,
            'counts'   => (object) $counts,
