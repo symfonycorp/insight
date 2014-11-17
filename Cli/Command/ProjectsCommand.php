@@ -45,16 +45,16 @@ class ProjectsCommand extends Command implements NeedConfigurationInterface
         $rows = array();
         foreach ($projects as $project) {
             if ($project->getLastAnalysis()) {
-                $lastAnalysis = $project->getLastAnalysis()->getGrade();
+                $grade = $project->getLastAnalysis()->getGrade();
             } else {
-                $lastAnalysis = 'This project has no analyses';
+                $grade = 'This project has no analyses';
             }
-            $rows[] = array($project->getName(), $project->getUuid(), $lastAnalysis);
+            $rows[] = array($project->getName(), $project->getUuid(), $grade);
         }
 
         $this
             ->getHelperSet()->get('table')
-            ->setHeaders(array('name', 'uuid', 'grade of last analysis'))
+            ->setHeaders(array('name', 'uuid', 'grade'))
             ->setRows($rows)
             ->render($output)
         ;
