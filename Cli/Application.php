@@ -65,6 +65,18 @@ class Application extends SymfonyApplication
         return $this->api;
     }
 
+    public function getLongVersion()
+    {
+        $version = parent::getLongVersion().' by <comment>SensioLabs</comment>';
+        $commit = '@git-commit@';
+
+        if ('@'.'git-commit@' !== $commit) {
+            $version .= ' ('.substr($commit, 0, 7).')';
+        }
+
+        return $version;
+    }
+
     protected function getDefaultHelperSet()
     {
         $helperSet = parent::getDefaultHelperSet();
