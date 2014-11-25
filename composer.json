@@ -10,7 +10,7 @@
     ],
     "require": {
         "guzzle/http": "~3.7",
-        "jms/serializer": "0.12.*",
+        "jms/serializer": "~0.12",
         "psr/log": "~1.0",
         "symfony/console": "~2.3",
         "symfony/expression-language": "~2.4"
