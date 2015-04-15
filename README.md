@@ -166,7 +166,7 @@ embed SensioLabsInsight reports into your build workflow, following these steps:
 on your [account page](https://insight.sensiolabs.com/account)
 2. Install the Jenkins `PMD plugin`:
 [How to install a jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Howtoinstallplugins)
-3. Optionnaly you can also install the `Setenv Plugin`
+3. Optionally you can also install the `Setenv Plugin`
 4. Edit your project configuration
 5. If you have Setenv Plugin installed,
 enabled `Set environment variables` then add and adapt the following lines to variables name:
@@ -184,7 +184,7 @@ enabled `Set environment variables` then add and adapt the following lines to va
         $INSIGHT_PROJECT_UUID --format=pmd > insight-pmd.xml
 
 8. Enable `Publish PMD analysis results` using `insight-pmd.xml` as PMD result filename
-9. Optionnaly, you can add the `insight-pmd.xml` file to artifacts to archive
+9. Optionally, you can add the `insight-pmd.xml` file to artifacts to archive
 10. Save and build!
 
 License
