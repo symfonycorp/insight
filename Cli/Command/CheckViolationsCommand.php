@@ -36,8 +36,12 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $projectUuid = $input->getArgument('project-uuid');
+        $projectUuid        = $input->getArgument('project-uuid');
+        $ignoreAssets       = $input->getOption('ignore-assets');
+        $noGlobalViolations = $input->getOption('no-global');
+
         $api = $this->getApplication()->getApi();
+
         $gitRepository = new GitRepository($input->getOption('repository'));
 
         if ($gitRepository->isBare()) {
@@ -65,7 +69,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         $changedFiles = array();
         foreach ($diff->getFiles() as $file) {
             if ($file->getNewName()) {
-                if (!$input->getOption('ignore-assets') && $this->isAsset($file->getNewName())) {
+                if (!$ignoreAssets && $this->isAsset($file->getNewName())) {
                     continue;
                 }
 
@@ -83,16 +87,16 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
             sprintf('<info>Last analysis number is [%d], link page <%s></info>', $sensioInsightAnalysis->getNumber(), $analysisLinkPage)
         );
 
-        if (!($sensioInsightAnalysis->getEndAt() instanceof \DateTime)) {
+        if (null === $sensioInsightAnalysis->getEndAt()) {
             $output->writeln(
                 sprintf(
-                    '<bg=yellow;fg=red>The analysis number [%d], started at [%s] is not yet finished</bg=yellow;fg=red>',
+                    '<error>The analysis number [%d], started at [%s] is not yet finished</error>',
                     $sensioInsightAnalysis->getNumber(),
                     $sensioInsightAnalysis->getBeginAt()->format('d D Y, H:i:s')
                 )
             );
 
-            return;
+            return 1;
         }
 
         if (!$sensioInsightAnalysis->getViolations()) {
@@ -106,41 +110,32 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         $violationsByResources = array();
         $globalViolations = array();
         foreach ($sensioInsightAnalysis->getViolations() as $violation) {
-            if ('' == $violation->getResource()) {
+            if (!$violation->getResource()) {
                 $globalViolations[] = $violation->getMessage();
                 continue;
             }
 
-            if (!$input->getOption('ignore-assets') && $this->isAsset($violation->getResource())) {
-                continue;
-            }
-
             if (in_array($violation->getResource(), $changedFiles)) {
-                if (!isset($violationsByResources[$violation->getResource()])) {
-                    $violationsByResources[$violation->getResource()] = array();
-                }
-
                 $violationsByResources[$violation->getResource()][] = $violation->getMessage();
             }
         }
 
-        if (!count($violationsByResources)) {
+        if (count($violationsByResources)) {
+            foreach ($violationsByResources as $resource => $violations) {
+                $output->writeln(sprintf("\r\n<error>%s</error>", $resource));
+                foreach ($violations as $violationIndex => $violation) {
+                    $output->writeln(sprintf('<fg=yellow>    %d > %s</fg=yellow>', $violationIndex + 1, $violation));
+                }
+            }
+
+        } else {
             $output->writeln(
                 sprintf('<info>No violations found in the last analysis [%d]</info>', $sensioInsightAnalysis->getNumber())
             );
-
-            return;
         }
 
-        foreach ($violationsByResources as $resource => $violations) {
-            $output->writeln(sprintf("\r\n<bg=red>%s</bg=red>", $resource));
-            foreach ($violations as $violationIndex => $violation) {
-                $output->writeln(sprintf('<fg=yellow>    %d > %s</fg=yellow>', $violationIndex + 1, $violation));
-            }
-        }
-
-        if (!$input->getOption('no-global')) {
-            $output->writeln(sprintf("\r\n<bg=red>Global Violations</bg=red>", $resource));
+        if (!$noGlobalViolations) {
+            $output->writeln(sprintf("\r\n<error>Global Violations</error>", $resource));
 
             foreach ($globalViolations as $violationIndex => $violation) {
                 $output->writeln(sprintf('<fg=yellow>    %d > %s</fg=yellow>', $violationIndex + 1, $violation));
