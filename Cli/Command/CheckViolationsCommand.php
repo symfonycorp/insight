@@ -69,7 +69,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         $changedFiles = array();
         foreach ($diff->getFiles() as $file) {
             if ($file->getNewName()) {
-                if (!$ignoreAssets && $this->isAsset($file->getNewName())) {
+                if ($ignoreAssets && $this->isAsset($file->getNewName())) {
                     continue;
                 }
 
@@ -120,21 +120,22 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
             }
         }
 
-        if (count($violationsByResources)) {
-            foreach ($violationsByResources as $resource => $violations) {
-                $output->writeln(sprintf("\r\n<error>%s</error>", $resource));
-                foreach ($violations as $violationIndex => $violation) {
-                    $output->writeln(sprintf('<fg=yellow>    %d > %s</fg=yellow>', $violationIndex + 1, $violation));
-                }
-            }
-
-        } else {
+        if (!$violationsByResources && !$globalViolations) {
             $output->writeln(
                 sprintf('<info>No violations found in the last analysis [%d]</info>', $sensioInsightAnalysis->getNumber())
             );
+
+            return;
         }
 
-        if (!$noGlobalViolations) {
+        foreach ($violationsByResources as $resource => $violations) {
+            $output->writeln(sprintf("\r\n<error>%s</error>", $resource));
+            foreach ($violations as $violationIndex => $violation) {
+                $output->writeln(sprintf('<fg=yellow>    %d > %s</fg=yellow>', $violationIndex + 1, $violation));
+            }
+        }
+
+        if (!$noGlobalViolations && $globalViolations) {
             $output->writeln(sprintf("\r\n<error>Global Violations</error>", $resource));
 
             foreach ($globalViolations as $violationIndex => $violation) {
