@@ -36,8 +36,8 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $projectUuid        = $input->getArgument('project-uuid');
-        $ignoreAssets       = $input->getOption('ignore-assets');
+        $projectUuid = $input->getArgument('project-uuid');
+        $ignoreAssets = $input->getOption('ignore-assets');
         $noGlobalViolations = $input->getOption('no-global');
 
         $api = $this->getApplication()->getApi();
