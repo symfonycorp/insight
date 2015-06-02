@@ -18,11 +18,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Gitonomy\Git\Repository as GitRepository;
 use Gitonomy\Git\RevisionList as GitRevisionList;
-use ZrInsight\Exception\NotFoundGitRepositoryException;
 
 class CheckViolationsCommand extends Command implements NeedConfigurationInterface
 {
-
     protected function configure()
     {
         $this
@@ -38,8 +36,8 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $projectUuid   = $input->getArgument('project-uuid');
-        $api           = $this->getApplication()->getApi();
+        $projectUuid = $input->getArgument('project-uuid');
+        $api = $this->getApplication()->getApi();
         $gitRepository = new GitRepository($input->getOption('repository'));
 
         if ($gitRepository->isBare()) {
@@ -52,7 +50,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
         if ($input->getOption('commits')) {
             $revisionsList = new GitRevisionList($gitRepository, $input->getOption('commits'));
-            $diff          = $gitRepository->getDiff($revisionsList);
+            $diff = $gitRepository->getDiff($revisionsList);
 
         } else {
             $diff = $gitRepository->getHeadCommit()->getDiff();
@@ -79,7 +77,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         $output->writeln(sprintf('<info>Get violations from latest SensioLabs insight analysis...</info>', count($changedFiles)));
 
         $senioInsightAnalysis = $api->getProject($input->getArgument('project-uuid'))->getLastAnalysis();
-        $analysisLinkPage     = sprintf('%s/projects/%s/analyses/%d', $api::ENDPOINT, $projectUuid, $senioInsightAnalysis->getNumber());
+        $analysisLinkPage = sprintf('%s/projects/%s/analyses/%d', $api::ENDPOINT, $projectUuid, $senioInsightAnalysis->getNumber());
 
         $output->writeln(
             sprintf('<info>Last analysis number is [%d], link page <%s></info>', $senioInsightAnalysis->getNumber(), $analysisLinkPage)
@@ -106,7 +104,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         }
 
         $violationsByResources = array();
-        $globalViolations      = array();
+        $globalViolations = array();
         foreach ($senioInsightAnalysis->getViolations() as $violation) {
             if ('' == $violation->getResource()) {
                 $globalViolations[] = $violation->getMessage();
