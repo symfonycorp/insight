@@ -27,10 +27,10 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
             ->setName('check-violations')
             ->addArgument('project-uuid', InputArgument::REQUIRED, 'SensioLabs insight project UUID')
             ->addOption('repository'    , null, InputOption::VALUE_REQUIRED, 'The GIT repository path, default to current working directory', getcwd())
-            ->addOption('commits'       , null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'List of commits')
-            ->addOption('no-global'     , null, InputOption::VALUE_NONE, 'Show global violations', null)
-            ->addOption('with-assets'   , null, InputOption::VALUE_NONE, 'Ignore assets violations(css, js, coffee, less, sass)', null)
-            ->setDescription('Check the last commit or between given commits for SensioLabs insight violations')
+            ->addOption('commits'       , null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'List of commits hashes')
+            ->addOption('no-global'     , null, InputOption::VALUE_NONE, 'Disable showing global violations', null)
+            ->addOption('ignore-assets' , null, InputOption::VALUE_NONE, 'Ignore assets violations(*.css, *.js, *.coffee, *.less, *.sass)', null)
+            ->setDescription('Check for violations occurred in one or multiple commits in the last analysis.')
         ;
     }
 
@@ -65,7 +65,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         $changedFiles = array();
         foreach ($diff->getFiles() as $file) {
             if ($file->getNewName()) {
-                if (!$input->getOption('with-assets') && $this->isAsset($file->getNewName())) {
+                if (!$input->getOption('ignore-assets') && $this->isAsset($file->getNewName())) {
                     continue;
                 }
 
@@ -76,28 +76,28 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
         $output->writeln(sprintf('<info>Found [%d] changed files</info>', count($changedFiles)));
         $output->writeln(sprintf('<info>Get violations from latest SensioLabs insight analysis...</info>', count($changedFiles)));
 
-        $senioInsightAnalysis = $api->getProject($input->getArgument('project-uuid'))->getLastAnalysis();
-        $analysisLinkPage = sprintf('%s/projects/%s/analyses/%d', $api::ENDPOINT, $projectUuid, $senioInsightAnalysis->getNumber());
+        $sensioInsightAnalysis = $api->getProject($input->getArgument('project-uuid'))->getLastAnalysis();
+        $analysisLinkPage = sprintf('%s/projects/%s/analyses/%d', $api::ENDPOINT, $projectUuid, $sensioInsightAnalysis->getNumber());
 
         $output->writeln(
-            sprintf('<info>Last analysis number is [%d], link page <%s></info>', $senioInsightAnalysis->getNumber(), $analysisLinkPage)
+            sprintf('<info>Last analysis number is [%d], link page <%s></info>', $sensioInsightAnalysis->getNumber(), $analysisLinkPage)
         );
 
-        if (!($senioInsightAnalysis->getEndAt() instanceof \DateTime)) {
+        if (!($sensioInsightAnalysis->getEndAt() instanceof \DateTime)) {
             $output->writeln(
                 sprintf(
                     '<bg=yellow;fg=red>The analysis number [%d], started at [%s] is not yet finished</bg=yellow;fg=red>',
-                    $senioInsightAnalysis->getNumber(),
-                    $senioInsightAnalysis->getBeginAt()->format('d D Y, H:i:s')
+                    $sensioInsightAnalysis->getNumber(),
+                    $sensioInsightAnalysis->getBeginAt()->format('d D Y, H:i:s')
                 )
             );
 
             return;
         }
 
-        if (!$senioInsightAnalysis->getViolations()) {
+        if (!$sensioInsightAnalysis->getViolations()) {
             $output->writeln(
-                sprintf('<info>No violations found in the last analysis [%d]</info>', $senioInsightAnalysis->getNumber())
+                sprintf('<info>No violations found in the last analysis [%d]</info>', $sensioInsightAnalysis->getNumber())
             );
 
             return;
@@ -105,13 +105,13 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
         $violationsByResources = array();
         $globalViolations = array();
-        foreach ($senioInsightAnalysis->getViolations() as $violation) {
+        foreach ($sensioInsightAnalysis->getViolations() as $violation) {
             if ('' == $violation->getResource()) {
                 $globalViolations[] = $violation->getMessage();
                 continue;
             }
 
-            if (!$input->getOption('with-assets') && $this->isAsset($violation->getResource())) {
+            if (!$input->getOption('ignore-assets') && $this->isAsset($violation->getResource())) {
                 continue;
             }
 
@@ -126,7 +126,7 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
         if (!count($violationsByResources)) {
             $output->writeln(
-                sprintf('<info>No violations found in the last analysis [%d]</info>', $senioInsightAnalysis->getNumber())
+                sprintf('<info>No violations found in the last analysis [%d]</info>', $sensioInsightAnalysis->getNumber())
             );
 
             return;
@@ -150,6 +150,6 @@ class CheckViolationsCommand extends Command implements NeedConfigurationInterfa
 
     private function isAsset($filename)
     {
-        return preg_match('/\.(css|js|coffee|less|sass)/i', $filename);
+        return preg_match('/\.(css|js|coffee|less|sass)$/i', $filename);
     }
 }
