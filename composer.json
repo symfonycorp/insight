@@ -23,11 +23,10 @@
         "monolog/monolog": "Will add some log capability to this library"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "SensioLabs\\Insight\\": ""
         }
     },
-    "target-dir": "SensioLabs/Insight",
     "bin": ["bin/insight"],
     "extra": {
         "branch-alias": {
