@@ -4,9 +4,5 @@
     "output": "build/insight.phar",
     "stub": true,
     "directories": ["."],
-    "git-commit": "git-commit",
-    "map": [
-        { "Cli": "SensioLabs/Insight/Cli" },
-        { "Sdk": "SensioLabs/Insight/Sdk" }
-    ]
+    "git-commit": "git-commit"
 }
