@@ -96,11 +96,11 @@ class Project
     public function toArray()
     {
         return array(
-            'name'          => $this->name,
-            'public'        => !$this->private,
-            'description'   => $this->description,
+            'name' => $this->name,
+            'public' => !$this->private,
+            'description' => $this->description,
             'repositoryUrl' => $this->repositoryUrl,
-            'type'          => $this->type,
+            'type' => $this->type,
             'configuration' => $this->configuration,
         );
     }

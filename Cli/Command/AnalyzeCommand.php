@@ -54,7 +54,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
 
             usleep(200000);
 
-            $position++;
+            ++$position;
         }
 
         $analysis = $api->getAnalysis($projectUuid, $analysis->getNumber());

@@ -17,8 +17,8 @@ use JMS\Serializer\Annotation\XmlList;
 
 class Analysis
 {
-    const STATUS_ORDERED  = 'ordered';
-    const STATUS_RUNNING  = 'running';
+    const STATUS_ORDERED = 'ordered';
+    const STATUS_RUNNING = 'running';
     const STATUS_MEASURED = 'measured';
     const STATUS_ANALYZED = 'analyzed';
     const STATUS_FINISHED = 'finished';

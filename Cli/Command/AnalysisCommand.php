@@ -74,7 +74,7 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
         }
         $vars = array(
            'analysis' => $analysis,
-           'counts'   => (object) $counts,
+           'counts' => (object) $counts,
         );
 
         if ($el->evaluate($expr, $vars)) {

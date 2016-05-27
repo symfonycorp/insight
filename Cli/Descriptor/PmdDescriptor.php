@@ -7,20 +7,20 @@ use SensioLabs\Insight\Sdk\Model\Violation;
 
 class PmdDescriptor extends AbstractDescriptor
 {
-    const PHPMD_PRIORITY_HIGH           = 1;
-    const PHPMD_PRIORITY_MEDIUM_HIGH    = 2;
-    const PHPMD_PRIORITY_MEDIUM         = 3;
-    const PHPMD_PRIORITY_MEDIUM_LOW     = 4;
-    const PHPMD_PRIORITY_LOW            = 5;
+    const PHPMD_PRIORITY_HIGH = 1;
+    const PHPMD_PRIORITY_MEDIUM_HIGH = 2;
+    const PHPMD_PRIORITY_MEDIUM = 3;
+    const PHPMD_PRIORITY_MEDIUM_LOW = 4;
+    const PHPMD_PRIORITY_LOW = 5;
 
     protected function describeAnalysis(Analysis $analysis, array $options = array())
     {
         $output = $options['output'];
 
-        $xml   = new \DOMDocument('1.0', 'UTF-8');
+        $xml = new \DOMDocument('1.0', 'UTF-8');
         $xpath = new \DOMXPath($xml);
 
-        $xml->formatOutput       = true;
+        $xml->formatOutput = true;
         $xml->preserveWhiteSpace = true;
 
         $pmd = $xml->createElement('pmd');
@@ -31,7 +31,7 @@ class PmdDescriptor extends AbstractDescriptor
         $violations = $analysis->getViolations();
         if ($violations) {
             foreach ($violations as $violation) {
-                /**
+                /*
                  * @var $violation \SensioLabs\Insight\Sdk\Model\Violation
                  */
                 $filename = $violation->getResource();
