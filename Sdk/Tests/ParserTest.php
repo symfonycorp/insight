@@ -61,7 +61,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $error);
-        $this->assertSame($expectedFields , $error->getEntityBodyParameters());
+        $this->assertSame($expectedFields, $error->getEntityBodyParameters());
     }
 
     public function tearDown()

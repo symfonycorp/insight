@@ -27,6 +27,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             ->addArgument('project-uuid', InputArgument::REQUIRED)
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'To output in other formats', 'txt')
             ->addOption('reference', null, InputOption::VALUE_REQUIRED, 'The git reference to analyze')
+            ->addOption('show-ignored-violations', null, InputOption::VALUE_NONE, 'Show ignored violations')
             ->setDescription('Analyze a project')
         ;
     }
@@ -54,7 +55,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
 
             usleep(200000);
 
-            $position++;
+            ++$position;
         }
 
         $analysis = $api->getAnalysis($projectUuid, $analysis->getNumber());
@@ -65,7 +66,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         }
 
         $helper = new DescriptorHelper($api->getSerializer());
-        $helper->describe($output, $analysis, $input->getOption('format'));
+        $helper->describe($output, $analysis, $input->getOption('format'), $input->getOption('show-ignored-violations'));
 
         if ('txt' === $input->getOption('format') && OutputInterface::VERBOSITY_VERBOSE > $output->getVerbosity()) {
             $output->writeln('');

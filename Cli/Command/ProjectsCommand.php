@@ -34,7 +34,7 @@ class ProjectsCommand extends Command implements NeedConfigurationInterface
         $nbPage = ceil($projectsResource->getTotal() / 10);
         $page = 1;
         while ($page < $nbPage) {
-            $page++;
+            ++$page;
             $projects = array_merge($projects, $api->getProjects($page)->getProjects());
         }
 

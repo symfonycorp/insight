@@ -12,12 +12,19 @@
 namespace SensioLabs\Insight\Cli\Descriptor;
 
 use SensioLabs\Insight\Sdk\Model\Analysis;
+use SensioLabs\Insight\Sdk\Model\Violation;
 
 abstract class AbstractDescriptor
 {
     public function describe($object, array $options = array())
     {
         if ($object instanceof Analysis) {
+            if (!$options['show_ignored_violations']) {
+                $object->getViolations()->filter(function (Violation $v) {
+                    return !$v->isIgnored();
+                });
+            }
+
             return $this->describeAnalysis($object, $options);
         }
 

@@ -231,5 +231,4 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     {
         return new Response($statusCode, null, file_get_contents(sprintf('%s/fixtures/%s.xml', __DIR__, $fixture)));
     }
-
 }

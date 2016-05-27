@@ -111,7 +111,7 @@ class Configuration
             }
         }
 
-        if (!is_dir($storagePath) && ! @mkdir($storagePath, 0777, true)) {
+        if (!is_dir($storagePath) && !@mkdir($storagePath, 0777, true)) {
             throw new \RuntimeException(sprintf('The directory "%s" does not exist and could not be created.', $storagePath));
         }
 

@@ -39,4 +39,16 @@ class Violations implements \Countable, \IteratorAggregate
     {
         return $this->violations;
     }
+
+    /**
+     * @param callable $callback
+     */
+    public function filter($callback)
+    {
+        if (!is_callable($callback)) {
+            throw new \InvalidArgumentException('The callback is not callable.');
+        }
+
+        $this->violations = array_filter($this->violations, $callback);
+    }
 }
