@@ -62,7 +62,7 @@ class TextDescriptor extends AbstractDescriptor
             $template = <<<EOL
 Resource: <comment>{{ resource }}:{{ line }}</comment>
 Category: <comment>{{ category }}</comment> Severity: <comment>{{ severity }}</comment>
-Title:    <comment>{{ title }}</comment>
+Title:    <comment>{{ title }}</comment>{{ ignored }}
 Message:  <comment>{{ message }}</comment>
 
 EOL;
@@ -74,6 +74,7 @@ EOL;
                     '{{ severity }}' => $violation->getSeverity(),
                     '{{ title }}' => $violation->getTitle(),
                     '{{ message }}' => $violation->getMessage(),
+                    '{{ ignored }}' => $violation->isIgnored() ? ' (ignored)' : null,
                 )));
             }
         }

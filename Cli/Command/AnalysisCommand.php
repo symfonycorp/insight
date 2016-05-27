@@ -28,6 +28,7 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
             ->addArgument('project-uuid', InputArgument::REQUIRED)
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'To output in other formats', 'txt')
             ->addOption('fail-condition', null, InputOption::VALUE_REQUIRED, '')
+            ->addOption('show-ignored-violations', null, InputOption::VALUE_NONE, 'Show ignored violations')
             ->setDescription('Show the last project analysis')
         ;
     }
@@ -44,7 +45,7 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
         }
 
         $helper = new DescriptorHelper($api->getSerializer());
-        $helper->describe($output, $analysis, $input->getOption('format'));
+        $helper->describe($output, $analysis, $input->getOption('format'), $input->getOption('show-ignored-violations'));
 
         if ('txt' === $input->getOption('format') && OutputInterface::VERBOSITY_VERBOSE > $output->getVerbosity()) {
             $output->writeln('');

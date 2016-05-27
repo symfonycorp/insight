@@ -34,14 +34,15 @@ class DescriptorHelper extends Helper
         ;
     }
 
-    public function describe(OutputInterface $output, $object, $format = null, $raw = false, $namespace = null)
+    public function describe(OutputInterface $output, $object, $format = null, $showIgnoredViolation = false)
     {
         $options = array(
-            'raw_text' => $raw,
+            'raw_text' => false,
             'format' => $format ?: 'txt',
             'output' => $output,
+            'show_ignored_violations' => $showIgnoredViolation,
         );
-        $options['type'] = !$raw && 'txt' === $options['format'] ? OutputInterface::OUTPUT_NORMAL : OutputInterface::OUTPUT_RAW;
+        $options['type'] = 'txt' === $options['format'] ? OutputInterface::OUTPUT_NORMAL : OutputInterface::OUTPUT_RAW;
 
         if (!isset($this->descriptors[$options['format']])) {
             throw new \InvalidArgumentException(sprintf('Unsupported format "%s".', $options['format']));

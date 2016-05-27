@@ -41,6 +41,12 @@ class Violation
     private $category;
 
     /**
+     * @Type("boolean")
+     * @XmlAttribute
+     */
+    private $ignored;
+
+    /**
      * @return string
      */
     public function getTitle()
@@ -86,5 +92,13 @@ class Violation
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIgnored()
+    {
+        return $this->ignored;
     }
 }
