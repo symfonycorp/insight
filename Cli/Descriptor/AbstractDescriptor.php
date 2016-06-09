@@ -19,7 +19,7 @@ abstract class AbstractDescriptor
     public function describe($object, array $options = array())
     {
         if ($object instanceof Analysis) {
-            if (!$options['show_ignored_violations']) {
+            if (!$options['show_ignored_violations'] && $object->getViolations()) {
                 $object->getViolations()->filter(function (Violation $v) {
                     return !$v->isIgnored();
                 });
