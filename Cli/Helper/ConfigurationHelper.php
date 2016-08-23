@@ -20,9 +20,13 @@ class ConfigurationHelper extends Helper
     {
         $configuration = new Configuration();
 
-        $configuration->setUserUuid($this->askValue($input, $output, 'User Uuid', $configuration->getUserUuid()));
-        $configuration->setApiToken($this->askValue($input, $output, 'Api Token', $configuration->getApiToken()));
-        $configuration->setApiEndpoint($this->askValue($input, $output, 'Api Endpoint', $configuration->getApiEndpoint() ?: $this->apiEndpoint));
+        $userUuid = $input->getOption('user-uuid') ?: $configuration->getUserUuid();
+        $apiToken = $input->getOption('api-token') ?: $configuration->getApiToken();
+        $apiEndpoint = $input->getOption('api-endpoint') ?: $configuration->getApiEndpoint();
+
+        $configuration->setUserUuid($this->askValue($input, $output, 'User Uuid', $userUuid));
+        $configuration->setApiToken($this->askValue($input, $output, 'Api Token', $apiToken));
+        $configuration->setApiEndpoint($this->askValue($input, $output, 'Api Endpoint', $apiEndpoint ?: $this->apiEndpoint));
 
         $this->saveConfiguration($input, $output, $configuration);
     }
@@ -84,19 +88,23 @@ class ConfigurationHelper extends Helper
 
     private function askValue(InputInterface $input, OutputInterface $output, $varname, $default = null)
     {
+        $validator = function ($v) use ($varname) {
+            if (!$v) {
+                throw new \InvalidArgumentException(sprintf('Your must provide a %s!', $varname));
+            }
+
+            return $v;
+        };
+
+        if (!$input->isInteractive()) {
+            return call_user_func($validator, $default);
+        }
+
         if ($default) {
             $question = sprintf('What is your %s? [%s] ', $varname, $default);
         } else {
             $question = sprintf('What is your %s? ', $varname);
         }
-
-        $validator = function ($v) {
-            if (!$v) {
-                throw new \InvalidArgumentException('Your must answer this question.');
-            }
-
-            return $v;
-        };
 
         $dialog = $this->getHelperSet()->get('dialog');
 
@@ -106,6 +114,8 @@ class ConfigurationHelper extends Helper
     private function saveConfiguration(InputInterface $input, OutputInterface $output, Configuration $configuration)
     {
         if (!$input->isInteractive()) {
+            $configuration->save();
+
             return;
         }
 
