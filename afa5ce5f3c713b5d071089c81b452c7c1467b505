@@ -1,0 +1,11 @@
+---------------------------------------------------------------------------
+
+by stof at 2016-08-23T13:31:32Z
+
+you should also enable the cache for ``$HOME/.composer/cache/files`` to cache the composer downloads between builds (Travis does not do it automatically yet, even though there is a discussion in an issue about supporting the composer cache folder automatically, as they do for bundler)
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2016-08-23T13:33:49Z
+
+@stof Thanks. Done ;)
