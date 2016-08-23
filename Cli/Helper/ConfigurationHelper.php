@@ -20,21 +20,13 @@ class ConfigurationHelper extends Helper
     {
         $configuration = new Configuration();
 
-        if ($apiToken = $input->getOption('api-token')) {
-            $configuration->setApiToken($apiToken);
-        }
+        $userUuid = $input->getOption('user-uuid') ?: $configuration->getUserUuid();
+        $apiToken = $input->getOption('api-token') ?: $configuration->getApiToken();
+        $apiEndpoint = $input->getOption('api-endpoint') ?: $configuration->getApiEndpoint();
 
-        if ($userUuid = $input->getOption('user-uuid')) {
-            $configuration->setUserUuid($userUuid);
-        }
-
-        if ($apiEndpoint = $input->getOption('api-endpoint')) {
-            $configuration->setApiEndpoint($apiEndpoint);
-        }
-
-        $configuration->setUserUuid($this->askValue($input, $output, 'User Uuid', $configuration->getUserUuid()));
-        $configuration->setApiToken($this->askValue($input, $output, 'Api Token', $configuration->getApiToken()));
-        $configuration->setApiEndpoint($this->askValue($input, $output, 'Api Endpoint', $configuration->getApiEndpoint() ?: $this->apiEndpoint));
+        $configuration->setUserUuid($this->askValue($input, $output, 'User Uuid', $userUuid));
+        $configuration->setApiToken($this->askValue($input, $output, 'Api Token', $apiToken));
+        $configuration->setApiEndpoint($this->askValue($input, $output, 'Api Endpoint', $apiEndpoint ?: $this->apiEndpoint));
 
         $this->saveConfiguration($input, $output, $configuration);
     }
@@ -96,12 +88,6 @@ class ConfigurationHelper extends Helper
 
     private function askValue(InputInterface $input, OutputInterface $output, $varname, $default = null)
     {
-        if ($default) {
-            $question = sprintf('What is your %s? [%s] ', $varname, $default);
-        } else {
-            $question = sprintf('What is your %s? ', $varname);
-        }
-
         $validator = function ($v) use ($varname) {
             if (!$v) {
                 throw new \InvalidArgumentException(sprintf('Your must provide a %s!', $varname));
@@ -110,20 +96,36 @@ class ConfigurationHelper extends Helper
             return $v;
         };
 
+        if (!$input->isInteractive()) {
+            return call_user_func($validator, $default);
+        }
+
+        if ($default) {
+            $question = sprintf('What is your %s? [%s] ', $varname, $default);
+        } else {
+            $question = sprintf('What is your %s? ', $varname);
+        }
+
         $dialog = $this->getHelperSet()->get('dialog');
 
-        return $dialog->askAndValidate($output, $question, $validator, ($input->isInteractive() ? false : 1), $default);
+        return $dialog->askAndValidate($output, $question, $validator, false, $default);
     }
 
     private function saveConfiguration(InputInterface $input, OutputInterface $output, Configuration $configuration)
     {
+        if (!$input->isInteractive()) {
+            $configuration->save();
+
+            return;
+        }
+
         $question = 'Do you want to save this new configuration? [Y/n] ';
         if (PHP_VERSION_ID > 50400) {
             $question = json_encode($configuration->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)."\n\n".$question;
         }
         $dialog = $this->getHelperSet()->get('dialog');
 
-        if ($dialog->askConfirmation($output, $question) or !$input->isInteractive()) {
+        if ($dialog->askConfirmation($output, $question)) {
             $configuration->save();
         }
     }
