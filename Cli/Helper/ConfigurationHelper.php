@@ -102,9 +102,9 @@ class ConfigurationHelper extends Helper
             $question = sprintf('What is your %s? ', $varname);
         }
 
-        $validator = function ($v) {
+        $validator = function ($v) use ($varname) {
             if (!$v) {
-                throw new \InvalidArgumentException('Your must answer this question.');
+                throw new \InvalidArgumentException(sprintf('Your must provide a %s!', $varname));
             }
 
             return $v;
@@ -112,7 +112,7 @@ class ConfigurationHelper extends Helper
 
         $dialog = $this->getHelperSet()->get('dialog');
 
-        return $dialog->askAndValidate($output, $question, $validator, false, $default);
+        return $dialog->askAndValidate($output, $question, $validator, ($input->isInteractive() ? false : 1), $default);
     }
 
     private function saveConfiguration(InputInterface $input, OutputInterface $output, Configuration $configuration)
