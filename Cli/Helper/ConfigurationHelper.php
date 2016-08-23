@@ -20,6 +20,18 @@ class ConfigurationHelper extends Helper
     {
         $configuration = new Configuration();
 
+        if ($apiToken = $input->getOption('api-token')) {
+            $configuration->setApiToken($apiToken);
+        }
+
+        if ($userUuid = $input->getOption('user-uuid')) {
+            $configuration->setUserUuid($userUuid);
+        }
+
+        if ($apiEndpoint = $input->getOption('api-endpoint')) {
+            $configuration->setApiEndpoint($apiEndpoint);
+        }
+
         $configuration->setUserUuid($this->askValue($input, $output, 'User Uuid', $configuration->getUserUuid()));
         $configuration->setApiToken($this->askValue($input, $output, 'Api Token', $configuration->getApiToken()));
         $configuration->setApiEndpoint($this->askValue($input, $output, 'Api Endpoint', $configuration->getApiEndpoint() ?: $this->apiEndpoint));
@@ -105,17 +117,13 @@ class ConfigurationHelper extends Helper
 
     private function saveConfiguration(InputInterface $input, OutputInterface $output, Configuration $configuration)
     {
-        if (!$input->isInteractive()) {
-            return;
-        }
-
         $question = 'Do you want to save this new configuration? [Y/n] ';
         if (PHP_VERSION_ID > 50400) {
             $question = json_encode($configuration->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)."\n\n".$question;
         }
         $dialog = $this->getHelperSet()->get('dialog');
 
-        if ($dialog->askConfirmation($output, $question)) {
+        if ($dialog->askConfirmation($output, $question) or !$input->isInteractive()) {
             $configuration->save();
         }
     }
