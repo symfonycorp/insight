@@ -166,9 +166,9 @@ embed SensioLabsInsight reports into your build workflow, following these steps:
 on your [account page](https://insight.sensiolabs.com/account)
 2. Install the Jenkins `PMD plugin`:
 [How to install a jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Howtoinstallplugins)
-3. Optionally you can also install the `Setenv Plugin`
+3. Optionally you can also install the `EnvInject  Plugin`
 4. Edit your project configuration
-5. If you have Setenv Plugin installed,
+5. If you have EnvInject Plugin installed,
 enabled `Set environment variables` then add and adapt the following lines to variables name:
 
         INSIGHT_API_TOKEN="Your API Token"
@@ -176,7 +176,7 @@ enabled `Set environment variables` then add and adapt the following lines to va
         INSIGHT_PROJECT_UUID="Your project UUID"
 
 6. Add a `Execute shell` build step
-7. In the new shell step add and adapt the following command (if you don't have Setenv plugin, replace variables by plain values):
+7. In the new shell step add and adapt the following command (if you don't have EnvInject plugin, replace variables by plain values):
 
         /path/to/insight-sdk/bin/insight analysis \
         --user-uuid $INSIGHT_USER_UUID \
