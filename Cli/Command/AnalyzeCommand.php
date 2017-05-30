@@ -28,6 +28,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'To output in other formats', 'txt')
             ->addOption('reference', null, InputOption::VALUE_REQUIRED, 'The git reference to analyze')
             ->addOption('show-ignored-violations', null, InputOption::VALUE_NONE, 'Show ignored violations')
+            ->addOption('fail-condition', null, InputOption::VALUE_REQUIRED, '')
             ->setDescription('Analyze a project')
         ;
     }
@@ -72,5 +73,11 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             $output->writeln('');
             $output->writeln(sprintf('Run <comment>%s %s %s -v</comment> to get the full report', $_SERVER['PHP_SELF'], 'analysis', $projectUuid));
         }
+
+        if (!$expr = $input->getOption('fail-condition')) {
+            return;
+        }
+
+        return $this->getHelperSet()->get('fail_condition')->evaluate($analysis, $expr);
     }
 }
