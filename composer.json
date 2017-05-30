@@ -17,7 +17,8 @@
     },
     "require-dev": {
         "guzzle/plugin-mock": "~3.4",
-        "monolog/monolog": "~1.4"
+        "monolog/monolog": "~1.4",
+        "symfony/phpunit-bridge": "^3.3"
     },
     "suggest": {
         "monolog/monolog": "Will add some log capability to this library"
