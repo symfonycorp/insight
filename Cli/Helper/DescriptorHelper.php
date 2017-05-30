@@ -28,9 +28,9 @@ class DescriptorHelper extends Helper
     {
         $this
             ->register('json', new JsonDescriptor($serializer))
-            ->register('pmd',  new PmdDescriptor())
-            ->register('txt',  new TextDescriptor())
-            ->register('xml',  new XmlDescriptor($serializer))
+            ->register('pmd', new PmdDescriptor())
+            ->register('txt', new TextDescriptor())
+            ->register('xml', new XmlDescriptor($serializer))
         ;
     }
 

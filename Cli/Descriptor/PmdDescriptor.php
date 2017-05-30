@@ -51,10 +51,10 @@ class PmdDescriptor extends AbstractDescriptor
                 $node->appendChild($violationNode);
 
                 $violationNode->setAttribute('beginline', $violation->getLine());
-                $violationNode->setAttribute('endline',   $violation->getLine());
-                $violationNode->setAttribute('rule',      $violation->getTitle());
-                $violationNode->setAttribute('ruleset',   $violation->getCategory());
-                $violationNode->setAttribute('priority',  $this->getPriority($violation));
+                $violationNode->setAttribute('endline', $violation->getLine());
+                $violationNode->setAttribute('rule', $violation->getTitle());
+                $violationNode->setAttribute('ruleset', $violation->getCategory());
+                $violationNode->setAttribute('priority', $this->getPriority($violation));
             }
         }
 

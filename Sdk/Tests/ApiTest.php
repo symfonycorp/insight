@@ -42,7 +42,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Guzzle\Common\Exception\InvalidArgumentException
+     * @expectedException \Guzzle\Common\Exception\InvalidArgumentException
      * @expectedExceptionMessage Config is missing the following keys: api_token, user_uuid
      */
     public function testConstructorWithoutOption()

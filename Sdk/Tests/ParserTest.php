@@ -35,7 +35,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException SensioLabs\Insight\Sdk\Exception\ApiParserException
+     * @expectedException \SensioLabs\Insight\Sdk\Exception\ApiParserException
      * @expectedExceptionMessage Could not transform this xml to a \DOMDocument instance.
      * @dataProvider getParseErrorsFailedIfDocumentIfInvalidTests
      */
