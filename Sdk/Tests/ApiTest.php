@@ -36,7 +36,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $client = new Client();
         $client->addSubscriber($this->pluginMockResponse);
 
-        $this->logger = $this->getMock('Psr\Log\LoggerInterface');
+        $this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
 
         $this->api = new Api(array('api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'), $client, null, $this->logger);
     }
