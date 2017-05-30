@@ -108,6 +108,7 @@ class Application extends SymfonyApplication
         $defaultCommands[] = new LocalCommand\AnalyzeCommand();
         $defaultCommands[] = new LocalCommand\ConfigureCommand();
         $defaultCommands[] = new LocalCommand\ProjectsCommand();
+        $defaultCommands[] = new LocalCommand\CheckViolationsCommand();
         $defaultCommands[] = new LocalCommand\SelfUpdateCommand();
 
         return $defaultCommands;

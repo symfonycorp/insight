@@ -49,6 +49,19 @@ To export an analysis report:
 
     $ php insight.phar analysis UUID --format="xml" # or --format="json" or --format="pmd"
 
+To check violations between commits:
+```shell
+# Current directory is the default repository and head commit is the default commit
+php insight.phar check-violations UUID
+
+php insight.phar check-violations UUID --repository='/path/to/git/repository'
+
+php insight.phar check-violations UUID --repository='/path/to/git/repository' --commits 722a291a6fdffe7b28f15e7b5edd6a8dc4768934
+
+# Possibility to check multiple commits hashes
+php insight.phar check-violations UUID --repository='/path/to/git/repository' --commits 722a291a6fdffe7b28f15e7b5edd6a8dc4768934 1d8ca769395071fc0807e07d3c9290464c8bf593
+```
+
 Configuration
 -------------
 
