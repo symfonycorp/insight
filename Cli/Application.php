@@ -15,6 +15,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use SensioLabs\Insight\Cli\Command as LocalCommand;
 use SensioLabs\Insight\Cli\Helper\ConfigurationHelper;
+use SensioLabs\Insight\Cli\Helper\FailConditionHelper;
 use SensioLabs\Insight\Sdk\Api;
 use Symfony\Component\Console\Application as SymfonyApplication;
 use Symfony\Component\Console\Command\Command;
@@ -82,6 +83,7 @@ class Application extends SymfonyApplication
         $helperSet = parent::getDefaultHelperSet();
 
         $helperSet->set(new ConfigurationHelper(Api::ENDPOINT));
+        $helperSet->set(new FailConditionHelper());
 
         return $helperSet;
     }

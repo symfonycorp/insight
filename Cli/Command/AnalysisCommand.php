@@ -17,7 +17,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 class AnalysisCommand extends Command implements NeedConfigurationInterface
 {
@@ -56,30 +55,6 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
             return;
         }
 
-        $el = new ExpressionLanguage();
-        $counts = array();
-
-        $violations = $analysis->getViolations();
-        if ($violations) {
-            foreach ($violations as $violation) {
-                if (!isset($counts[$violation->getCategory()])) {
-                    $counts[$violation->getCategory()] = 0;
-                }
-                ++$counts[$violation->getCategory()];
-
-                if (!isset($counts[$violation->getSeverity()])) {
-                    $counts[$violation->getSeverity()] = 0;
-                }
-                ++$counts[$violation->getSeverity()];
-            }
-        }
-        $vars = array(
-           'analysis' => $analysis,
-           'counts' => (object) $counts,
-        );
-
-        if ($el->evaluate($expr, $vars)) {
-            return 70;
-        }
+        return $this->getHelperSet()->get('fail_condition')->evaluate($analysis, $expr);
     }
 }
