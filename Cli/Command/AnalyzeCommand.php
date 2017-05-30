@@ -52,7 +52,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             }
 
             if ('txt' === $input->getOption('format')) {
-                if ($input->getOption('no-ansi')) {
+                if (!$output->isDecorated()) {
                     if ($noAnsiStatus !== $analysis->getStatusMessage()) {
                         $output->writeln($noAnsiStatus = $analysis->getStatusMessage());
                     }
