@@ -40,14 +40,25 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         $analysis = $api->analyze($projectUuid, $input->getOption('reference'));
 
         $chars = array('-', '\\', '|', '/');
+        $noAnsiStatus = 'Analysis queued';
+        $output->writeln($noAnsiStatus);
+
         $position = 0;
+
         while (true) {
             // we don't check the status too often
-            if (0 == $position % 2) {
+            if (0 === $position % 2) {
                 $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
             }
+
             if ('txt' === $input->getOption('format')) {
-                $output->write(sprintf("%s %-80s\r", $chars[$position % 4], $analysis->getStatusMessage()));
+                if ($input->getOption('no-ansi')) {
+                    if ($noAnsiStatus !== $analysis->getStatusMessage()) {
+                        $output->writeln($noAnsiStatus = $analysis->getStatusMessage());
+                    }
+                } else {
+                    $output->write(sprintf("%s %-80s\r", $chars[$position % 4], $analysis->getStatusMessage()));
+                }
             }
 
             if ($analysis->isFinished()) {
