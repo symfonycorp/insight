@@ -26,25 +26,33 @@ class FailConditionHelper extends Helper
 
     public function evaluate(Analysis $analysis, $expr)
     {
-        $counts = array();
+        $counts = array(
+            // Category
+            'architecture' => 0,
+            'bugrisk' => 0,
+            'codestyle' => 0,
+            'deadcode' => 0,
+            'performance' => 0,
+            'readability' => 0,
+            'security' => 0,
 
-        $violations = $analysis->getViolations();
-        if ($violations) {
-            foreach ($violations as $violation) {
-                if (!isset($counts[$violation->getCategory()])) {
-                    $counts[$violation->getCategory()] = 0;
-                }
-                ++$counts[$violation->getCategory()];
+            // Severity
+            'critical' => 0,
+            'major' => 0,
+            'minor' => 0,
+            'info' => 0,
+        );
 
-                if (!isset($counts[$violation->getSeverity()])) {
-                    $counts[$violation->getSeverity()] = 0;
-                }
-                ++$counts[$violation->getSeverity()];
-            }
+        $violations = $analysis->getViolations() ?: array();
+
+        foreach ($violations as $violation) {
+            ++$counts[$violation->getCategory()];
+            ++$counts[$violation->getSeverity()];
         }
+
         $vars = array(
-           'analysis' => $analysis,
-           'counts' => (object) $counts,
+            'analysis' => $analysis,
+            'counts' => (object) $counts,
         );
 
         if ($this->el->evaluate($expr, $vars)) {
