@@ -11,9 +11,10 @@
 
 namespace SensioLabs\Insight\Tests\Sdk\Model;
 
+use PHPUnit\Framework\TestCase;
 use SensioLabs\Insight\Sdk\Model\Violations;
 
-class ViolationsTest extends \PHPUnit_Framework_TestCase
+class ViolationsTest extends TestCase
 {
     public function testCount()
     {

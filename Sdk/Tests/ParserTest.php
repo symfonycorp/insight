@@ -11,9 +11,10 @@
 
 namespace SensioLabs\Insight\Sdk\Tests;
 
+use PHPUnit\Framework\TestCase;
 use SensioLabs\Insight\Sdk\Parser;
 
-class ParserTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends TestCase
 {
     /**
      * @var Parser
