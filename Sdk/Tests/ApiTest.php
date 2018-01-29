@@ -14,10 +14,11 @@ namespace SensioLabs\Insight\Sdk\Tests;
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 use Guzzle\Plugin\Mock\MockPlugin;
+use PHPUnit\Framework\TestCase;
 use SensioLabs\Insight\Sdk\Api;
 use SensioLabs\Insight\Sdk\Model\Project;
 
-class ApiTest extends \PHPUnit_Framework_TestCase
+class ApiTest extends TestCase
 {
     /**
      * @var Api
