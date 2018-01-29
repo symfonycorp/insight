@@ -26,6 +26,12 @@ class FailConditionHelper extends Helper
 
     public function evaluate(Analysis $analysis, $expr)
     {
+        $analysisData = array(
+            'grade' => $analysis->getGrade(),
+            'nbViolations' => 0,
+            'remediationCost' => $analysis->getRemediationCost(),
+        );
+
         $counts = array(
             // Category
             'architecture' => 0,
@@ -48,10 +54,11 @@ class FailConditionHelper extends Helper
         foreach ($violations as $violation) {
             ++$counts[$violation->getCategory()];
             ++$counts[$violation->getSeverity()];
+            ++$analysisData['nbViolations'];
         }
 
         $vars = array(
-            'analysis' => $analysis,
+            'analysis' => (object) $analysisData,
             'counts' => (object) $counts,
         );
 
