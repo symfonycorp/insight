@@ -6,9 +6,16 @@ cache:
   directories:
     - $HOME/.composer/cache/files
 
-matrix:
+install:
+  - composer install
+
+script:
+  - vendor/bin/simple-phpunit
+
+jobs:
   include:
-    - php: 5.3
+    - stage: test
+      php: 5.3
       dist: precise
     - php: 5.4
     - php: 5.5
@@ -17,13 +24,23 @@ matrix:
     - php: 7.1
     - php: 7.2
     - php: hhvm
-
-before_script:
-  - composer install
-
-script:
-  - vendor/bin/simple-phpunit
-
-branches:
-  only:
-    - master
+    - stage: release
+      php: 5.3
+      dist: precise
+      install:
+        - composer install --no-dev -o
+        - curl -LSs https://box-project.github.io/box2/installer.php | php
+      script:
+        - mkdir -p build/
+        - php box.phar build
+      deploy:
+        provider: s3
+        access_key_id: $AWS_ACCESS_KEY_ID
+        secret_access_key: $AWS_SECRET_ACCESS_KEY
+        bucket: "get.insight.sensiolabs.com"
+        skip_cleanup: true
+        region: eu-west-1
+        acl: public-read
+        local_dir: build
+        on:
+          tags: true
