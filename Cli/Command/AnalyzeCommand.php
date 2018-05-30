@@ -41,7 +41,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
 
         $chars = array('-', '\\', '|', '/');
         $noAnsiStatus = 'Analysis queued';
-        $output->writeln($noAnsiStatus);
+        $output->getErrorOutput()->writeln($noAnsiStatus);
 
         $position = 0;
 
