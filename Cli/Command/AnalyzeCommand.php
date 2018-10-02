@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Command;
+namespace Symfony\Insight\Cli\Command;
 
-use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
+use Symfony\Insight\Cli\Helper\DescriptorHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

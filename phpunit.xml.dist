@@ -13,7 +13,7 @@
     bootstrap                   = "vendor/autoload.php" >
 
     <testsuites>
-        <testsuite name="SensioLabs Insight Sdk">
+        <testsuite name="SymfonyInsight Sdk">
             <directory>Sdk/Tests</directory>
         </testsuite>
     </testsuites>

@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Model;
+namespace Symfony\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
@@ -40,13 +40,13 @@ class Projects
     private $limit;
 
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
+     * @Type("array<Symfony\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
     private $links = array();
 
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Project>")
+     * @Type("array<Symfony\Insight\Sdk\Model\Project>")
      * @XmlList(inline = true, entry = "project")
      */
     private $projects = array();

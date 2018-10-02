@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Command;
+namespace Symfony\Insight\Cli\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -46,7 +46,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $remoteFilename = 'http://get.insight.sensiolabs.com/insight.phar';
+        $remoteFilename = 'https://get.insight.symfony.com/insight.phar';
         $localFilename = $_SERVER['argv'][0];
         $tempFilename = basename($localFilename, '.phar').'-temp.phar';
 

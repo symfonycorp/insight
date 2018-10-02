@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Helper;
+namespace Symfony\Insight\Cli\Helper;
 
-use SensioLabs\Insight\Sdk\Model\Analysis;
+use Symfony\Insight\Sdk\Model\Analysis;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 

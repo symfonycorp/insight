@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk;
+namespace Symfony\Insight\Sdk;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Guzzle\Common\Collection;
@@ -20,16 +20,16 @@ use Guzzle\Http\Message\RequestInterface;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
-use SensioLabs\Insight\Sdk\Exception\ApiClientException;
-use SensioLabs\Insight\Sdk\Exception\ApiServerException;
-use SensioLabs\Insight\Sdk\Model\Analyses;
-use SensioLabs\Insight\Sdk\Model\Analysis;
-use SensioLabs\Insight\Sdk\Model\Project;
-use SensioLabs\Insight\Sdk\Model\Projects;
+use Symfony\Insight\Sdk\Exception\ApiClientException;
+use Symfony\Insight\Sdk\Exception\ApiServerException;
+use Symfony\Insight\Sdk\Model\Analyses;
+use Symfony\Insight\Sdk\Model\Analysis;
+use Symfony\Insight\Sdk\Model\Project;
+use Symfony\Insight\Sdk\Model\Projects;
 
 class Api
 {
-    const ENDPOINT = 'https://insight.sensiolabs.com';
+    const ENDPOINT = 'https://insight.symfony.com';
 
     private $client;
     private $serializer;
@@ -85,7 +85,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Projects',
+            'Symfony\Insight\Sdk\Model\Projects',
             'xml'
         );
     }
@@ -101,7 +101,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Project',
+            'Symfony\Insight\Sdk\Model\Project',
             'xml'
         );
     }
@@ -117,7 +117,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Project',
+            'Symfony\Insight\Sdk\Model\Project',
             'xml'
         );
     }
@@ -133,7 +133,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Project',
+            'Symfony\Insight\Sdk\Model\Project',
             'xml'
         );
     }
@@ -149,7 +149,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Analyses',
+            'Symfony\Insight\Sdk\Model\Analyses',
             'xml'
         );
     }
@@ -166,7 +166,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Analysis',
+            'Symfony\Insight\Sdk\Model\Analysis',
             'xml'
         );
     }
@@ -183,7 +183,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Analysis',
+            'Symfony\Insight\Sdk\Model\Analysis',
             'xml'
         );
     }
@@ -206,7 +206,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'SensioLabs\Insight\Sdk\Model\Analysis',
+            'Symfony\Insight\Sdk\Model\Analysis',
             'xml'
         );
     }

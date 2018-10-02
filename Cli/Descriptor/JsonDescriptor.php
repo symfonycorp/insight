@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Descriptor;
+namespace Symfony\Insight\Cli\Descriptor;
 
 use JMS\Serializer\Serializer;
-use SensioLabs\Insight\Sdk\Model\Analysis;
+use Symfony\Insight\Sdk\Model\Analysis;
 
 class JsonDescriptor extends AbstractDescriptor
 {

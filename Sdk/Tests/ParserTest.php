@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Tests;
+namespace Symfony\Insight\Sdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SensioLabs\Insight\Sdk\Parser;
+use Symfony\Insight\Sdk\Parser;
 
 class ParserTest extends TestCase
 {
@@ -36,7 +36,7 @@ class ParserTest extends TestCase
     }
 
     /**
-     * @expectedException \SensioLabs\Insight\Sdk\Exception\ApiParserException
+     * @expectedException \Symfony\Insight\Sdk\Exception\ApiParserException
      * @expectedExceptionMessage Could not transform this xml to a \DOMDocument instance.
      * @dataProvider getParseErrorsFailedIfDocumentIfInvalidTests
      */
@@ -61,7 +61,7 @@ class ParserTest extends TestCase
             ),
         );
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $error);
+        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Error', $error);
         $this->assertSame($expectedFields, $error->getEntityBodyParameters());
     }
 

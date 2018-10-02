@@ -1,11 +1,15 @@
 {
-    "name": "sensiolabs/insight",
-    "description": "SensioLabs Insight SDK",
+    "name": "symfonycorp/insight",
+    "description": "SymfonyInsight SDK",
     "license": "MIT",
     "authors": [
         {
             "name": "Grégoire Pineau",
             "email": "lyrixx@lyrixx.info"
+        },
+        {
+            "name": "Titouan Galopin",
+            "email": "titouan.galopin@symfony.com"
         }
     ],
     "require": {
@@ -25,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SensioLabs\\Insight\\": ""
+            "Symfony\\Insight\\": ""
         }
     },
     "bin": ["bin/insight"],

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Helper;
+namespace Symfony\Insight\Cli\Helper;
 
 use JMS\Serializer\Serializer;
-use SensioLabs\Insight\Cli\Descriptor\AbstractDescriptor;
-use SensioLabs\Insight\Cli\Descriptor\JsonDescriptor;
-use SensioLabs\Insight\Cli\Descriptor\PmdDescriptor;
-use SensioLabs\Insight\Cli\Descriptor\TextDescriptor;
-use SensioLabs\Insight\Cli\Descriptor\XmlDescriptor;
+use Symfony\Insight\Cli\Descriptor\AbstractDescriptor;
+use Symfony\Insight\Cli\Descriptor\JsonDescriptor;
+use Symfony\Insight\Cli\Descriptor\PmdDescriptor;
+use Symfony\Insight\Cli\Descriptor\TextDescriptor;
+use Symfony\Insight\Cli\Descriptor\XmlDescriptor;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Output\OutputInterface;
 

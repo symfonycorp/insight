@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli;
+namespace Symfony\Insight\Cli;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use SensioLabs\Insight\Cli\Command as LocalCommand;
-use SensioLabs\Insight\Cli\Helper\ConfigurationHelper;
-use SensioLabs\Insight\Cli\Helper\FailConditionHelper;
-use SensioLabs\Insight\Sdk\Api;
+use Symfony\Insight\Cli\Command as LocalCommand;
+use Symfony\Insight\Cli\Helper\ConfigurationHelper;
+use Symfony\Insight\Cli\Helper\FailConditionHelper;
+use Symfony\Insight\Sdk\Api;
 use Symfony\Component\Console\Application as SymfonyApplication;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,8 +25,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Application extends SymfonyApplication
 {
-    const APPLICATION_NAME = 'SensioLabs Insight CLI';
-    const APPLICATION_VERSION = '1.6-dev';
+    const APPLICATION_NAME = 'SymfonyInsight CLI';
+    const APPLICATION_VERSION = '2.0';
 
     private $api;
     private $apiConfig;
@@ -68,7 +68,7 @@ class Application extends SymfonyApplication
 
     public function getLongVersion()
     {
-        $version = parent::getLongVersion().' by <comment>SensioLabs</comment>';
+        $version = parent::getLongVersion().' by <comment>Symfony</comment>';
         $commit = '@git-commit@';
 
         if ('@'.'git-commit@' !== $commit) {

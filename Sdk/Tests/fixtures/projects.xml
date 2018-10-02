@@ -40,7 +40,7 @@
       </grades>
       <id>47</id>
       <failed>true</failed>
-      <failure-message><![CDATA[The private SensioLabs repository has not been created yet.]]></failure-message>
+      <failure-message><![CDATA[The private Symfony repository has not been created yet.]]></failure-message>
       <begin-at><![CDATA[2013-06-25T11:40:45+0200]]></begin-at>
       <altered>false</altered>
       <status><![CDATA[finished]]></status>
