@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Cli\Helper;
+namespace SymfonyCorp\Insight\Cli\Helper;
 
-use Symfony\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Sdk\Tests;
+namespace SymfonyCorp\Insight\Sdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Insight\Sdk\Parser;
+use SymfonyCorp\Insight\Sdk\Parser;
 
 class ParserTest extends TestCase
 {
@@ -36,7 +36,7 @@ class ParserTest extends TestCase
     }
 
     /**
-     * @expectedException \Symfony\Insight\Sdk\Exception\ApiParserException
+     * @expectedException \SymfonyCorp\Insight\Sdk\Exception\ApiParserException
      * @expectedExceptionMessage Could not transform this xml to a \DOMDocument instance.
      * @dataProvider getParseErrorsFailedIfDocumentIfInvalidTests
      */
@@ -61,7 +61,7 @@ class ParserTest extends TestCase
             ),
         );
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Error', $error);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Error', $error);
         $this->assertSame($expectedFields, $error->getEntityBodyParameters());
     }
 

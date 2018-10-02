@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Cli\Descriptor;
+namespace SymfonyCorp\Insight\Cli\Descriptor;
 
-use Symfony\Insight\Sdk\Model\Analysis;
-use Symfony\Insight\Sdk\Model\Violation;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Violation;
 
 abstract class AbstractDescriptor
 {

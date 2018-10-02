@@ -52,7 +52,7 @@ To export an analysis report:
 Configuration
 -------------
 
-    use Symfony\Insight\Sdk\Api;
+    use SymfonyCorp\Insight\Sdk\Api;
 
     $api = new Api(array(
         'api_token' => 'your api token',
@@ -108,7 +108,7 @@ Note: If something went wrong, see *Error management* section
 
 ### Post a project
 
-    use Symfony\Insight\Sdk\Model\Project;
+    use SymfonyCorp\Insight\Sdk\Model\Project;
 
     $project = new Project();
     $project
@@ -144,14 +144,14 @@ Note: If something went wrong, see *Error management* section
 ### Error management
 
 If something went wrong, an
-`Symfony\Insight\Sdk\Exception\ExceptionInterface` will be throw:
+`SymfonyCorp\Insight\Sdk\Exception\ExceptionInterface` will be throw:
 
 * `ApiClientException` If you did something wrong. This exception contains the
   previous exception throw by guzzle. You can easily check if it is a:
   * 403: In this case, check your credentials
   * 404: In this case, check your request
   * 400: In this case, check the data sent. In this case, the Exception will
-    contains a `Symfony\Insight\Sdk\Model\Error` object. Which will contains
+    contains a `SymfonyCorp\Insight\Sdk\Model\Error` object. Which will contains
     all form errors.
 * `ApiServerException` If something went wrong with the API.
 

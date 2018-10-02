@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Sdk;
+namespace SymfonyCorp\Insight\Sdk;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Guzzle\Common\Collection;
@@ -20,12 +20,12 @@ use Guzzle\Http\Message\RequestInterface;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
-use Symfony\Insight\Sdk\Exception\ApiClientException;
-use Symfony\Insight\Sdk\Exception\ApiServerException;
-use Symfony\Insight\Sdk\Model\Analyses;
-use Symfony\Insight\Sdk\Model\Analysis;
-use Symfony\Insight\Sdk\Model\Project;
-use Symfony\Insight\Sdk\Model\Projects;
+use SymfonyCorp\Insight\Sdk\Exception\ApiClientException;
+use SymfonyCorp\Insight\Sdk\Exception\ApiServerException;
+use SymfonyCorp\Insight\Sdk\Model\Analyses;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Project;
+use SymfonyCorp\Insight\Sdk\Model\Projects;
 
 class Api
 {
@@ -85,7 +85,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Projects',
+            'SymfonyCorp\Insight\Sdk\Model\Projects',
             'xml'
         );
     }
@@ -101,7 +101,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Project',
+            'SymfonyCorp\Insight\Sdk\Model\Project',
             'xml'
         );
     }
@@ -117,7 +117,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Project',
+            'SymfonyCorp\Insight\Sdk\Model\Project',
             'xml'
         );
     }
@@ -133,7 +133,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Project',
+            'SymfonyCorp\Insight\Sdk\Model\Project',
             'xml'
         );
     }
@@ -149,7 +149,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Analyses',
+            'SymfonyCorp\Insight\Sdk\Model\Analyses',
             'xml'
         );
     }
@@ -166,7 +166,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Analysis',
+            'SymfonyCorp\Insight\Sdk\Model\Analysis',
             'xml'
         );
     }
@@ -183,7 +183,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Analysis',
+            'SymfonyCorp\Insight\Sdk\Model\Analysis',
             'xml'
         );
     }
@@ -206,7 +206,7 @@ class Api
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
-            'Symfony\Insight\Sdk\Model\Analysis',
+            'SymfonyCorp\Insight\Sdk\Model\Analysis',
             'xml'
         );
     }

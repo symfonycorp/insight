@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Sdk\Model;
+namespace SymfonyCorp\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Exclude;
@@ -49,7 +49,7 @@ class Project
     );
 
     /**
-     * @Type("array<Symfony\Insight\Sdk\Model\Link>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
     private $links = array();
@@ -88,7 +88,7 @@ class Project
     private $reportAvailable;
 
     /**
-     * @Type("Symfony\Insight\Sdk\Model\Analysis")
+     * @Type("SymfonyCorp\Insight\Sdk\Model\Analysis")
      * @SerializedName("last-analysis")
      */
     private $lastAnalysis;

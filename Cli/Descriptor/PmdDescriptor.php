@@ -1,9 +1,9 @@
 <?php
 
-namespace Symfony\Insight\Cli\Descriptor;
+namespace SymfonyCorp\Insight\Cli\Descriptor;
 
-use Symfony\Insight\Sdk\Model\Analysis;
-use Symfony\Insight\Sdk\Model\Violation;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Violation;
 
 class PmdDescriptor extends AbstractDescriptor
 {
@@ -32,7 +32,7 @@ class PmdDescriptor extends AbstractDescriptor
         if ($violations) {
             foreach ($violations as $violation) {
                 /*
-                 * @var $violation \Symfony\Insight\Sdk\Model\Violation
+                 * @var $violation \SymfonyCorp\Insight\Sdk\Model\Violation
                  */
                 $filename = $violation->getResource();
 

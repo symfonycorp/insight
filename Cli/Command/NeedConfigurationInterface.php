@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Cli\Command;
+namespace SymfonyCorp\Insight\Cli\Command;
 
 interface NeedConfigurationInterface
 {

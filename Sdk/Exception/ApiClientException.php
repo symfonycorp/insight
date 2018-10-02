@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Sdk\Exception;
+namespace SymfonyCorp\Insight\Sdk\Exception;
 
-use Symfony\Insight\Sdk\Model\Error;
+use SymfonyCorp\Insight\Sdk\Model\Error;
 
 class ApiClientException extends \LogicException implements ExceptionInterface
 {

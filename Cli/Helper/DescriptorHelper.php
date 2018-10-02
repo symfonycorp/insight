@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Cli\Helper;
+namespace SymfonyCorp\Insight\Cli\Helper;
 
 use JMS\Serializer\Serializer;
-use Symfony\Insight\Cli\Descriptor\AbstractDescriptor;
-use Symfony\Insight\Cli\Descriptor\JsonDescriptor;
-use Symfony\Insight\Cli\Descriptor\PmdDescriptor;
-use Symfony\Insight\Cli\Descriptor\TextDescriptor;
-use Symfony\Insight\Cli\Descriptor\XmlDescriptor;
+use SymfonyCorp\Insight\Cli\Descriptor\AbstractDescriptor;
+use SymfonyCorp\Insight\Cli\Descriptor\JsonDescriptor;
+use SymfonyCorp\Insight\Cli\Descriptor\PmdDescriptor;
+use SymfonyCorp\Insight\Cli\Descriptor\TextDescriptor;
+use SymfonyCorp\Insight\Cli\Descriptor\XmlDescriptor;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Output\OutputInterface;
 

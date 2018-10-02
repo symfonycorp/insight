@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Cli\Command;
+namespace SymfonyCorp\Insight\Cli\Command;
 
-use Symfony\Insight\Cli\Helper\DescriptorHelper;
+use SymfonyCorp\Insight\Cli\Helper\DescriptorHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -87,7 +87,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         }
 
         if (!$expr = $input->getOption('fail-condition')) {
-            return;
+            return 0;
         }
 
         return $this->getHelperSet()->get('fail_condition')->evaluate($analysis, $expr);

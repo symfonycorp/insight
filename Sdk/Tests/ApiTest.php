@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Insight\Sdk\Tests;
+namespace SymfonyCorp\Insight\Sdk\Tests;
 
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 use Guzzle\Plugin\Mock\MockPlugin;
 use PHPUnit\Framework\TestCase;
-use Symfony\Insight\Sdk\Api;
-use Symfony\Insight\Sdk\Model\Project;
+use SymfonyCorp\Insight\Sdk\Api;
+use SymfonyCorp\Insight\Sdk\Model\Project;
 
 class ApiTest extends TestCase
 {
@@ -56,14 +56,14 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('projects'));
         $projects = $this->api->getProjects();
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Projects', $projects);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Projects', $projects);
         $this->assertCount(10, $projects->getProjects());
         $this->assertSame(1, $projects->getPage());
         $this->assertSame(12, $projects->getTotal());
         $this->assertSame(10, $projects->getLimit());
 
         $projects = $projects->getProjects();
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Project', reset($projects));
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', reset($projects));
     }
 
     public function testGetProjectsWithPage()
@@ -81,14 +81,14 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('projects2'));
         $projects = $this->api->getProjects(2);
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Projects', $projects);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Projects', $projects);
         $this->assertCount(2, $projects->getProjects());
         $this->assertSame(2, $projects->getPage());
         $this->assertSame(12, $projects->getTotal());
         $this->assertSame(10, $projects->getLimit());
 
         $projects = $projects->getProjects();
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Project', reset($projects));
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', reset($projects));
     }
 
     public function testGetProject()
@@ -96,7 +96,7 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('project'));
         $project = $this->api->getProject('6718526f-ecdf-497d-bffb-8512f0b402ea');
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Project', $project);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', $project);
         $this->assertSame('demo', $project->getName());
         $this->assertNotnull($project->getConfiguration());
         $this->assertSame('git@github.com:lyrixx/demoer.git', $project->getRepositoryUrl());
@@ -104,7 +104,7 @@ class ApiTest extends TestCase
         $this->assertTrue($project->isReportAvailable());
         $this->assertSame(1, $project->getType());
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Analysis', $project->getLastAnalysis());
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $project->getLastAnalysis());
     }
 
     public function testCreateProjectOk()
@@ -114,7 +114,7 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('project'));
         $project = $this->api->createProject($project);
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Project', $project);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', $project);
     }
 
     public function testCreateProjectNOk()
@@ -126,9 +126,9 @@ class ApiTest extends TestCase
             $project = $this->api->createProject($project);
             $this->fail('Something should go wrong');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Insight\Sdk\Exception\ApiClientException', $e);
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Exception\ApiClientException', $e);
             $this->assertSame('Your request in not valid (status code: "400", reason phrase: "Bad Request").See $error attached to the exception', $e->getMessage());
-            $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Error', $e->getError());
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Error', $e->getError());
         }
     }
 
@@ -139,7 +139,7 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('project'));
         $project = $this->api->updateProject($project);
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Project', $project);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', $project);
     }
 
     public function testupdateProjectNOk()
@@ -151,9 +151,9 @@ class ApiTest extends TestCase
             $project = $this->api->updateProject($project);
             $this->fail('Something should go wrong');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Insight\Sdk\Exception\ApiClientException', $e);
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Exception\ApiClientException', $e);
             $this->assertSame('Your request in not valid (status code: "400", reason phrase: "Bad Request").See $error attached to the exception', $e->getMessage());
-            $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Error', $e->getError());
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Error', $e->getError());
         }
     }
 
@@ -162,11 +162,11 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('analyses'));
         $analyses = $this->api->getAnalyses('6718526f-ecdf-497d-bffb-8512f0b402ea');
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Analyses', $analyses);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analyses', $analyses);
         $this->assertCount(2, $analyses->getAnalyses());
 
         $analyses = $analyses->getAnalyses();
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Analysis', reset($analyses));
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', reset($analyses));
     }
 
     public function testGetAnalysis()
@@ -174,7 +174,7 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('analysis'));
         $analysis = $this->api->getAnalysis('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Analysis', $analysis);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $analysis);
         $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('error', $analysis->getGrade());
         $this->assertSame('bronze', $analysis->getNextGrade());
@@ -188,12 +188,12 @@ class ApiTest extends TestCase
         $this->assertNull($analysis->getFailureMessage());
         $this->assertNull($analysis->getFailureCode());
         $this->assertFalse($analysis->isAltered());
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Violations', $analysis->getViolations());
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Violations', $analysis->getViolations());
         $this->assertCount(250, $analysis->getViolations()->getViolations());
 
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Violation', $firstViolation);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Violation', $firstViolation);
 
         $this->assertSame(7, $firstViolation->getLine());
         $this->assertSame('critical', $firstViolation->getSeverity());
@@ -206,7 +206,7 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('status'));
         $analysis = $this->api->getAnalysisStatus('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Analysis', $analysis);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $analysis);
         $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('2013-06-25T19:37:20+02:00', $analysis->getBeginAt()->format('c'));
         $this->assertSame('2013-06-25T19:37:53+02:00', $analysis->getEndAt()->format('c'));
@@ -218,7 +218,7 @@ class ApiTest extends TestCase
         $this->pluginMockResponse->addResponse($this->createResponse('analysis'));
         $analysis = $this->api->analyze('6718526f-ecdf-497d-bffb-8512f0b402ea', 'SHA');
 
-        $this->assertInstanceOf('Symfony\Insight\Sdk\Model\Analysis', $analysis);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $analysis);
     }
 
     public function tearDown()

@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfony\Insight\Cli;
+namespace SymfonyCorp\Insight\Cli;
 
 class Configuration
 {

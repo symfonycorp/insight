@@ -29,13 +29,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Symfony\\Insight\\": ""
+            "SymfonyCorp\\Insight\\": ""
         }
     },
     "bin": ["bin/insight"],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.5.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
