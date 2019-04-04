@@ -1,17 +1,40 @@
-SymfonyInsight SDK
-==================
+<p align="center"><a href="https://insight.symfony.com" target="_blank">
+    <img src="https://symfony.com/logos/symfony_black_02.svg">
+</a></p>
 
-About
------
+<p align="center">
+    Build high quality projects. Monitor technical debt efficiently.
+</p>
 
-This is the official SDK for the SymfonyInsight API.
+[SymfonyInsight][https://insight.symfony.com] is a **PHP static and dynamic analysis**
+platform, especially well suited to analyse Symfony projects. It helps you monitor and pay back
+technical debt efficiently and it alerts you on critically low levels of quality.
+
+This repository is a PHP SDK and command-line tool you can use to trigger analysis and access
+data from SymfonyInsight in your own infrastructure.
 
 Installation
 ------------
 
-To install the SDK, run the command below and you will get the latest version:
+**Command-line tool installation**
 
-    composer require sensiolabs/insight
+To install the command-line tool, you can download it directly from our servers:
+
+```
+curl -o insight.phar -s http://get.insight.sensiolabs.com/insight.phar
+# or
+wget http://get.insight.sensiolabs.com/insight.phar
+
+php insight.phar
+```
+
+**SDK installation**
+
+To install the SDK, use Composer:
+
+```
+composer require symfonycorp/insight
+```
 
 Command Line Tool
 -----------------
@@ -157,6 +180,7 @@ If something went wrong, an
 
 Jenkins/Hudson Integration
 --------------------------
+
 Thanks to [Jenkins PMD Plugin](https://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin) and SymfonyInsight SDK PMD output you can easily
 embed SymfonyInsight reports into your build workflow, following these steps:
 
