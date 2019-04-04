@@ -191,12 +191,18 @@ class Api
     /**
      * @param string      $projectUuid
      * @param string|null $reference   A git reference. It can be a commit sha, a tag name or a branch name
+     * @param string|null $branch      Current analysis branch, used by SymfonyInsight to distinguish between the main branch and PRs
      *
      * @return Analysis
      */
-    public function analyze($projectUuid, $reference = null)
+    public function analyze($projectUuid, $reference = null, $branch = null)
     {
-        $request = $this->client->createRequest('POST', sprintf('/api/projects/%s/analyses', $projectUuid), array(), array('reference' => $reference));
+        $request = $this->client->createRequest(
+            'POST',
+            sprintf('/api/projects/%s/analyses', $projectUuid),
+            array(),
+            $branch ? array('reference' => $reference, 'branch' => $branch) : array('reference' => $reference)
+        );
 
         return $this->serializer->deserialize(
             (string) $this->send($request)->getBody(),
