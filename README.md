@@ -1,12 +1,15 @@
 <p align="center"><a href="https://insight.symfony.com" target="_blank">
-    <img src="https://symfony.com/logos/symfony_black_02.svg">
+    <img src="https://insight.symfony.com/bundles/insight/img/logo-github-sdk.svg">
 </a></p>
 
 <p align="center">
-    Build high quality projects. Monitor technical debt efficiently.
+    <strong>Build high quality projects. Monitor technical debt efficiently.</strong>
 </p>
 
-[SymfonyInsight][https://insight.symfony.com] is a **PHP static and dynamic analysis**
+<br />
+
+
+[SymfonyInsight](https://insight.symfony.com) is a **PHP static and dynamic analysis**
 platform, especially well suited to analyse Symfony projects. It helps you monitor and pay back
 technical debt efficiently and it alerts you on critically low levels of quality.
 
@@ -18,13 +21,18 @@ Installation
 
 **Command-line tool installation**
 
-To install the command-line tool, you can download it directly from our servers:
+The easiest way to use the SymfonyInsight API is via the built-in command
+line tool. A PHAR version of the command line tool exists to avoid 
+having to install this project.
+
+To install this command line tool, you can download it directly from our servers:
 
 ```
-curl -o insight.phar -s http://get.insight.sensiolabs.com/insight.phar
+curl -o insight.phar -s https://get.insight.symfony.com/insight.phar
 # or
-wget http://get.insight.sensiolabs.com/insight.phar
+wget https://get.insight.symfony.com/insight.phar
 
+# Then
 php insight.phar
 ```
 
@@ -38,19 +46,6 @@ composer require symfonycorp/insight
 
 Command Line Tool
 -----------------
-
-The easiest way to use the SymfonyInsight API is via the built-in command
-line tool.
-
-A phar version of the command line tool exists to avoid installation of this
-project. Download it, then use it like the command line tool:
-
-    $ curl -o insight.phar -s https://get.insight.symfony.com/insight.phar
-    # or
-    $ wget https://get.insight.symfony.com/insight.phar
-
-    # Then
-    $ php insight.phar
 
 List all the projects in your account:
 

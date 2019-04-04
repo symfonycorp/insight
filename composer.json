@@ -13,6 +13,7 @@
         }
     ],
     "require": {
+        "php": ">7.1",
         "guzzle/http": "~3.7",
         "jms/serializer": "0.12.*",
         "psr/log": "~1.0",
