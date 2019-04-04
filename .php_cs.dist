@@ -1,0 +1,16 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in('bin')
+    ->in('Cli')
+    ->in('Sdk')
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'long'],
+        'phpdoc_annotation_without_dot' => false,
+    ])
+    ->setFinder($finder)
+;

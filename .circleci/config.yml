@@ -1,0 +1,109 @@
+version: 2
+
+jobs:
+    php-cs:
+        docker:
+            - image: php:7.2-cli-alpine3.7
+        steps:
+            - checkout
+            - run: wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.13.1/php-cs-fixer.phar
+            - run: php php-cs-fixer.phar fix --dry-run --diff
+
+    tests-php-7-1:
+        docker:
+            - image: php:7.1-cli-alpine3.7
+        steps:
+            - checkout
+
+            # Composer
+            - restore_cache:
+                  keys:
+                      - v1-deps-{{ checksum "composer.lock" }}
+            - run: composer install
+            - save_cache:
+                  paths: [./vendor]
+                  key: v1-deps-{{ checksum "composer.lock" }}
+
+            # Prepare PHPUnit bridge
+            - restore_cache:
+                  keys:
+                      - v1-phpunit-{{ checksum "composer.lock" }}
+            - run: php vendor/bin/simple-phpunit --check-version
+            - save_cache:
+                  paths: [./bin/.phpunit]
+                  key: v1-phpunit-{{ checksum "composer.lock" }}
+
+            # Launch the test suite
+            - run: php vendor/bin/simple-phpunit -v --log-junit ./phpunit/junit.xml
+
+            - store_test_results:
+                  path: ./phpunit
+
+    tests-php-7-2:
+        docker:
+            - image: php:7.2-cli-alpine3.7
+        steps:
+            - checkout
+
+            # Composer
+            - restore_cache:
+                  keys:
+                      - v1-deps-{{ checksum "composer.lock" }}
+            - run: composer install
+            - save_cache:
+                  paths: [./vendor]
+                  key: v1-deps-{{ checksum "composer.lock" }}
+
+            # Prepare PHPUnit bridge
+            - restore_cache:
+                  keys:
+                      - v1-phpunit-{{ checksum "composer.lock" }}
+            - run: php vendor/bin/simple-phpunit --check-version
+            - save_cache:
+                  paths: [./bin/.phpunit]
+                  key: v1-phpunit-{{ checksum "composer.lock" }}
+
+            # Launch the test suite
+            - run: php vendor/bin/simple-phpunit -v --log-junit ./phpunit/junit.xml
+
+            - store_test_results:
+                  path: ./phpunit
+
+    tests-php-7-3:
+        docker:
+            - image: php:7.3-cli-alpine3.7
+        steps:
+            - checkout
+
+            # Composer
+            - restore_cache:
+                  keys:
+                      - v1-deps-{{ checksum "composer.lock" }}
+            - run: composer install
+            - save_cache:
+                  paths: [./vendor]
+                  key: v1-deps-{{ checksum "composer.lock" }}
+
+            # Prepare PHPUnit bridge
+            - restore_cache:
+                  keys:
+                      - v1-phpunit-{{ checksum "composer.lock" }}
+            - run: php vendor/bin/simple-phpunit --check-version
+            - save_cache:
+                  paths: [./bin/.phpunit]
+                  key: v1-phpunit-{{ checksum "composer.lock" }}
+
+            # Launch the test suite
+            - run: php vendor/bin/simple-phpunit -v --log-junit ./phpunit/junit.xml
+
+            - store_test_results:
+                  path: ./phpunit
+
+workflows:
+    version: 2
+    test:
+        jobs:
+            - php-cs
+            - tests-php-7-1
+            - tests-php-7-2
+            - tests-php-7-3

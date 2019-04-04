@@ -3,3 +3,4 @@
 /build/
 /insight.log
 /vendor/
+/.php_cs.cache
