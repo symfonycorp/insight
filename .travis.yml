@@ -23,7 +23,7 @@ jobs:
     - php: 7.0
     - php: 7.1
     - php: 7.2
-    - php: hhvm
+    - php: 7.3
     - stage: release
       php: 5.3
       dist: precise

@@ -27,6 +27,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             ->addArgument('project-uuid', InputArgument::REQUIRED)
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'To output in other formats', 'txt')
             ->addOption('reference', null, InputOption::VALUE_REQUIRED, 'The git reference to analyze')
+            ->addOption('branch', null, InputOption::VALUE_REQUIRED, 'The analysis current branch')
             ->addOption('show-ignored-violations', null, InputOption::VALUE_NONE, 'Show ignored violations')
             ->addOption('fail-condition', null, InputOption::VALUE_REQUIRED, '')
             ->setDescription('Analyze a project')
@@ -37,7 +38,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
     {
         $projectUuid = $input->getArgument('project-uuid');
         $api = $this->getApplication()->getApi();
-        $analysis = $api->analyze($projectUuid, $input->getOption('reference'));
+        $analysis = $api->analyze($projectUuid, $input->getOption('reference'), $input->getOption('branch'));
 
         $chars = array('-', '\\', '|', '/');
         $noAnsiStatus = 'Analysis queued';
