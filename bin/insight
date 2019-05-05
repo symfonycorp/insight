@@ -10,15 +10,21 @@
  * file that was distributed with this source code.
  */
 
-// installed via composer?
-if (file_exists($a = __DIR__.'/../../../autoload.php')) {
-    require_once $a;
-} else {
-    require_once __DIR__.'/../vendor/autoload.php';
-}
-
 use SensioLabs\Insight\Cli\Application;
 
-$application = new Application();
+if (false === in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
+    echo PHP_EOL.'Insight may only be invoked from a command line, got "'.PHP_SAPI.'"'.PHP_EOL;
+    exit(1);
+}
 
-$application->run();
+if (file_exists($autoload = __DIR__.'/../../../autoload.php')) {
+    // Is installed via Composer
+    include_once $autoload;
+} elseif (file_exists($autoload = __DIR__.'/../vendor/autoload.php')) {
+    // Is installed locally
+    include_once $autoload;
+} else {
+    throw new RuntimeException('Unable to find the Composer autoloader.');
+}
+
+(new Application())->run();

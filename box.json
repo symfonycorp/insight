@@ -1,8 +1,0 @@
-{
-    "chmod": "0755",
-    "main": "bin/insight",
-    "output": "build/insight.phar",
-    "stub": true,
-    "directories": ["."],
-    "git-commit": "git-commit"
-}

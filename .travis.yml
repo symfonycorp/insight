@@ -28,11 +28,11 @@ jobs:
       php: 5.3
       dist: precise
       install:
-        - composer install --no-dev -o
-        - curl -LSs https://box-project.github.io/box2/installer.php | php
+        - composer install --no-dev
+        - wget https://github.com/humbug/box/releases/download/3.7.0/box.phar
       script:
         - mkdir -p build/
-        - php box.phar build
+        - php box.phar compile
       deploy:
         provider: s3
         access_key_id: $AWS_ACCESS_KEY_ID

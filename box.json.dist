@@ -1,0 +1,4 @@
+{
+    "output": "build/insight.phar",
+    "git-commit": "git-commit"
+}
