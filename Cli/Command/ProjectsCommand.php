@@ -12,6 +12,7 @@
 namespace SensioLabs\Insight\Cli\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -52,11 +53,10 @@ class ProjectsCommand extends Command implements NeedConfigurationInterface
             $rows[] = array($project->getName(), $project->getUuid(), $grade);
         }
 
-        $this
-            ->getHelperSet()->get('table')
-            ->setHeaders(array('name', 'uuid', 'grade'))
+        $table = new Table($output);
+        $table->setHeaders(array('name', 'uuid', 'grade'))
             ->setRows($rows)
-            ->render($output)
+            ->render()
         ;
     }
 }
