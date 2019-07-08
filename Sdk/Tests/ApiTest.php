@@ -11,12 +11,11 @@
 
 namespace SensioLabs\Insight\Sdk\Tests;
 
-use Guzzle\Http\Client;
-use Guzzle\Http\Message\Response;
-use Guzzle\Plugin\Mock\MockPlugin;
 use PHPUnit\Framework\TestCase;
 use SensioLabs\Insight\Sdk\Api;
 use SensioLabs\Insight\Sdk\Model\Project;
+use Symfony\Component\HttpClient\MockHttpClient;
+use Symfony\Component\HttpClient\Response\MockResponse;
 
 class ApiTest extends TestCase
 {
@@ -26,24 +25,13 @@ class ApiTest extends TestCase
     private $api;
     private $logger;
 
-    /**
-     * @var MockPlugin
-     */
-    private $pluginMockResponse;
-
     public function setUp()
     {
-        $this->pluginMockResponse = new MockPlugin();
-        $client = new Client();
-        $client->addSubscriber($this->pluginMockResponse);
-
         $this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
-
-        $this->api = new Api(array('api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'), $client, null, $this->logger);
     }
 
     /**
-     * @expectedException \Guzzle\Common\Exception\InvalidArgumentException
+     * @expectedException \Exception
      * @expectedExceptionMessage Config is missing the following keys: api_token, user_uuid
      */
     public function testConstructorWithoutOption()
@@ -53,8 +41,9 @@ class ApiTest extends TestCase
 
     public function testGetProjects()
     {
-        $this->pluginMockResponse->addResponse($this->createResponse('projects'));
-        $projects = $this->api->getProjects();
+        $api = $this->createApi('projects');
+
+        $projects = $api->getProjects();
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Projects', $projects);
         $this->assertCount(10, $projects->getProjects());
@@ -69,7 +58,7 @@ class ApiTest extends TestCase
     public function testGetProjectsWithPage()
     {
         $this->logger
-            ->expects($this->exactly(3))
+            ->expects($this->exactly(2))
             ->method('debug')
         ;
         $this->logger
@@ -77,9 +66,9 @@ class ApiTest extends TestCase
             ->method('debug')
             ->with($this->stringContains('/api/projects?page=2'))
         ;
+        $api = $this->createApi('projects2', ['debug' => '/api/projects?page=2']);
 
-        $this->pluginMockResponse->addResponse($this->createResponse('projects2'));
-        $projects = $this->api->getProjects(2);
+        $projects = $api->getProjects(2);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Projects', $projects);
         $this->assertCount(2, $projects->getProjects());
@@ -93,8 +82,9 @@ class ApiTest extends TestCase
 
     public function testGetProject()
     {
-        $this->pluginMockResponse->addResponse($this->createResponse('project'));
-        $project = $this->api->getProject('6718526f-ecdf-497d-bffb-8512f0b402ea');
+        $api = $this->createApi('project');
+
+        $project = $api->getProject('6718526f-ecdf-497d-bffb-8512f0b402ea');
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', $project);
         $this->assertSame('demo', $project->getName());
@@ -111,8 +101,9 @@ class ApiTest extends TestCase
     {
         $project = new Project();
 
-        $this->pluginMockResponse->addResponse($this->createResponse('project'));
-        $project = $this->api->createProject($project);
+        $api = $this->createApi('project');
+
+        $project = $api->createProject($project);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', $project);
     }
@@ -121,13 +112,14 @@ class ApiTest extends TestCase
     {
         $project = new Project();
 
-        $this->pluginMockResponse->addResponse($this->createResponse('errors', 400));
+        $api = $this->createApi('errors', ['http_code' => 400]);
+
         try {
-            $project = $this->api->createProject($project);
+            $project = $api->createProject($project);
             $this->fail('Something should go wrong');
         } catch (\Exception $e) {
             $this->assertInstanceOf('SensioLabs\Insight\Sdk\Exception\ApiClientException', $e);
-            $this->assertSame('Your request in not valid (status code: "400", reason phrase: "Bad Request").See $error attached to the exception', $e->getMessage());
+            $this->assertSame('Your request in not valid (status code: "400").See $error attached to the exception', $e->getMessage());
             $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $e->getError());
         }
     }
@@ -136,8 +128,9 @@ class ApiTest extends TestCase
     {
         $project = new Project();
 
-        $this->pluginMockResponse->addResponse($this->createResponse('project'));
-        $project = $this->api->updateProject($project);
+        $api = $this->createApi('project');
+
+        $project = $api->updateProject($project);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', $project);
     }
@@ -145,22 +138,23 @@ class ApiTest extends TestCase
     public function testupdateProjectNOk()
     {
         $project = new Project();
+        $api = $this->createApi('errors', ['http_code' => 400]);
 
-        $this->pluginMockResponse->addResponse($this->createResponse('errors', 400));
         try {
-            $project = $this->api->updateProject($project);
+            $project = $api->updateProject($project);
             $this->fail('Something should go wrong');
         } catch (\Exception $e) {
             $this->assertInstanceOf('SensioLabs\Insight\Sdk\Exception\ApiClientException', $e);
-            $this->assertSame('Your request in not valid (status code: "400", reason phrase: "Bad Request").See $error attached to the exception', $e->getMessage());
+            $this->assertSame('Your request in not valid (status code: "400").See $error attached to the exception', $e->getMessage());
             $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $e->getError());
         }
     }
 
     public function testGetAnalyses()
     {
-        $this->pluginMockResponse->addResponse($this->createResponse('analyses'));
-        $analyses = $this->api->getAnalyses('6718526f-ecdf-497d-bffb-8512f0b402ea');
+        $api = $this->createApi('analyses');
+
+        $analyses = $api->getAnalyses('6718526f-ecdf-497d-bffb-8512f0b402ea');
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analyses', $analyses);
         $this->assertCount(2, $analyses->getAnalyses());
@@ -171,8 +165,9 @@ class ApiTest extends TestCase
 
     public function testGetAnalysis()
     {
-        $this->pluginMockResponse->addResponse($this->createResponse('analysis'));
-        $analysis = $this->api->getAnalysis('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
+        $api = $this->createApi('analysis');
+
+        $analysis = $api->getAnalysis('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
         $this->assertSame(49, $analysis->getNumber());
@@ -203,8 +198,9 @@ class ApiTest extends TestCase
 
     public function testGetAnalysisStatus()
     {
-        $this->pluginMockResponse->addResponse($this->createResponse('status'));
-        $analysis = $this->api->getAnalysisStatus('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
+        $api = $this->createApi('status');
+
+        $analysis = $api->getAnalysisStatus('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
         $this->assertSame(49, $analysis->getNumber());
@@ -215,8 +211,9 @@ class ApiTest extends TestCase
 
     public function testAnalyze()
     {
-        $this->pluginMockResponse->addResponse($this->createResponse('analysis'));
-        $analysis = $this->api->analyze('6718526f-ecdf-497d-bffb-8512f0b402ea', 'SHA');
+        $api = $this->createApi('analysis');
+
+        $analysis = $api->analyze('6718526f-ecdf-497d-bffb-8512f0b402ea', 'SHA');
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
     }
@@ -230,6 +227,12 @@ class ApiTest extends TestCase
 
     private function createResponse($fixture, $statusCode = 200)
     {
-        return new Response($statusCode, null, file_get_contents(sprintf('%s/fixtures/%s.xml', __DIR__, $fixture)));
+        return file_get_contents(sprintf('%s/fixtures/%s.xml', __DIR__, $fixture));
+    }
+
+    private function createApi($fixture, $option = []){
+        $client = new MockHttpClient([new MockResponse($this->createResponse($fixture), $option)]);
+        $api = new Api(array('api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'), $client, null, $this->logger);
+        return $api;
     }
 }
