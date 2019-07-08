@@ -43,13 +43,13 @@ class Projects
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
-    private $links = array();
+    private $links = [];
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Project>")
      * @XmlList(inline = true, entry = "project")
      */
-    private $projects = array();
+    private $projects = [];
 
     /**
      * @return int

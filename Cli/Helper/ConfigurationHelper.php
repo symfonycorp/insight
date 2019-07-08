@@ -99,7 +99,7 @@ class ConfigurationHelper extends Helper
         };
 
         if (!$input->isInteractive()) {
-            return call_user_func($validator, $default);
+            return \call_user_func($validator, $default);
         }
 
         if ($default) {

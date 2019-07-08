@@ -40,7 +40,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         $api = $this->getApplication()->getApi();
         $analysis = $api->analyze($projectUuid, $input->getOption('reference'), $input->getOption('branch'));
 
-        $chars = array('-', '\\', '|', '/');
+        $chars = ['-', '\\', '|', '/'];
         $noAnsiStatus = 'Analysis queued';
         $output->getErrorOutput()->writeln($noAnsiStatus);
 

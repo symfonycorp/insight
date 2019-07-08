@@ -16,7 +16,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class TextDescriptor extends AbstractDescriptor
 {
-    protected function describeAnalysis(Analysis $analysis, array $options = array())
+    protected function describeAnalysis(Analysis $analysis, array $options = [])
     {
         $output = $options['output'];
         if (OutputInterface::VERBOSITY_VERY_VERBOSE <= $output->getVerbosity()) {
@@ -67,7 +67,7 @@ Message:  <comment>{{ message }}</comment>
 
 EOL;
             foreach ($analysis->getViolations() as $violation) {
-                $output->writeln(strtr($template, array(
+                $output->writeln(strtr($template, [
                     '{{ resource }}' => $violation->getResource(),
                     '{{ line }}' => $violation->getLine(),
                     '{{ category }}' => $violation->getCategory(),
@@ -75,7 +75,7 @@ EOL;
                     '{{ title }}' => $violation->getTitle(),
                     '{{ message }}' => $violation->getMessage(),
                     '{{ ignored }}' => $violation->isIgnored() ? ' (ignored)' : null,
-                )));
+                ]));
             }
         }
 

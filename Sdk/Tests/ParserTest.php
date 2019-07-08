@@ -28,11 +28,11 @@ class ParserTest extends TestCase
 
     public function getParseErrorsFailedIfDocumentIfInvalidTests()
     {
-        return array(
-            array(null),
-            array(''),
-            array('403'),
-        );
+        return [
+            [null],
+            [''],
+            ['403'],
+        ];
     }
 
     /**
@@ -51,15 +51,15 @@ class ParserTest extends TestCase
 
         $error = $this->parser->parseError($xml);
 
-        $expectedFields = array(
-            'foo' => array(
+        $expectedFields = [
+            'foo' => [
                 0 => 'This value should not be null.',
                 1 => 'This value should not be blank.',
-            ),
-            'bar' => array(
+            ],
+            'bar' => [
                 0 => 'This value should be equals to 6.',
-            ),
-        );
+            ],
+        ];
 
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $error);
         $this->assertSame($expectedFields, $error->getEntityBodyParameters());

@@ -13,7 +13,7 @@ class PmdDescriptor extends AbstractDescriptor
     const PHPMD_PRIORITY_MEDIUM_LOW = 4;
     const PHPMD_PRIORITY_LOW = 5;
 
-    protected function describeAnalysis(Analysis $analysis, array $options = array())
+    protected function describeAnalysis(Analysis $analysis, array $options = [])
     {
         $output = $options['output'];
 

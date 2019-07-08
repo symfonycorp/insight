@@ -173,7 +173,7 @@ class ApiTest extends TestCase
         $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('error', $analysis->getGrade());
         $this->assertSame('bronze', $analysis->getNextGrade());
-        $this->assertSame(array('error', 'bronze', 'silver', 'gold', 'platinum'), $analysis->getGrades());
+        $this->assertSame(['error', 'bronze', 'silver', 'gold', 'platinum'], $analysis->getGrades());
         $this->assertSame(181.75, $analysis->getRemediationCost());
         $this->assertSame(55.5, $analysis->getRemediationCostForNextGrade());
         $this->assertSame('2013-06-25T19:37:20+02:00', $analysis->getBeginAt()->format('c'));
@@ -230,9 +230,11 @@ class ApiTest extends TestCase
         return file_get_contents(sprintf('%s/fixtures/%s.xml', __DIR__, $fixture));
     }
 
-    private function createApi($fixture, $option = []){
+    private function createApi($fixture, $option = [])
+    {
         $client = new MockHttpClient([new MockResponse($this->createResponse($fixture), $option)]);
-        $api = new Api(array('api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'), $client, null, $this->logger);
+        $api = new Api(['api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'], $client, null, $this->logger);
+
         return $api;
     }
 }

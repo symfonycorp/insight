@@ -37,20 +37,20 @@ class Api
     private $parser;
     private $logger;
 
-    public function __construct(array $options = array(), HttpClientInterface $httpClient = null, Parser $parser = null, LoggerInterface $logger = null)
+    public function __construct(array $options = [], HttpClientInterface $httpClient = null, Parser $parser = null, LoggerInterface $logger = null)
     {
         $this->httpClient = $httpClient ?: new HttpClient();
         $this->parser = $parser ?: new Parser();
 
-        $defaultOptions = array(
+        $defaultOptions = [
             'base_url' => static::ENDPOINT,
             'cache' => false,
             'debug' => false,
-        );
-        $required = array('api_token', 'base_url', 'user_uuid');
+        ];
+        $required = ['api_token', 'base_url', 'user_uuid'];
         $options = array_merge($defaultOptions, $options);
         if ($missing = array_diff($required, array_keys($options))) {
-            throw new \Exception('Config is missing the following keys: ' . implode(', ', $missing));
+            throw new \Exception('Config is missing the following keys: '.implode(', ', $missing));
         }
 
         $this->httpClient = new ScopingHttpClient(
@@ -58,8 +58,8 @@ class Api
             [
                 '.+' => [
                     'base_uri' => $options['base_url'],
-                    'auth_basic' =>  array($options['user_uuid'], $options['api_token']),
-                    'headers' => array('accept' => 'application/vnd.com.sensiolabs.insight+xml')
+                    'auth_basic' => [$options['user_uuid'], $options['api_token']],
+                    'headers' => ['accept' => 'application/vnd.com.sensiolabs.insight+xml'],
                 ],
             ],
             '.+'
@@ -113,7 +113,7 @@ class Api
     public function updateProject(Project $project)
     {
         return $this->serializer->deserialize(
-            $this->send('PUT', sprintf('/api/projects/%s', $project->getUuid()), array('insight_project' => $project->toArray())),
+            $this->send('PUT', sprintf('/api/projects/%s', $project->getUuid()), ['insight_project' => $project->toArray()]),
             'SensioLabs\Insight\Sdk\Model\Project',
             'xml'
         );
@@ -127,7 +127,7 @@ class Api
     public function createProject(Project $project)
     {
         return $this->serializer->deserialize(
-            $this->send('POST', '/api/projects', array('insight_project' => $project->toArray())),
+            $this->send('POST', '/api/projects', ['insight_project' => $project->toArray()]),
             'SensioLabs\Insight\Sdk\Model\Project',
             'xml'
         );
@@ -156,7 +156,7 @@ class Api
     public function getAnalysis($projectUuid, $analysesNumber)
     {
         return $this->serializer->deserialize(
-            $this->send('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber),null),
+            $this->send('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber), null),
             'SensioLabs\Insight\Sdk\Model\Analysis',
             'xml'
         );
@@ -190,7 +190,7 @@ class Api
             $this->send(
                 'POST',
                 sprintf('/api/projects/%s/analyses', $projectUuid),
-                $branch ? array('reference' => $reference, 'branch' => $branch) : array('reference' => $reference)
+                $branch ? ['reference' => $reference, 'branch' => $branch] : ['reference' => $reference]
             ),
             'SensioLabs\Insight\Sdk\Model\Analysis',
             'xml'
@@ -200,7 +200,7 @@ class Api
     /**
      * Use this method to call a specific API resource.
      */
-    public function call($method = 'GET', $uri = null, $headers = null, $body = null, array $options = array(), $classToUnserialize = null)
+    public function call($method = 'GET', $uri = null, $headers = null, $body = null, array $options = [], $classToUnserialize = null)
     {
         if ($classToUnserialize) {
             return $this->serializer->deserialize(
@@ -232,11 +232,11 @@ class Api
     {
         try {
             $option = [];
-            if($body){
+            if ($body) {
                 $option['body'] = $body;
             }
             $this->logger and $this->logger->debug(sprintf('%s "%s"', $method, $url));
-            $response = $this->httpClient->request($method, $url,$option);
+            $response = $this->httpClient->request($method, $url, $option);
             // block until headers arrive
             $response->getStatusCode();
             $this->logger and $this->logger->debug(sprintf("Request:\n%s", (string) $response->getInfo('debug')));
@@ -274,10 +274,10 @@ class Api
     private function logException(HttpExceptionInterface $e)
     {
         $message = sprintf("Exception: Class: \"%s\", Message: \"%s\", Response:\n%s",
-            get_class($e),
+            \get_class($e),
             $e->getMessage(),
             $e->getResponse()->getInfo('debug')
         );
-        $this->logger and $this->logger->error($message, array('exception' => $e));
+        $this->logger and $this->logger->error($message, ['exception' => $e]);
     }
 }
