@@ -23,7 +23,7 @@ class JsonDescriptor extends AbstractDescriptor
         $this->serializer = $serializer;
     }
 
-    protected function describeAnalysis(Analysis $analysis, array $options = array())
+    protected function describeAnalysis(Analysis $analysis, array $options = [])
     {
         $output = $options['output'];
         $output->writeln($this->serializer->serialize($analysis, 'json'));

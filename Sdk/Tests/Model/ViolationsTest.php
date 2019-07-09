@@ -26,7 +26,7 @@ class ViolationsTest extends TestCase
         $violationsAttr->setValue($violations, range(1, 10));
         $violationsAttr->setAccessible(false);
 
-        $this->assertSame(10, count($violations));
+        $this->assertSame(10, \count($violations));
     }
 
     public function testIterable()

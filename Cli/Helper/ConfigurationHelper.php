@@ -6,6 +6,8 @@ use SensioLabs\Insight\Cli\Configuration;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
+use Symfony\Component\Console\Question\Question;
 
 class ConfigurationHelper extends Helper
 {
@@ -97,18 +99,18 @@ class ConfigurationHelper extends Helper
         };
 
         if (!$input->isInteractive()) {
-            return call_user_func($validator, $default);
+            return \call_user_func($validator, $default);
         }
 
         if ($default) {
-            $question = sprintf('What is your %s? [%s] ', $varname, $default);
+            $question = new Question(sprintf('What is your %s? [%s] ', $varname, $default));
         } else {
-            $question = sprintf('What is your %s? ', $varname);
+            $question = new Question(sprintf('What is your %s? ', $varname));
         }
 
-        $dialog = $this->getHelperSet()->get('dialog');
+        $dialog = $this->getHelperSet()->get('question');
 
-        return $dialog->askAndValidate($output, $question, $validator, false, $default);
+        return $dialog->ask($input, $output, $question, $validator, false, $default);
     }
 
     private function saveConfiguration(InputInterface $input, OutputInterface $output, Configuration $configuration)
@@ -119,13 +121,11 @@ class ConfigurationHelper extends Helper
             return;
         }
 
-        $question = 'Do you want to save this new configuration? [Y/n] ';
-        if (PHP_VERSION_ID > 50400) {
-            $question = json_encode($configuration->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)."\n\n".$question;
-        }
-        $dialog = $this->getHelperSet()->get('dialog');
+        $question = new ConfirmationQuestion('Do you want to save this new configuration? [Y/n] ');
 
-        if ($dialog->askConfirmation($output, $question)) {
+        $dialog = $this->getHelperSet()->get('question');
+
+        if ($dialog->ask($input, $output, $question)) {
             $configuration->save();
         }
     }

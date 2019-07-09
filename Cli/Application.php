@@ -34,9 +34,9 @@ class Application extends SymfonyApplication
 
     public function __construct()
     {
-        $this->apiConfig = array(
+        $this->apiConfig = [
             'base_url' => Api::ENDPOINT,
-        );
+        ];
 
         parent::__construct(static::APPLICATION_NAME, static::APPLICATION_VERSION);
     }
@@ -48,7 +48,7 @@ class Application extends SymfonyApplication
         }
 
         $config = $this->apiConfig;
-        if (array_key_exists('api_endpoint', $config)) {
+        if (\array_key_exists('api_endpoint', $config)) {
             $config['base_url'] = $config['api_endpoint'];
         }
         $this->api = new Api($config);

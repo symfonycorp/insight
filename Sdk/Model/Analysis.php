@@ -27,7 +27,7 @@ class Analysis
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
-    private $links = array();
+    private $links = [];
 
     /** @Type("integer") */
     private $number;
@@ -42,7 +42,7 @@ class Analysis
     private $nextGrade;
 
     /** @Type("array<string>") */
-    private $grades = array();
+    private $grades = [];
 
     /**
      * @Type("float")

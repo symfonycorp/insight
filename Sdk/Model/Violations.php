@@ -20,11 +20,11 @@ class Violations implements \Countable, \IteratorAggregate
      * @Type("array<SensioLabs\Insight\Sdk\Model\Violation>")
      * @XmlList(inline = true, entry = "violation")
      */
-    private $violations = array();
+    private $violations = [];
 
     public function count()
     {
-        return count($this->violations);
+        return \count($this->violations);
     }
 
     public function getIterator()
@@ -45,7 +45,7 @@ class Violations implements \Countable, \IteratorAggregate
      */
     public function filter($callback)
     {
-        if (!is_callable($callback)) {
+        if (!\is_callable($callback)) {
             throw new \InvalidArgumentException('The callback is not callable.');
         }
 

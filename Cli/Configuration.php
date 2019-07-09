@@ -47,11 +47,11 @@ class Configuration
 
     public function toArray()
     {
-        return array(
+        return [
             'user_uuid' => $this->userUuid,
             'api_token' => $this->apiToken,
             'api_endpoint' => $this->apiEndpoint,
-        );
+        ];
     }
 
     public function save()
@@ -59,7 +59,7 @@ class Configuration
         file_put_contents($this->storagePath, json_encode($this->toArray()));
     }
 
-    public function equals(Configuration $configuration)
+    public function equals(self $configuration)
     {
         if ($this->userUuid !== $configuration->userUuid) {
             return false;
@@ -82,13 +82,13 @@ class Configuration
 
         $data = json_decode(file_get_contents($this->storagePath), true);
 
-        if (array_key_exists('user_uuid', $data)) {
+        if (\array_key_exists('user_uuid', $data)) {
             $this->userUuid = $data['user_uuid'];
         }
-        if (array_key_exists('api_token', $data)) {
+        if (\array_key_exists('api_token', $data)) {
             $this->apiToken = $data['api_token'];
         }
-        if (array_key_exists('api_endpoint', $data)) {
+        if (\array_key_exists('api_endpoint', $data)) {
             $this->apiEndpoint = $data['api_endpoint'];
         }
     }
@@ -98,7 +98,7 @@ class Configuration
         $storagePath = getenv('INSIGHT_HOME');
 
         if (!$storagePath) {
-            if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
+            if (\defined('PHP_WINDOWS_VERSION_MAJOR')) {
                 if (!getenv('APPDATA')) {
                     throw new \RuntimeException('The APPDATA or INSIGHT_HOME environment variable must be set for insight to run correctly');
                 }

@@ -13,7 +13,7 @@ namespace SensioLabs\Insight\Sdk\Model;
 
 class Error
 {
-    private $entityBodyParameters = array();
+    private $entityBodyParameters = [];
 
     public function getEntityBodyParameters()
     {
@@ -22,13 +22,13 @@ class Error
 
     public function hasEntityBodyParameter($name)
     {
-        return array_key_exists($name, $this->entityBodyParameters);
+        return \array_key_exists($name, $this->entityBodyParameters);
     }
 
     public function addEntityBodyParameter($name)
     {
         if (!$this->hasEntityBodyParameter($name)) {
-            $this->entityBodyParameters[$name] = array();
+            $this->entityBodyParameters[$name] = [];
         }
 
         return $this;
