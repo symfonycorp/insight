@@ -16,7 +16,12 @@ jobs:
   include:
     - php: 7.1
     - php: 7.2
+      script:
+        - wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.13.1/php-cs-fixer.phar
+        - php php-cs-fixer.phar fix --dry-run --diff
+        - vendor/bin/simple-phpunit
     - php: 7.3
+
     - stage: release
       php: 7.1
       dist: precise
