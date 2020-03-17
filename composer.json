@@ -2,19 +2,13 @@
     "name": "sensiolabs/insight",
     "description": "SensioLabs Insight SDK",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Grégoire Pineau",
-            "email": "lyrixx@lyrixx.info"
-        }
-    ],
     "require": {
         "php": ">=7.1",
-        "symfony/http-client": "^4.3",
+        "symfony/http-client": "^4.3|^5.0",
         "jms/serializer": "0.12.*",
         "psr/log": "^1.0",
-        "symfony/console": "^4.3",
-        "symfony/expression-language": "^4.3"
+        "symfony/console": "^4.3|^5.0",
+        "symfony/expression-language": "^4.3|^5.0"
     },
     "require-dev": {
         "monolog/monolog": "^1.4",
