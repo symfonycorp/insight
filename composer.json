@@ -10,15 +10,17 @@
     ],
     "require": {
         "php": ">=7.1",
-        "symfony/http-client": "^4.3",
+        "ext-json": "*",
         "jms/serializer": "0.12.*",
         "psr/log": "^1.0",
-        "symfony/console": "^4.3",
-        "symfony/expression-language": "^4.3"
+        "symfony/http-client": "^4.4",
+        "symfony/console": "^4.4",
+        "symfony/expression-language": "^4.4"
     },
     "require-dev": {
         "monolog/monolog": "^1.4",
-        "symfony/phpunit-bridge": "^3.3"
+        "symfony/phpunit-bridge": "^4.4",
+        "symfony/var-dumper": "^4.4"
     },
     "suggest": {
         "monolog/monolog": "Will add some log capability to this library"

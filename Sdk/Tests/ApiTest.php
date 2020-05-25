@@ -3,7 +3,7 @@
 /*
  * This file is part of the SensioLabsInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) SensioLabs <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -233,8 +233,7 @@ class ApiTest extends TestCase
     private function createApi($fixture, $option = [])
     {
         $client = new MockHttpClient([new MockResponse($this->createResponse($fixture), $option)]);
-        $api = new Api(['api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'], $client, null, $this->logger);
 
-        return $api;
+        return new Api(['api_token' => 'my-token', 'user_uuid' => 'my-user-uuid'], $client, null, $this->logger);
     }
 }

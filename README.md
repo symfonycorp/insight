@@ -163,7 +163,7 @@ embed SensioLabsInsight reports into your build workflow, following these steps:
 *It is assumed you already have your project up and building in Jenkins and SensioLabsInsight SDK installed*
 
 1. Retrieve your `SensioLabsInsight API Token`, `User UUID` and `Project UUID`
-on your [account page](https://insight.sensiolabs.com/account)
+on your [account page](https://insight.symfony.com/account)
 2. Install the Jenkins `PMD plugin`:
 [How to install a jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Howtoinstallplugins)
 3. Optionally you can also install the `EnvInject  Plugin`

@@ -8,12 +8,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class ConfigurationHelper extends Helper
 {
     private $apiEndpoint;
 
-    public function __construct($apiEndpoint)
+    public function __construct(string $apiEndpoint)
     {
         $this->apiEndpoint = $apiEndpoint;
     }
@@ -24,11 +25,23 @@ class ConfigurationHelper extends Helper
 
         $userUuid = $input->getOption('user-uuid') ?: $configuration->getUserUuid();
         $apiToken = $input->getOption('api-token') ?: $configuration->getApiToken();
-        $apiEndpoint = $input->getOption('api-endpoint') ?: $configuration->getApiEndpoint();
+
+        // Avoid saving again a legacy URL
+        $defaultEndpoint = $configuration->getApiEndpoint();
+        if (false !== strpos($defaultEndpoint, '.sensiolabs.com')) {
+            $defaultEndpoint = null;
+        }
+
+        $apiEndpoint = $input->getOption('api-endpoint') ?: $defaultEndpoint;
 
         $configuration->setUserUuid($this->askValue($input, $output, 'User Uuid', $userUuid));
         $configuration->setApiToken($this->askValue($input, $output, 'Api Token', $apiToken));
         $configuration->setApiEndpoint($this->askValue($input, $output, 'Api Endpoint', $apiEndpoint ?: $this->apiEndpoint));
+
+        if (false !== strpos($configuration->getApiEndpoint(), '.sensiolabs.com')) {
+            $io = new SymfonyStyle($input, $output);
+            $io->warning('You are using the legacy URL of SymfonyInsight which may stop working in the future. You should reconfigure this tool by running the "configure" command and use "https://insight.symfony.com" as endpoint.');
+        }
 
         $this->saveConfiguration($input, $output, $configuration);
     }
@@ -43,7 +56,7 @@ class ConfigurationHelper extends Helper
         $this->resolveValue($input, $output, $configuration, 'Api Endpoint', $this->apiEndpoint);
 
         if (!$configuration->equals($previousConfiguration)) {
-            $this->saveConfiguration($input, $output, $configuration, $previousConfiguration);
+            $this->saveConfiguration($input, $output, $configuration);
         }
 
         return $configuration;
@@ -78,7 +91,6 @@ class ConfigurationHelper extends Helper
     private function getValue(InputInterface $input, $varName)
     {
         $envVarName = sprintf('INSIGHT_%s', str_replace(' ', '_', strtoupper($varName)));
-
         if ($value = getenv($envVarName)) {
             return $value;
         }
@@ -90,7 +102,7 @@ class ConfigurationHelper extends Helper
 
     private function askValue(InputInterface $input, OutputInterface $output, $varname, $default = null)
     {
-        $validator = function ($v) use ($varname) {
+        $validator = static function ($v) use ($varname) {
             if (!$v) {
                 throw new \InvalidArgumentException(sprintf('Your must provide a %s!', $varname));
             }
@@ -99,18 +111,17 @@ class ConfigurationHelper extends Helper
         };
 
         if (!$input->isInteractive()) {
-            return \call_user_func($validator, $default);
+            return $validator($default);
         }
 
-        if ($default) {
-            $question = new Question(sprintf('What is your %s? [%s] ', $varname, $default));
-        } else {
-            $question = new Question(sprintf('What is your %s? ', $varname));
-        }
+        $question = new Question(
+            $default ? sprintf('What is your %s? [%s] ', $varname, $default) : sprintf('What is your %s? ', $varname),
+            $default
+        );
 
-        $dialog = $this->getHelperSet()->get('question');
+        $question->setValidator($validator);
 
-        return $dialog->ask($input, $output, $question, $validator, false, $default);
+        return $this->getHelperSet()->get('question')->ask($input, $output, $question);
     }
 
     private function saveConfiguration(InputInterface $input, OutputInterface $output, Configuration $configuration)
@@ -123,9 +134,7 @@ class ConfigurationHelper extends Helper
 
         $question = new ConfirmationQuestion('Do you want to save this new configuration? [Y/n] ');
 
-        $dialog = $this->getHelperSet()->get('question');
-
-        if ($dialog->ask($input, $output, $question)) {
+        if ($this->getHelperSet()->get('question')->ask($input, $output, $question)) {
             $configuration->save();
         }
     }

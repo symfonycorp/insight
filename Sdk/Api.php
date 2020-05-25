@@ -3,7 +3,7 @@
 /*
  * This file is part of the SensioLabsInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) SensioLabs <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,8 +11,6 @@
 
 namespace SensioLabs\Insight\Sdk;
 
-use Symfony\Component\HttpClient\HttpClient;
-use Symfony\Component\HttpClient\ScopingHttpClient;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
@@ -22,6 +20,8 @@ use SensioLabs\Insight\Sdk\Model\Analyses;
 use SensioLabs\Insight\Sdk\Model\Analysis;
 use SensioLabs\Insight\Sdk\Model\Project;
 use SensioLabs\Insight\Sdk\Model\Projects;
+use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpClient\ScopingHttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
@@ -30,8 +30,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Api
 {
-    const ENDPOINT = 'https://insight.sensiolabs.com';
+    public const ENDPOINT = 'https://insight.symfony.com';
 
+    private $baseUrl;
     private $httpClient;
     private $serializer;
     private $parser;
@@ -39,7 +40,7 @@ class Api
 
     public function __construct(array $options = [], HttpClientInterface $httpClient = null, Parser $parser = null, LoggerInterface $logger = null)
     {
-        $this->httpClient = $httpClient ?: new HttpClient();
+        $this->httpClient = $httpClient ?: HttpClient::create();
         $this->parser = $parser ?: new Parser();
 
         $defaultOptions = [
@@ -47,17 +48,21 @@ class Api
             'cache' => false,
             'debug' => false,
         ];
+
         $required = ['api_token', 'base_url', 'user_uuid'];
         $options = array_merge($defaultOptions, $options);
+
         if ($missing = array_diff($required, array_keys($options))) {
             throw new \Exception('Config is missing the following keys: '.implode(', ', $missing));
         }
 
+        $this->baseUrl = $options['base_url'];
+
         $this->httpClient = new ScopingHttpClient(
-            $httpClient,
+            $this->httpClient,
             [
                 '.+' => [
-                    'base_uri' => $options['base_url'],
+                    'base_uri' => $this->baseUrl,
                     'auth_basic' => [$options['user_uuid'], $options['api_token']],
                     'headers' => ['accept' => 'application/vnd.com.sensiolabs.insight+xml'],
                 ],
@@ -69,12 +74,18 @@ class Api
             ->addMetadataDir(__DIR__.'/Model')
             ->setDebug($options['debug'])
         ;
+
         if ($cache = $options['cache']) {
             $serializerBuilder = $serializerBuilder->setCacheDir($cache);
         }
-        $this->serializer = $serializerBuilder->build();
 
+        $this->serializer = $serializerBuilder->build();
         $this->logger = $logger;
+    }
+
+    public function getBaseUrl(): string
+    {
+        return $this->baseUrl;
     }
 
     /**
@@ -86,7 +97,7 @@ class Api
     {
         return $this->serializer->deserialize(
             $this->send('GET', '/api/projects?page='.$page),
-            'SensioLabs\Insight\Sdk\Model\Projects',
+            Projects::class,
             'xml'
         );
     }
@@ -100,35 +111,31 @@ class Api
     {
         return $this->serializer->deserialize(
             $this->send('GET', sprintf('/api/projects/%s', $uuid)),
-            'SensioLabs\Insight\Sdk\Model\Project',
+            Project::class,
             'xml'
         );
     }
 
     /**
-     * @param Project $project
-     *
      * @return Project
      */
     public function updateProject(Project $project)
     {
         return $this->serializer->deserialize(
             $this->send('PUT', sprintf('/api/projects/%s', $project->getUuid()), ['insight_project' => $project->toArray()]),
-            'SensioLabs\Insight\Sdk\Model\Project',
+            Project::class,
             'xml'
         );
     }
 
     /**
-     * @param Project $project
-     *
      * @return Project
      */
     public function createProject(Project $project)
     {
         return $this->serializer->deserialize(
             $this->send('POST', '/api/projects', ['insight_project' => $project->toArray()]),
-            'SensioLabs\Insight\Sdk\Model\Project',
+            Project::class,
             'xml'
         );
     }
@@ -142,7 +149,7 @@ class Api
     {
         return $this->serializer->deserialize(
             $this->send('GET', sprintf('/api/projects/%s/analyses', $projectUuid)),
-            'SensioLabs\Insight\Sdk\Model\Analyses',
+            Analyses::class,
             'xml'
         );
     }
@@ -157,7 +164,7 @@ class Api
     {
         return $this->serializer->deserialize(
             $this->send('GET', sprintf('/api/projects/%s/analyses/%s', $projectUuid, $analysesNumber), null),
-            'SensioLabs\Insight\Sdk\Model\Analysis',
+            Analysis::class,
             'xml'
         );
     }
@@ -172,7 +179,7 @@ class Api
     {
         return $this->serializer->deserialize(
             $this->send('GET', sprintf('/api/projects/%s/analyses/%s/status', $projectUuid, $analysesNumber)),
-            'SensioLabs\Insight\Sdk\Model\Analysis',
+            Analysis::class,
             'xml'
         );
     }
@@ -192,7 +199,7 @@ class Api
                 sprintf('/api/projects/%s/analyses', $projectUuid),
                 $branch ? ['reference' => $reference, 'branch' => $branch] : ['reference' => $reference]
             ),
-            'SensioLabs\Insight\Sdk\Model\Analysis',
+            Analysis::class,
             'xml'
         );
     }
@@ -228,15 +235,17 @@ class Api
         return $this->serializer;
     }
 
-    private function send($method, $url, $body = null)
+    private function send($method, $url, $body = null): string
     {
         try {
             $option = [];
             if ($body) {
                 $option['body'] = $body;
             }
+
             $this->logger and $this->logger->debug(sprintf('%s "%s"', $method, $url));
             $response = $this->httpClient->request($method, $url, $option);
+
             // block until headers arrive
             $response->getStatusCode();
             $this->logger and $this->logger->debug(sprintf("Request:\n%s", (string) $response->getInfo('debug')));
@@ -263,8 +272,8 @@ class Api
         $error = null;
         $message = sprintf('Your request in not valid (status code: "%d").', $statusCode);
 
-        if (400 == $statusCode) {
-            $error = $this->parser->parseError((string) $e->getResponse()->getContent(false));
+        if (400 === $statusCode) {
+            $error = $this->parser->parseError($e->getResponse()->getContent(false));
             $message .= 'See $error attached to the exception';
         }
 
@@ -278,6 +287,7 @@ class Api
             $e->getMessage(),
             $e->getResponse()->getInfo('debug')
         );
+
         $this->logger and $this->logger->error($message, ['exception' => $e]);
     }
 }

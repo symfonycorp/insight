@@ -3,7 +3,7 @@
 /*
  * This file is part of the SensioLabsInsight package.
  *
- * (c) SensioLabs <contact@sensiolabs.com>
+ * (c) SensioLabs <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,11 +12,13 @@
 namespace SensioLabs\Insight\Cli\Command;
 
 use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
+use SensioLabs\Insight\Sdk\Api;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class AnalyzeCommand extends Command implements NeedConfigurationInterface
 {
@@ -37,7 +39,15 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $projectUuid = $input->getArgument('project-uuid');
+
+        /** @var Api $api */
         $api = $this->getApplication()->getApi();
+
+        if (false !== strpos($api->getBaseUrl(), '.sensiolabs.com')) {
+            $io = new SymfonyStyle($input, $output);
+            $io->warning('You are using the legacy URL of SymfonyInsight which may stop working in the future. You should reconfigure this tool by running the "configure" command and use "https://insight.symfony.com" as endpoint.');
+        }
+
         $analysis = $api->analyze($projectUuid, $input->getOption('reference'), $input->getOption('branch'));
 
         $chars = ['-', '\\', '|', '/'];
