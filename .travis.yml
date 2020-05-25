@@ -1,7 +1,5 @@
 language: php
 
-sudo: false
-
 cache:
   directories:
     - $HOME/.composer/cache/files
@@ -16,11 +14,12 @@ jobs:
   include:
     - php: 7.1
     - php: 7.2
+    - php: 7.3
+    - php: 7.4
       script:
-        - wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.13.1/php-cs-fixer.phar
+        - wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.16.3/php-cs-fixer.phar
         - php php-cs-fixer.phar fix --dry-run --diff
         - vendor/bin/simple-phpunit
-    - php: 7.3
 
     - stage: release
       php: 7.1
