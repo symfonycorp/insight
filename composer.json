@@ -11,7 +11,7 @@
     "require": {
         "php": ">=7.1",
         "ext-json": "*",
-        "jms/serializer": "0.12.*",
+        "jms/serializer": "^1.4",
         "psr/log": "^1.0",
         "symfony/http-client": "^4.4",
         "symfony/console": "^4.4",
