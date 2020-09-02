@@ -57,8 +57,8 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         $position = 0;
 
         while (true) {
-            // we don't check the status too often
-            if (0 === $position % 2) {
+            // we don't check the status too often (every second)
+            if (0 === $position % 5) {
                 $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
             }
 
