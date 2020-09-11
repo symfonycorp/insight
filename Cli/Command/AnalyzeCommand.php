@@ -32,6 +32,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             ->addOption('branch', null, InputOption::VALUE_REQUIRED, 'The analysis current branch')
             ->addOption('show-ignored-violations', null, InputOption::VALUE_NONE, 'Show ignored violations')
             ->addOption('fail-condition', null, InputOption::VALUE_REQUIRED, '')
+            ->addOption('no-wait', null, InputOption::VALUE_NONE, 'Do not wait for analysis result')
             ->setDescription('Analyze a project')
         ;
     }
@@ -55,6 +56,12 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         $output->getErrorOutput()->writeln($noAnsiStatus);
 
         $position = 0;
+
+        if ($input->getOption('no-wait')) {
+            $output->writeln('The analysis is launched. Please check the result in you SymfonyInsight notifications.');
+
+            return;
+        }
 
         while (true) {
             // we don't check the status too often (every second)
