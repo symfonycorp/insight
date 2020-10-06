@@ -26,6 +26,7 @@ references:
             key: v1-phpunit-{{ checksum "composer.json" }}
 
     run_tests: &run_tests
+        resource_class: small
         steps:
             - checkout
 
@@ -48,6 +49,7 @@ jobs:
     php-cs:
         docker:
             - image: php:7.2-cli-alpine
+        resource_class: small
         steps:
             - checkout
             - run: wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.13.1/php-cs-fixer.phar
