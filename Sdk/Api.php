@@ -23,6 +23,7 @@ use SensioLabs\Insight\Sdk\Model\Analysis;
 use SensioLabs\Insight\Sdk\Model\Project;
 use SensioLabs\Insight\Sdk\Model\Projects;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
@@ -271,7 +272,7 @@ class Api
         throw new ApiClientException($message, $error, 0, $e);
     }
 
-    private function logException(HttpExceptionInterface $e)
+    private function logException(ExceptionInterface $e)
     {
         $message = sprintf("Exception: Class: \"%s\", Message: \"%s\", Response:\n%s",
             \get_class($e),
