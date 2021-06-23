@@ -26,7 +26,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class Application extends SymfonyApplication
 {
     const APPLICATION_NAME = 'SensioLabs Insight CLI';
-    const APPLICATION_VERSION = '1.7.0';
+    const APPLICATION_VERSION = '1.7.1';
 
     private $api;
     private $apiConfig;
