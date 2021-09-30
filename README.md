@@ -21,9 +21,9 @@ The easiest way to use the SymfonyInsight API is via the built-in command line t
 A phar version of the command line tool exists to avoid installation of this
 project. Download it, then use it like the command line tool:
 
-    $ curl -o insight.phar -s http://get.insight.symfony.com/insight.phar
+    $ curl -o insight.phar -s https://get.insight.symfony.com/insight.phar
     # or
-    $ wget http://get.insight.symfony.com/insight.phar
+    $ wget https://get.insight.symfony.com/insight.phar
 
     # Then
     $ php insight.phar

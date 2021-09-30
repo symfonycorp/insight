@@ -195,7 +195,7 @@ class Analysis
      */
     public function getDuration()
     {
-        return new \DateInterval('PT'.($this->duration ? $this->duration : '0').'S');
+        return new \DateInterval('PT'.($this->duration ?: '0').'S');
     }
 
     /**

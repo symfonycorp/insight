@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <support@symfony.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -60,12 +60,12 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         if ($input->getOption('no-wait')) {
             $output->writeln('The analysis is launched. Please check the result in you SymfonyInsight notifications.');
 
-            return;
+            return 1;
         }
 
         while (true) {
-            // we don't check the status too often (every second)
-            if (0 === $position % 5) {
+            // we don't check the status too often (every 10 seconds)
+            if (0 === $position % 50) {
                 $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
             }
 
@@ -104,7 +104,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         }
 
         if (!$expr = $input->getOption('fail-condition')) {
-            return;
+            return 1;
         }
 
         return $this->getHelperSet()->get('fail_condition')->evaluate($analysis, $expr);

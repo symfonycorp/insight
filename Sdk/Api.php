@@ -244,12 +244,12 @@ class Api
                 $option['body'] = $body;
             }
 
-            $this->logger and $this->logger->debug(sprintf('%s "%s"', $method, $url));
+            $this->logger && $this->logger->debug(sprintf('%s "%s"', $method, $url));
             $response = $this->httpClient->request($method, $url, $option);
 
             // block until headers arrive
             $response->getStatusCode();
-            $this->logger and $this->logger->debug(sprintf("Request:\n%s", (string) $response->getInfo('debug')));
+            $this->logger && $this->logger->debug(sprintf("Request:\n%s", (string) $response->getInfo('debug')));
 
             return $response->getContent();
         } catch (ClientExceptionInterface $e) {
@@ -289,6 +289,6 @@ class Api
             $e->getResponse()->getInfo('debug')
         );
 
-        $this->logger and $this->logger->error($message, ['exception' => $e]);
+        $this->logger && $this->logger->error($message, ['exception' => $e]);
     }
 }
