@@ -28,7 +28,7 @@ class Parser
 
         $document = new \DOMDocument();
         $document->validateOnParse = true;
-        if (!$document->loadXML($content, LIBXML_NONET | (\defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0))) {
+        if (!$document->loadXML($content, \LIBXML_NONET | (\defined('LIBXML_COMPACT') ? \LIBXML_COMPACT : 0))) {
             libxml_disable_entity_loader($disableEntities);
 
             libxml_clear_errors();

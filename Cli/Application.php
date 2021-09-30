@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <support@symfony.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -25,7 +25,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Application extends SymfonyApplication
 {
-    const APPLICATION_NAME = 'SensioLabs Insight CLI';
+    const APPLICATION_NAME = 'SymfonyInsight CLI';
     const APPLICATION_VERSION = '1.7.1';
 
     private $api;
@@ -69,7 +69,7 @@ class Application extends SymfonyApplication
 
     public function getLongVersion()
     {
-        $version = parent::getLongVersion().' by <comment>SensioLabs</comment>';
+        $version = parent::getLongVersion().' by <comment>Symfony</comment>';
         $commit = '@git-commit@';
 
         if ('@'.'git-commit@' !== $commit) {

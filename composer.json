@@ -1,13 +1,7 @@
 {
     "name": "sensiolabs/insight",
-    "description": "SensioLabs Insight SDK",
+    "description": "SymfonyInsight SDK",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Grégoire Pineau",
-            "email": "lyrixx@lyrixx.info"
-        }
-    ],
     "require": {
         "php": ">=7.1",
         "ext-json": "*",

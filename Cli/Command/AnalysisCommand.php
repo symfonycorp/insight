@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the SensioLabsInsight package.
+ * This file is part of the SymfonyInsight package.
  *
- * (c) SensioLabs <support@symfony.com>
+ * (c) Symfony <support@symfony.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -52,7 +52,7 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
         }
 
         if (!$expr = $input->getOption('fail-condition')) {
-            return;
+            return 1;
         }
 
         return $this->getHelperSet()->get('fail_condition')->evaluate($analysis, $expr);
