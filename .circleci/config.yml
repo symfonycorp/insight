@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+    aws-s3: circleci/aws-s3@3.0.0 # use the AWS S3 orb in your config
+
 jobs:
     tests-php-cs:
         docker:
@@ -43,7 +46,7 @@ jobs:
 
     release:
         docker:
-            - image: circleci/php:7.1
+            - image: circleci/php:7.4
         steps:
             - run: sudo composer self-update
 
@@ -64,6 +67,12 @@ jobs:
             # Test
             - run: build/insight.phar list
 
+            # Release
+            - aws-s3/copy:
+                  from: build/insight.phar
+                  to: 's3://get.insight.symfony.com/insight.phar'
+                  arguments: '--acl public-read'
+
 workflows:
     version: 2
     test:
@@ -75,6 +84,6 @@ workflows:
                           php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
             - release:
                   requires: [tests-phpunit]
-                  # filters:
-                      #     branches:
-                  #   only: ['master']
+                  filters:
+                      branches:
+                          only: ['master']
