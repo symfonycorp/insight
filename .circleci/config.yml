@@ -1,86 +1,76 @@
-version: 2
+version: 2.1
 
-references:
-    restore_dependencies_cache: &restore_dependencies_cache
-        restore_cache:
-            key: v1-deps-{{ checksum "composer.json" }}
+jobs:
+    tests-php-cs:
+        docker:
+            - image: php:8.0-cli-alpine
+        steps:
+            - checkout
+            - run: wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.19.0/php-cs-fixer.phar
+            - run: php php-cs-fixer.phar fix --dry-run --diff
 
-    install_dependencies: &install_dependencies
-        run: composer install
-
-    save_dependencies_cache: &save_dependencies_cache
-        save_cache:
-            paths: [./vendor]
-            key: v1-deps-{{ checksum "composer.json" }}
-
-    restore_phpunit_cache: &restore_phpunit_cache
-        restore_cache:
-            key: v1-phpunit-{{ checksum "composer.json" }}
-
-    install_phpunit: &install_phpunit
-        run: php vendor/bin/simple-phpunit install
-
-    save_phpunit_cache: &save_phpunit_cache
-        save_cache:
-            paths: [./bin/.phpunit]
-            key: v1-phpunit-{{ checksum "composer.json" }}
-
-    run_tests: &run_tests
-        resource_class: small
+    tests-phpunit:
+        parameters:
+            php-version:
+                type: string
+        docker:
+            - image: circleci/php:<< parameters.php-version >>
         steps:
             - checkout
 
             # Dependencies
-            - *restore_dependencies_cache
-            - *install_dependencies
-            - *save_dependencies_cache
+            - restore_cache:
+                  key: v1-deps-{{ checksum "composer.json" }}
+            - run: composer install
+            - save_cache:
+                  paths: [ ./vendor ]
+                  key: v1-deps-{{ checksum "composer.json" }}
 
             # Install PHPUnit
-            - *restore_phpunit_cache
-            - *install_phpunit
-            - *save_phpunit_cache
+            - restore_cache:
+                  key: v1-phpunit-{{ checksum "composer.json" }}
+            - run: php vendor/bin/simple-phpunit install
+            - save_cache:
+                  paths: [ ./bin/.phpunit ]
+                  key: v1-phpunit-{{ checksum "composer.json" }}
 
             # Run the tests
             - run: php vendor/bin/simple-phpunit -v --log-junit ./phpunit/junit.xml
             - store_test_results:
                   path: ./phpunit
 
-jobs:
-    php-cs:
+    release:
         docker:
-            - image: php:7.2-cli-alpine
-        resource_class: small
+            - image: circleci/php:8.0
         steps:
             - checkout
-            - run: wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.13.1/php-cs-fixer.phar
-            - run: php php-cs-fixer.phar fix --dry-run --diff
 
-    tests-php-7-1:
-        docker:
-            - image: circleci/php:7.1
-        <<: *run_tests
+            # Dependencies
+            - restore_cache:
+                  key: v1-deps-{{ checksum "composer.json" }}
+            - run: composer install
+            - save_cache:
+                  paths: [ ./vendor ]
+                  key: v1-deps-{{ checksum "composer.json" }}
 
-    tests-php-7-2:
-        docker:
-            - image: circleci/php:7.2
-        <<: *run_tests
+            # Build
+            - run: wget https://github.com/box-project/box/releases/download/3.13.0/box.phar -O /tmp/box.phar
+            - run: php /tmp/box.phar build
 
-    tests-php-7-3:
-        docker:
-            - image: circleci/php:7.3
-        <<: *run_tests
-
-    tests-php-7-4:
-        docker:
-            - image: circleci/php:7.4
-        <<: *run_tests
+            # Test
+            - run: build/insight.phar list
 
 workflows:
     version: 2
     test:
         jobs:
-            - php-cs
-            - tests-php-7-1
-            - tests-php-7-2
-            - tests-php-7-3
-            - tests-php-7-4
+            - tests-php-cs
+            - tests-phpunit:
+                  matrix:
+                      parameters:
+                          php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
+            - release:
+                  requires: [tests-phpunit]
+                  # filters:
+                      #     branches:
+                  #   only: ['master']

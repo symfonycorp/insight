@@ -1,8 +1,11 @@
 {
-    "chmod": "0755",
-    "main": "bin/insight",
+    "check-requirements": false,
     "output": "build/insight.phar",
-    "stub": true,
-    "directories": ["."],
-    "git-commit": "git-commit"
+    "git-commit": "git-commit",
+    "finder": [
+        {"in": "bin"},
+        {"in": "Cli"},
+        {"in": "Sdk", "exclude": ["Tests"]},
+        {"in": "vendor", "notName": "/LICENSE|.*\\.md|.*\\.dist|Makefile|composer\\.json|composer\\.lock/"}
+    ]
 }
