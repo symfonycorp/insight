@@ -52,10 +52,8 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         $analysis = $api->analyze($projectUuid, $input->getOption('reference'), $input->getOption('branch'));
 
         $chars = ['-', '\\', '|', '/'];
-        $noAnsiStatus = 'Analysis queued';
+        $noAnsiStatus = 'Analysis running';
         $output->getErrorOutput()->writeln($noAnsiStatus);
-
-        $position = 0;
 
         if ($input->getOption('no-wait')) {
             $output->writeln('The analysis is launched. Please check the result in you SymfonyInsight notifications.');
@@ -63,9 +61,11 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             return 1;
         }
 
+        $position = 1;
+
         while (true) {
-            // we don't check the status too often (every 10 seconds)
-            if (0 === $position % 50) {
+            // we don't check the status too often (every 30 seconds)
+            if (0 === $position % 150) {
                 $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
             }
 
