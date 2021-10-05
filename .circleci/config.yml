@@ -16,6 +16,8 @@ jobs:
         docker:
             - image: circleci/php:<< parameters.php-version >>
         steps:
+            - run: sudo composer self-update
+
             - checkout
 
             # Dependencies
@@ -41,8 +43,10 @@ jobs:
 
     release:
         docker:
-            - image: circleci/php:8.0
+            - image: circleci/php:7.1
         steps:
+            - run: sudo composer self-update
+
             - checkout
 
             # Dependencies
