@@ -21,7 +21,7 @@ class ParserTest extends TestCase
      */
     private $parser;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->parser = new Parser();
     }
@@ -65,7 +65,7 @@ class ParserTest extends TestCase
         $this->assertSame($expectedFields, $error->getEntityBodyParameters());
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->parser = null;
     }

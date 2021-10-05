@@ -25,7 +25,7 @@ class ApiTest extends TestCase
     private $api;
     private $logger;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
     }
@@ -218,7 +218,7 @@ class ApiTest extends TestCase
         $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->logger = null;
         $this->api = null;
