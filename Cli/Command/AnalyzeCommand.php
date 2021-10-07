@@ -58,7 +58,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         if ($input->getOption('no-wait')) {
             $output->writeln('The analysis is launched. Please check the result in you SymfonyInsight notifications.');
 
-            return 1;
+            return 0;
         }
 
         $position = 1;
@@ -104,7 +104,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         }
 
         if (!$expr = $input->getOption('fail-condition')) {
-            return 1;
+            return 0;
         }
 
         return $this->getHelperSet()->get('fail_condition')->evaluate($analysis, $expr);
