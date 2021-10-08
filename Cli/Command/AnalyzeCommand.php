@@ -31,6 +31,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             ->addOption('reference', null, InputOption::VALUE_REQUIRED, 'The git reference to analyze')
             ->addOption('branch', null, InputOption::VALUE_REQUIRED, 'The analysis current branch')
             ->addOption('show-ignored-violations', null, InputOption::VALUE_NONE, 'Show ignored violations')
+            ->addOption('poll-period', null, InputOption::VALUE_REQUIRED, 'How regularly should the analysis status be checked in seconds', 30)
             ->addOption('fail-condition', null, InputOption::VALUE_REQUIRED, '')
             ->addOption('no-wait', null, InputOption::VALUE_NONE, 'Do not wait for analysis result')
             ->setDescription('Analyze a project')
@@ -40,6 +41,11 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $projectUuid = $input->getArgument('project-uuid');
+
+        $pollPeriod = (int) $input->getOption('poll-period');
+        if ($pollPeriod < 30) {
+            $pollPeriod = 30;
+        }
 
         /** @var Api $api */
         $api = $this->getApplication()->getApi();
@@ -64,8 +70,8 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         $position = 1;
 
         while (true) {
-            // we don't check the status too often (every 30 seconds)
-            if (0 === $position % 150) {
+            // Check the status every poll-period * 5 loops (5 * 200ms = 1s)
+            if (0 === $position % (5 * $pollPeriod)) {
                 $analysis = $api->getAnalysisStatus($projectUuid, $analysis->getNumber());
             }
 
