@@ -30,13 +30,11 @@ class ApiTest extends TestCase
         $this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Config is missing the following keys: api_token, user_uuid
-     */
     public function testConstructorWithoutOption()
     {
-        $api = new Api();
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Config is missing the following keys: api_token, user_uuid');
+        new Api();
     }
 
     public function testGetProjects()
