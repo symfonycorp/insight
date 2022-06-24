@@ -12,6 +12,7 @@
 namespace SensioLabs\Insight\Sdk\Tests;
 
 use PHPUnit\Framework\TestCase;
+use SensioLabs\Insight\Sdk\Exception\ApiParserException;
 use SensioLabs\Insight\Sdk\Parser;
 
 class ParserTest extends TestCase
@@ -36,13 +37,13 @@ class ParserTest extends TestCase
     }
 
     /**
-     * @expectedException \SensioLabs\Insight\Sdk\Exception\ApiParserException
-     * @expectedExceptionMessage Could not transform this xml to a \DOMDocument instance.
      * @dataProvider getParseErrorsFailedIfDocumentIfInvalidTests
      */
     public function testParseErrorsFailedIfDocumentIfInvalid($xml)
     {
-        $error = $this->parser->parseError($xml);
+        $this->expectException(ApiParserException::class);
+        $this->expectExceptionMessage('Could not transform this xml to a \DOMDocument instance.');
+        $this->parser->parseError($xml);
     }
 
     public function testParseErrors()

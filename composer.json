@@ -3,9 +3,9 @@
     "description": "SymfonyInsight SDK",
     "license": "MIT",
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "ext-json": "*",
-        "jms/serializer": "0.12.*",
+        "jms/serializer": "^3.17",
         "psr/log": "^1.0",
         "symfony/http-client": "^4.4",
         "symfony/console": "^4.4",
