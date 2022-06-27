@@ -25,6 +25,11 @@
         }
     },
     "bin": ["bin/insight"],
+    "config": {
+        "platform": {
+            "php": "7.2.5"
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.5.x-dev"
