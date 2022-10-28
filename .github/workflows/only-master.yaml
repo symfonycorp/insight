@@ -1,0 +1,49 @@
+on:
+    push:
+        branches:
+            - master
+name: Insight SDK (release)
+
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+
+        env:
+            AWS_DEFAULT_REGION: 'eu-west-1'
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+        steps:
+            - uses: actions/checkout@master
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '7.4'
+                  coverage: none
+
+            - name: Get Composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Mount PHP dependencies cache
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('console/composer.lock') }}
+                  restore-keys: ${{ runner.os }}-composer-
+
+            - name: Install dependencies
+              run: composer install
+
+            - name: Build
+              run: |
+                  wget https://github.com/box-project/box/releases/download/3.13.0/box.phar -O /tmp/box.phar
+                  php /tmp/box.phar build
+            
+            - name: Test
+              run: build/insight.phar list
+
+            - name: Release
+              run: |
+                  aws s3 cp build/insight.phar s3://get.insight.symfony.com/insight.phar

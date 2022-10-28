@@ -1,0 +1,52 @@
+on: [pull_request]
+name: Insight SDK
+
+jobs:
+    php-cs:
+        name: Coding style
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '7.2'
+                  tools: php-cs-fixer:2.13.1
+                  coverage: none
+            - name: php-cs-fixer
+              run: php-cs-fixer fix --dry-run --diff
+
+    tests-phpunit:
+        name: Unit tests
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1"]
+
+        steps:
+            - uses: actions/checkout@master
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  tools: phpunit-bridge
+                  coverage: none
+
+            - name: Get Composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Mount PHP dependencies cache
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('console/composer.lock') }}
+                  restore-keys: ${{ runner.os }}-composer-
+
+            - name: Install dependencies
+              run: |
+                  composer install --prefer-dist --no-interaction --no-ansi --no-progress
+
+            - name: Run the tests suite
+              run: |
+                  php vendor/bin/simple-phpunit -v --log-junit ./phpunit/junit.xml
