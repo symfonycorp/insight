@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Tests;
+namespace SymfonyCorp\Insight\Sdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SensioLabs\Insight\Sdk\Api;
-use SensioLabs\Insight\Sdk\Model\Project;
+use SymfonyCorp\Insight\Sdk\Api;
+use SymfonyCorp\Insight\Sdk\Model\Project;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
 
@@ -43,14 +43,14 @@ class ApiTest extends TestCase
 
         $projects = $api->getProjects();
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Projects', $projects);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Projects', $projects);
         $this->assertCount(10, $projects->getProjects());
         $this->assertSame(1, $projects->getPage());
         $this->assertSame(12, $projects->getTotal());
         $this->assertSame(10, $projects->getLimit());
 
         $projects = $projects->getProjects();
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', reset($projects));
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', reset($projects));
     }
 
     public function testGetProjectsWithPage()
@@ -68,14 +68,14 @@ class ApiTest extends TestCase
 
         $projects = $api->getProjects(2);
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Projects', $projects);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Projects', $projects);
         $this->assertCount(2, $projects->getProjects());
         $this->assertSame(2, $projects->getPage());
         $this->assertSame(12, $projects->getTotal());
         $this->assertSame(10, $projects->getLimit());
 
         $projects = $projects->getProjects();
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', reset($projects));
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', reset($projects));
     }
 
     public function testGetProject()
@@ -84,7 +84,7 @@ class ApiTest extends TestCase
 
         $project = $api->getProject('6718526f-ecdf-497d-bffb-8512f0b402ea');
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', $project);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', $project);
         $this->assertSame('demo', $project->getName());
         $this->assertNotnull($project->getConfiguration());
         $this->assertSame('git@github.com:lyrixx/demoer.git', $project->getRepositoryUrl());
@@ -92,7 +92,7 @@ class ApiTest extends TestCase
         $this->assertTrue($project->isReportAvailable());
         $this->assertSame(1, $project->getType());
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $project->getLastAnalysis());
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $project->getLastAnalysis());
     }
 
     public function testCreateProjectOk()
@@ -103,7 +103,7 @@ class ApiTest extends TestCase
 
         $project = $api->createProject($project);
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', $project);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', $project);
     }
 
     public function testCreateProjectNOk()
@@ -116,9 +116,9 @@ class ApiTest extends TestCase
             $project = $api->createProject($project);
             $this->fail('Something should go wrong');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('SensioLabs\Insight\Sdk\Exception\ApiClientException', $e);
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Exception\ApiClientException', $e);
             $this->assertSame('Your request in not valid (status code: "400").See $error attached to the exception', $e->getMessage());
-            $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $e->getError());
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Error', $e->getError());
         }
     }
 
@@ -130,7 +130,7 @@ class ApiTest extends TestCase
 
         $project = $api->updateProject($project);
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Project', $project);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Project', $project);
     }
 
     public function testupdateProjectNOk()
@@ -142,9 +142,9 @@ class ApiTest extends TestCase
             $project = $api->updateProject($project);
             $this->fail('Something should go wrong');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('SensioLabs\Insight\Sdk\Exception\ApiClientException', $e);
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Exception\ApiClientException', $e);
             $this->assertSame('Your request in not valid (status code: "400").See $error attached to the exception', $e->getMessage());
-            $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $e->getError());
+            $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Error', $e->getError());
         }
     }
 
@@ -154,11 +154,11 @@ class ApiTest extends TestCase
 
         $analyses = $api->getAnalyses('6718526f-ecdf-497d-bffb-8512f0b402ea');
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analyses', $analyses);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analyses', $analyses);
         $this->assertCount(2, $analyses->getAnalyses());
 
         $analyses = $analyses->getAnalyses();
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', reset($analyses));
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', reset($analyses));
     }
 
     public function testGetAnalysis()
@@ -167,7 +167,7 @@ class ApiTest extends TestCase
 
         $analysis = $api->getAnalysis('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $analysis);
         $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('error', $analysis->getGrade());
         $this->assertSame('bronze', $analysis->getNextGrade());
@@ -181,12 +181,12 @@ class ApiTest extends TestCase
         $this->assertNull($analysis->getFailureMessage());
         $this->assertNull($analysis->getFailureCode());
         $this->assertFalse($analysis->isAltered());
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violations', $analysis->getViolations());
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Violations', $analysis->getViolations());
         $this->assertCount(250, $analysis->getViolations()->getViolations());
 
         $violations = $analysis->getViolations()->getViolations();
         $firstViolation = reset($violations);
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Violation', $firstViolation);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Violation', $firstViolation);
 
         $this->assertSame(7, $firstViolation->getLine());
         $this->assertSame('critical', $firstViolation->getSeverity());
@@ -200,7 +200,7 @@ class ApiTest extends TestCase
 
         $analysis = $api->getAnalysisStatus('6718526f-ecdf-497d-bffb-8512f0b402ea', 1);
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $analysis);
         $this->assertSame(49, $analysis->getNumber());
         $this->assertSame('2013-06-25T19:37:20+02:00', $analysis->getBeginAt()->format('c'));
         $this->assertSame('2013-06-25T19:37:53+02:00', $analysis->getEndAt()->format('c'));
@@ -213,7 +213,7 @@ class ApiTest extends TestCase
 
         $analysis = $api->analyze('6718526f-ecdf-497d-bffb-8512f0b402ea', 'SHA');
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Analysis', $analysis);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Analysis', $analysis);
     }
 
     protected function tearDown(): void

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Model;
+namespace SymfonyCorp\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;

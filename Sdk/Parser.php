@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk;
+namespace SymfonyCorp\Insight\Sdk;
 
-use SensioLabs\Insight\Sdk\Exception\ApiParserException;
-use SensioLabs\Insight\Sdk\Model\Error;
+use SymfonyCorp\Insight\Sdk\Exception\ApiParserException;
+use SymfonyCorp\Insight\Sdk\Model\Error;
 
 class Parser
 {

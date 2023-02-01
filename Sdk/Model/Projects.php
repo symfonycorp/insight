@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Model;
+namespace SymfonyCorp\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
@@ -40,13 +40,13 @@ class Projects
     private $limit;
 
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
     private $links = [];
 
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Project>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Project>")
      * @XmlList(inline = true, entry = "project")
      */
     private $projects = [];

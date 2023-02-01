@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Exception;
+namespace SymfonyCorp\Insight\Sdk\Exception;
 
 class ApiServerException extends \RuntimeException implements ExceptionInterface
 {

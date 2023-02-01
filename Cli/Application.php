@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli;
+namespace SymfonyCorp\Insight\Cli;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use SensioLabs\Insight\Cli\Command as LocalCommand;
-use SensioLabs\Insight\Cli\Helper\ConfigurationHelper;
-use SensioLabs\Insight\Cli\Helper\FailConditionHelper;
-use SensioLabs\Insight\Sdk\Api;
+use SymfonyCorp\Insight\Cli\Command as LocalCommand;
+use SymfonyCorp\Insight\Cli\Helper\ConfigurationHelper;
+use SymfonyCorp\Insight\Cli\Helper\FailConditionHelper;
+use SymfonyCorp\Insight\Sdk\Api;
 use Symfony\Component\Console\Application as SymfonyApplication;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

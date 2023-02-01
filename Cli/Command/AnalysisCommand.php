@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Command;
+namespace SymfonyCorp\Insight\Cli\Command;
 
-use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
+use SymfonyCorp\Insight\Cli\Helper\DescriptorHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

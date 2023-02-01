@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Descriptor;
+namespace SymfonyCorp\Insight\Cli\Descriptor;
 
-use SensioLabs\Insight\Sdk\Model\Analysis;
-use SensioLabs\Insight\Sdk\Model\Violation;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Violation;
 
 abstract class AbstractDescriptor
 {

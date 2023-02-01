@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Descriptor;
+namespace SymfonyCorp\Insight\Cli\Descriptor;
 
-use SensioLabs\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class TextDescriptor extends AbstractDescriptor

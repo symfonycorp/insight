@@ -1,6 +1,6 @@
 <?php
 
-namespace SensioLabs\Insight\Cli;
+namespace SymfonyCorp\Insight\Cli;
 
 class Configuration
 {
