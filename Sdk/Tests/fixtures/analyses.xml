@@ -26,6 +26,8 @@
     <remediation-cost>181.75</remediation-cost>
     <remediation-cost-for-next-grade>55.5</remediation-cost-for-next-grade>
     <nb-violations>250</nb-violations>
+    <reference><![CDATA[61dfbb5aab6ad35b25baeab9fc66d35aafc28531]]></reference>
+    <branch><![CDATA[main]]></branch>
   </analysis>
   <analysis>
     <link href="https://insight.sensiolabs.com/api/projects/fc94cd0a-e079-4489-b2da-1003c045b564/analyses/48?apiToken=b99cb0f2a39a3dc0b42576b5eabd8e093d610d1b5280aea154d90332b23b890c&amp;userUuid=394ccafb-eec3-45ba-93a7-f1d4156b9c80" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
@@ -62,5 +64,7 @@ insight:analyze:wax [--feedback="..."] [--artefacts="..."] [--measure="..."] [--
     <remediation-cost>0</remediation-cost>
     <remediation-cost-for-next-grade>0</remediation-cost-for-next-grade>
     <nb-violations>0</nb-violations>
+    <reference><![CDATA[61dfbb5aab6ad35b25baeab9fc66d35aafc28673]]></reference>
+    <branch><![CDATA[master]]></branch>
   </analysis>
 </analyses>

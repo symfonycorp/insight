@@ -146,10 +146,16 @@ class Api
      *
      * @return Analyses
      */
-    public function getAnalyses($projectUuid)
+    public function getAnalyses($projectUuid, $branch = null)
     {
+        $url = sprintf('/api/projects/%s/analyses', $projectUuid);
+
+        if ($branch) {
+            $url .= '?branch='.$branch;
+        }
+
         return $this->serializer->deserialize(
-            $this->send('GET', sprintf('/api/projects/%s/analyses', $projectUuid)),
+            $this->send('GET', $url),
             Analyses::class,
             'xml'
         );
