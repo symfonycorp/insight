@@ -104,6 +104,9 @@ Note: If something went wrong, see *Error management* section
 
     $api->getAnalyses('project uuid');
 
+    // for a specific branch
+    $api->getAnalyses('project uuid', 'branch name');
+
 ### Get an analysis
 
     $api->getAnalysis('project uuid', 'analysis id');

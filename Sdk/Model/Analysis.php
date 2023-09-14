@@ -111,6 +111,18 @@ class Analysis
     private $violations;
 
     /**
+     * @Type("string")
+     * @SerializedName("branch")
+     */
+    private $branch;
+
+    /**
+     * @Type("string")
+     * @SerializedName("reference")
+     */
+    private $reference;
+
+    /**
      * @return Link[]
      */
     public function getLinks()
