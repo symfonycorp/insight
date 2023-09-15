@@ -17,7 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ConfigureCommand extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('configure')
@@ -25,8 +25,10 @@ class ConfigureCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->getHelperSet()->get('configuration')->updateConfigurationManually($input, $output);
+
+        return 0;
     }
 }

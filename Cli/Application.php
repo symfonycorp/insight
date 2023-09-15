@@ -69,7 +69,7 @@ class Application extends SymfonyApplication
         return $this->api;
     }
 
-    public function getLongVersion()
+    public function getLongVersion(): string
     {
         $version = parent::getLongVersion().' by <comment>Symfony</comment>';
         $commit = '@git-commit@';
@@ -116,7 +116,7 @@ class Application extends SymfonyApplication
         return $defaultCommands;
     }
 
-    protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output)
+    protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output): int
     {
         if (!$command instanceof LocalCommand\NeedConfigurationInterface) {
             return parent::doRunCommand($command, $input, $output);

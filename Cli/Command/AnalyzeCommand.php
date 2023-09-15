@@ -22,7 +22,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class AnalyzeCommand extends Command implements NeedConfigurationInterface
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('analyze')
@@ -38,7 +38,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projectUuid = $input->getArgument('project-uuid');
 

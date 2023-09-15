@@ -20,7 +20,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class AnalysisCommand extends Command implements NeedConfigurationInterface
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('analysis')
@@ -32,7 +32,7 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $api = $this->getApplication()->getApi();
         $analysis = $api->getProject($input->getArgument('project-uuid'))->getLastAnalysis();

@@ -62,7 +62,7 @@ class ConfigurationHelper extends Helper
         return $configuration;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'configuration';
     }
