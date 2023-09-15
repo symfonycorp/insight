@@ -7,14 +7,14 @@
         "ext-json": "*",
         "jms/serializer": "^3.17",
         "psr/log": "^1.0",
-        "symfony/http-client": "^4.4",
-        "symfony/console": "^4.4",
-        "symfony/expression-language": "^4.4"
+        "symfony/http-client": "^4.4|^5.4|^6.3",
+        "symfony/console": "^4.4|^5.4|^6.3",
+        "symfony/expression-language": "^4.4|^5.4|^6.3"
     },
     "require-dev": {
         "monolog/monolog": "^1.4",
-        "symfony/phpunit-bridge": "^4.4|^5.3",
-        "symfony/var-dumper": "^4.4|^5.3"
+        "symfony/phpunit-bridge": "^4.4|^5.4|^6.3",
+        "symfony/var-dumper": "^4.4|^5.4|^6.3"
     },
     "suggest": {
         "monolog/monolog": "Will add some log capability to this library"
@@ -25,14 +25,9 @@
         }
     },
     "bin": ["bin/insight"],
-    "config": {
-        "platform": {
-            "php": "7.2.5"
-        }
-    },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.5.x-dev"
+            "dev-master": "1.10.x-dev"
         }
     }
 }
