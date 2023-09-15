@@ -20,8 +20,25 @@ jobs:
         runs-on: ubuntu-latest
 
         strategy:
+            fail-fast: false
             matrix:
-                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1"]
+                sf-version: [ '^4.4', '^5.4', '^6.3' ]
+                php-version: [ '7.2', '7.3', '7.4', '8.0', '8.1', '8.2' ]
+                exclude:
+                    -   sf-version: '^4.4'
+                        php-version: '8.0'
+                    -   sf-version: '^4.4'
+                        php-version: '8.1'
+                    -   sf-version: '^4.4'
+                        php-version: '8.2'
+                    -   sf-version: '^6.3'
+                        php-version: '7.2'
+                    -   sf-version: '^6.3'
+                        php-version: '7.3'
+                    -   sf-version: '^6.3'
+                        php-version: '7.4'
+                    -   sf-version: '^6.3'
+                        php-version: '8.0'
 
         steps:
             - uses: actions/checkout@master
@@ -45,8 +62,14 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  composer install --prefer-dist --no-interaction --no-ansi --no-progress
+                  composer global config --no-plugins allow-plugins.symfony/flex true
+                  composer global require symfony/flex:^1.0
+                  export SYMFONY_REQUIRE="${{ matrix.sf-version }}"
+                  composer update --prefer-dist --no-interaction --no-ansi --no-progress
 
             - name: Run the tests suite
               run: |
                   php vendor/bin/simple-phpunit -v --log-junit ./phpunit/junit.xml
+
+            - name: Run cmd
+              run: bin/insight list

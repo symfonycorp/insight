@@ -19,6 +19,8 @@ use SensioLabs\Insight\Cli\Helper\FailConditionHelper;
 use SensioLabs\Insight\Sdk\Api;
 use Symfony\Component\Console\Application as SymfonyApplication;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\HelperSet;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -79,7 +81,7 @@ class Application extends SymfonyApplication
         return $version;
     }
 
-    protected function getDefaultHelperSet()
+    protected function getDefaultHelperSet(): HelperSet
     {
         $helperSet = parent::getDefaultHelperSet();
 
@@ -89,7 +91,7 @@ class Application extends SymfonyApplication
         return $helperSet;
     }
 
-    protected function getDefaultInputDefinition()
+    protected function getDefaultInputDefinition(): InputDefinition
     {
         $definition = parent::getDefaultInputDefinition();
 
@@ -101,7 +103,7 @@ class Application extends SymfonyApplication
         return $definition;
     }
 
-    protected function getDefaultCommands()
+    protected function getDefaultCommands(): array
     {
         $defaultCommands = parent::getDefaultCommands();
 
