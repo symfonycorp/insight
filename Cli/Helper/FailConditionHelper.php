@@ -69,7 +69,7 @@ class FailConditionHelper extends Helper
         return 0;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'fail_condition';
     }

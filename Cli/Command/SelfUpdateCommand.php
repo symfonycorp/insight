@@ -25,7 +25,7 @@ class SelfUpdateCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('self-update')
@@ -44,7 +44,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $remoteFilename = 'http://get.insight.sensiolabs.com/insight.phar';
         $localFilename = $_SERVER['argv'][0];
@@ -57,7 +57,7 @@ EOT
                 $output->writeln('<info>insight is already up to date.</info>');
                 unlink($tempFilename);
 
-                return;
+                return 0;
             }
 
             chmod($tempFilename, 0777 & ~umask());
@@ -69,6 +69,8 @@ EOT
             rename($tempFilename, $localFilename);
 
             $output->writeln('<info>insight updated.</info>');
+
+            return 0;
         } catch (\Exception $e) {
             if (!$e instanceof \UnexpectedValueException && !$e instanceof \PharException) {
                 throw $e;
@@ -76,6 +78,8 @@ EOT
             unlink($tempFilename);
             $output->writeln('<error>The download is corrupt ('.$e->getMessage().').</error>');
             $output->writeln('<error>Please re-run the self-update command to try again.</error>');
+
+            return 1;
         }
     }
 }

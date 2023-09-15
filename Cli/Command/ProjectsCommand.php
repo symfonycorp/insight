@@ -18,7 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProjectsCommand extends Command implements NeedConfigurationInterface
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('projects')
@@ -26,7 +26,7 @@ class ProjectsCommand extends Command implements NeedConfigurationInterface
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $api = $this->getApplication()->getApi();
 
@@ -58,5 +58,7 @@ class ProjectsCommand extends Command implements NeedConfigurationInterface
             ->setRows($rows)
             ->render()
         ;
+
+        return 0;
     }
 }
