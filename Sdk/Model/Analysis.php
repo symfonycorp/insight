@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Model;
+namespace SymfonyCorp\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
@@ -24,7 +24,7 @@ class Analysis
     const STATUS_FINISHED = 'finished';
 
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
     private $links = [];
@@ -107,7 +107,7 @@ class Analysis
      */
     private $isAltered;
 
-    /** @Type("SensioLabs\Insight\Sdk\Model\Violations") */
+    /** @Type("SymfonyCorp\Insight\Sdk\Model\Violations") */
     private $violations;
 
     /**

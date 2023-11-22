@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk;
+namespace SymfonyCorp\Insight\Sdk;
 
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerInterface;
-use SensioLabs\Insight\Sdk\Exception\ApiClientException;
-use SensioLabs\Insight\Sdk\Exception\ApiServerException;
-use SensioLabs\Insight\Sdk\Model\Analyses;
-use SensioLabs\Insight\Sdk\Model\Analysis;
-use SensioLabs\Insight\Sdk\Model\Project;
-use SensioLabs\Insight\Sdk\Model\Projects;
+use SymfonyCorp\Insight\Sdk\Exception\ApiClientException;
+use SymfonyCorp\Insight\Sdk\Exception\ApiServerException;
+use SymfonyCorp\Insight\Sdk\Model\Analyses;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Project;
+use SymfonyCorp\Insight\Sdk\Model\Projects;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpClient\ScopingHttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;

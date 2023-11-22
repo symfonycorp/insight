@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Command;
+namespace SymfonyCorp\Insight\Cli\Command;
 
 interface NeedConfigurationInterface
 {

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Tests\Sdk\Model;
+namespace SymfonyCorp\Insight\Tests\Sdk\Model;
 
 use PHPUnit\Framework\TestCase;
-use SensioLabs\Insight\Sdk\Model\Violations;
+use SymfonyCorp\Insight\Sdk\Model\Violations;
 
 class ViolationsTest extends TestCase
 {

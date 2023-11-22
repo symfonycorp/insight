@@ -1,8 +1,8 @@
 <?php
 
-namespace SensioLabs\Insight\Cli\Helper;
+namespace SymfonyCorp\Insight\Cli\Helper;
 
-use SensioLabs\Insight\Cli\Configuration;
+use SymfonyCorp\Insight\Cli\Configuration;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

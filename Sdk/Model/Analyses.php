@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Model;
+namespace SymfonyCorp\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
@@ -17,13 +17,13 @@ use JMS\Serializer\Annotation\XmlList;
 class Analyses
 {
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
     private $links = [];
 
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Analysis>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Analysis>")
      * @XmlList(inline = true, entry = "analysis")
      */
     private $analyses = [];

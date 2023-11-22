@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Tests;
+namespace SymfonyCorp\Insight\Sdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SensioLabs\Insight\Sdk\Exception\ApiParserException;
-use SensioLabs\Insight\Sdk\Parser;
+use SymfonyCorp\Insight\Sdk\Exception\ApiParserException;
+use SymfonyCorp\Insight\Sdk\Parser;
 
 class ParserTest extends TestCase
 {
@@ -62,7 +62,7 @@ class ParserTest extends TestCase
             ],
         ];
 
-        $this->assertInstanceOf('SensioLabs\Insight\Sdk\Model\Error', $error);
+        $this->assertInstanceOf('SymfonyCorp\Insight\Sdk\Model\Error', $error);
         $this->assertSame($expectedFields, $error->getEntityBodyParameters());
     }
 

@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SensioLabs\\Insight\\": ""
+            "SymfonyCorp\\Insight\\": ""
         }
     },
     "bin": ["bin/insight"],

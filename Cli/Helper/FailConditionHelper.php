@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Cli\Helper;
+namespace SymfonyCorp\Insight\Cli\Helper;
 
-use SensioLabs\Insight\Sdk\Model\Analysis;
+use SymfonyCorp\Insight\Sdk\Model\Analysis;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 

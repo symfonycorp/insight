@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Insight\Sdk\Model;
+namespace SymfonyCorp\Insight\Sdk\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
@@ -17,7 +17,7 @@ use JMS\Serializer\Annotation\XmlList;
 class Violations implements \Countable, \IteratorAggregate
 {
     /**
-     * @Type("array<SensioLabs\Insight\Sdk\Model\Violation>")
+     * @Type("array<SymfonyCorp\Insight\Sdk\Model\Violation>")
      * @XmlList(inline = true, entry = "violation")
      */
     private $violations = [];
