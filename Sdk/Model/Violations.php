@@ -22,12 +22,12 @@ class Violations implements \Countable, \IteratorAggregate
      */
     private $violations = [];
 
-    public function count()
-    {
+    public function count(): int
+    {/
         return \count($this->violations);
     }
 
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->violations);
     }
