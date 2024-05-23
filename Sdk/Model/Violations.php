@@ -23,7 +23,7 @@ class Violations implements \Countable, \IteratorAggregate
     private $violations = [];
 
     public function count(): int
-    {/
+    {
         return \count($this->violations);
     }
 
