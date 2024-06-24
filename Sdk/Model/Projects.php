@@ -19,36 +19,47 @@ use JMS\Serializer\Annotation\XmlRoot;
 /**
  * @XmlRoot("projects")
  */
+#[XmlRoot("projects")]
 class Projects
 {
     /**
      * @XmlAttribute
      * @Type("integer")
      */
+    #[XmlAttribute]
+    #[Type("integer")]
     private $page;
 
     /**
      * @XmlAttribute
      * @Type("integer")
      */
+    #[XmlAttribute]
+    #[Type("integer")]
     private $total;
 
     /**
      * @XmlAttribute
      * @Type("integer")
      */
+    #[XmlAttribute]
+    #[Type("integer")]
     private $limit;
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Link>")]
+    #[XmlList(inline: true, entry: "link")]
     private $links = [];
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Project>")
      * @XmlList(inline = true, entry = "project")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Project>")]
+    #[XmlList(inline: true, entry: "project")]
     private $projects = [];
 
     /**

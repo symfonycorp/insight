@@ -20,18 +20,24 @@ class Link
      * @XmlAttribute
      * @Type("string")
      */
+    #[XmlAttribute]
+    #[Type("string")]
     private $href;
 
     /**
      * @XmlAttribute
      * @Type("string")
      */
+    #[XmlAttribute]
+    #[Type("string")]
     private $rel;
 
     /**
      * @XmlAttribute
      * @Type("string")
      */
+    #[XmlAttribute]
+    #[Type("string")]
     private $type;
 
     /**

@@ -27,99 +27,124 @@ class Analysis
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Link>")]
+    #[XmlList(inline: true, entry: "link")]
     private $links = [];
 
     /** @Type("integer") */
+    #[Type("integer")]
     private $number;
 
     /** @Type("string") */
+    #[Type("string")]
     private $grade;
 
     /**
      * @Type("string")
      * @SerializedName("next-grade")
      */
+    #[Type("string")]
+    #[SerializedName("next-grade")]
     private $nextGrade;
 
     /** @Type("array<string>") */
+    #[Type("array<string>")]
     private $grades = [];
 
     /**
      * @Type("float")
      * @SerializedName("remediation-cost")
      */
+    #[Type("float")]
+    #[SerializedName("remediation-cost")]
     private $remediationCost;
 
     /**
      * @Type("float")
      * @SerializedName("remediation-cost-for-next-grade")
      */
+    #[Type("float")]
+    #[SerializedName("remediation-cost-for-next-grade")]
     private $remediationCostForNextGrade;
 
     /**
      * @Type("integer")
      * @SerializedName("nb-violations")
      */
+    #[Type("integer")]
+    #[SerializedName("nb-violations")]
     private $nbViolations;
 
     /**
      * @Type("DateTime")
      * @SerializedName("begin-at")
      */
+    #[Type("DateTime")]
+    #[SerializedName("begin-at")]
     private $beginAt;
 
     /**
      * @Type("DateTime")
      * @SerializedName("end-at")
      */
+    #[Type("DateTime")]
+    #[SerializedName("end-at")]
     private $endAt;
 
     /** @Type("integer") */
+    #[Type("integer")]
     private $duration;
 
     /**
      * @Type("string")
      * @SerializedName("failure-message")
      */
+    #[Type("string")]
+    #[SerializedName("failure-message")]
     private $failureMessage;
 
     /**
      * @Type("string")
      * @SerializedName("failure-code")
      */
+    #[Type("string")]
+    #[SerializedName("failure-code")]
     private $failureCode;
 
     /** @Type("boolean") */
+    #[Type("boolean")]
     private $failed;
 
     /** @Type("string") */
+    #[Type("string")]
     private $status;
 
     /**
      * @Type("string")
      * @SerializedName("status-message")
      */
+    #[Type("string")]
+    #[SerializedName("status-message")]
     private $statusMessage;
 
     /**
      * @Type("boolean")
      * @SerializedName("altered")
      */
+    #[Type("boolean")]
+    #[SerializedName("altered")]
     private $isAltered;
 
     /** @Type("SensioLabs\Insight\Sdk\Model\Violations") */
+    #[Type("SensioLabs\Insight\Sdk\Model\Violations")]
     private $violations;
 
-    /**
-     * @Type("string")
-     * @SerializedName("branch")
-     */
+    /** @Type("string") */
+    #[Type("string")]
     private $branch;
 
-    /**
-     * @Type("string")
-     * @SerializedName("reference")
-     */
+    /** @Type("string") */
+    #[Type("string")]
     private $reference;
 
     /**
