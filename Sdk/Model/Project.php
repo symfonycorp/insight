@@ -35,6 +35,7 @@ class Project
     /**
      * @Exclude()
      */
+    #[Exclude]
     public static $types = [
         self::TYPE_SYMFONY2_WEB_PROJECT => 'Symfony2 Web Project',
         self::TYPE_SYMFONY1_WEB_PROJECT => 'symfony1 Web Project',
@@ -52,45 +53,60 @@ class Project
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Link>")]
+    #[XmlList(inline: true, entry: "link")]
     private $links = [];
 
     /**
      * @Type("string")
      * @SerializedName("id")
      */
+    #[Type("string")]
+    #[SerializedName("id")]
     private $uuid;
 
     /** @Type("string") */
+    #[Type("string")]
     private $name;
 
     /** @Type("string") */
+    #[Type("string")]
     private $configuration;
 
     /** @Type("string") */
+    #[Type("string")]
     private $description;
 
     /** @Type("integer") */
+    #[Type("integer")]
     private $type;
 
     /**
      * @Type("string")
      * @SerializedName("repository-url")
      */
+    #[Type("string")]
+    #[SerializedName("repository-url")]
     private $repositoryUrl;
 
     /** @Type("boolean") */
+    #[Type("boolean")]
     private $private;
 
     /**
      * @Type("boolean")
      * @SerializedName("report-available")
      */
+    #[Type("boolean")]
+    #[SerializedName("report-available")]
     private $reportAvailable;
 
     /**
      * @Type("SensioLabs\Insight\Sdk\Model\Analysis")
      * @SerializedName("last-analysis")
      */
+    #[Type("SensioLabs\Insight\Sdk\Model\Analysis")]
+    #[SerializedName("last-analysis")]
     private $lastAnalysis;
 
     public function toArray()

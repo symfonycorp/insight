@@ -20,6 +20,8 @@ class Violations implements \Countable, \IteratorAggregate
      * @Type("array<SensioLabs\Insight\Sdk\Model\Violation>")
      * @XmlList(inline = true, entry = "violation")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Violation>")]
+    #[XmlList(inline: true, entry: "violation")]
     private $violations = [];
 
     public function count(): int

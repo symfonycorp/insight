@@ -10,7 +10,7 @@ jobs:
             - uses: shivammathur/setup-php@v2
               with:
                   php-version: '7.2'
-                  tools: php-cs-fixer:2.13.1
+                  tools: php-cs-fixer:3.2.1
                   coverage: none
             - name: php-cs-fixer
               run: php-cs-fixer fix --dry-run --diff
@@ -22,23 +22,27 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                sf-version: [ '^4.4', '^5.4', '^6.3' ]
-                php-version: [ '7.2', '7.3', '7.4', '8.0', '8.1', '8.2' ]
+                sf-version: [ '^5.4', '^6.4', '^7.0' ]
+                php-version: [ '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3' ]
                 exclude:
-                    -   sf-version: '^4.4'
-                        php-version: '8.0'
-                    -   sf-version: '^4.4'
-                        php-version: '8.1'
-                    -   sf-version: '^4.4'
-                        php-version: '8.2'
-                    -   sf-version: '^6.3'
+                    -   sf-version: '^6.4'
                         php-version: '7.2'
-                    -   sf-version: '^6.3'
+                    -   sf-version: '^6.4'
                         php-version: '7.3'
-                    -   sf-version: '^6.3'
+                    -   sf-version: '^6.4'
                         php-version: '7.4'
-                    -   sf-version: '^6.3'
+                    -   sf-version: '^6.4'
                         php-version: '8.0'
+                    -   sf-version: '^7.0'
+                        php-version: '7.2'
+                    -   sf-version: '^7.0'
+                        php-version: '7.3'
+                    -   sf-version: '^7.0'
+                        php-version: '7.4'
+                    -   sf-version: '^7.0'
+                        php-version: '8.0'
+                    -   sf-version: '^7.0'
+                        php-version: '8.1'
 
         steps:
             - uses: actions/checkout@master

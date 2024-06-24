@@ -31,7 +31,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Api
 {
-    public const ENDPOINT = 'https://insight.symfony.com';
+    const ENDPOINT = 'https://insight.symfony.com';
 
     private $baseUrl;
     private $httpClient;

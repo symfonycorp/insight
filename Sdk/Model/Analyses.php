@@ -20,12 +20,16 @@ class Analyses
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
      * @XmlList(inline = true, entry = "link")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Link>")]
+    #[XmlList(inline: true, entry: "link")]
     private $links = [];
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Analysis>")
      * @XmlList(inline = true, entry = "analysis")
      */
+    #[Type("array<SensioLabs\Insight\Sdk\Model\Analysis>")]
+    #[XmlList(inline: true, entry: "analysis")]
     private $analyses = [];
 
     /**

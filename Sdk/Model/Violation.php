@@ -17,33 +17,43 @@ use JMS\Serializer\Annotation\XmlAttribute;
 class Violation
 {
     /** @Type("string") */
+    #[Type("string")]
     private $title;
 
     /** @Type("string") */
+    #[Type("string")]
     private $message;
 
     /** @Type("string") */
+    #[Type("string")]
     private $resource;
 
     /** @Type("integer") */
+    #[Type("integer")]
     private $line;
 
     /**
      * @Type("string")
      * @XmlAttribute
      */
+    #[Type("string")]
+    #[XmlAttribute]
     private $severity;
 
     /**
      * @Type("string")
      * @XmlAttribute
      */
+    #[Type("string")]
+    #[XmlAttribute]
     private $category;
 
     /**
      * @Type("boolean")
      * @XmlAttribute
      */
+    #[Type("boolean")]
+    #[XmlAttribute]
     private $ignored;
 
     /**
