@@ -6,7 +6,7 @@ jobs:
         name: Coding style
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@master
+            - uses: actions/checkout@main
             - uses: shivammathur/setup-php@v2
               with:
                   php-version: '7.2'
@@ -45,7 +45,7 @@ jobs:
                         php-version: '8.1'
 
         steps:
-            - uses: actions/checkout@master
+            - uses: actions/checkout@main
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
