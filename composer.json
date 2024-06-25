@@ -28,7 +28,7 @@
     "bin": ["bin/insight"],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.10.x-dev"
+            "dev-main": "1.x-dev"
         }
     }
 }
