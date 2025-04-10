@@ -39,7 +39,7 @@ class Api
     private $parser;
     private $logger;
 
-    public function __construct(array $options = [], HttpClientInterface $httpClient = null, Parser $parser = null, LoggerInterface $logger = null)
+    public function __construct(array $options = [], ?HttpClientInterface $httpClient = null, ?Parser $parser = null, ?LoggerInterface $logger = null)
     {
         $this->httpClient = $httpClient ?: HttpClient::create();
         $this->parser = $parser ?: new Parser();
