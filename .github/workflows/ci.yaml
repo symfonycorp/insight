@@ -22,7 +22,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                sf-version: [ '^5.4', '^6.4', '^7.0' ]
+                sf-version: [ '^5.4', '^6.4', '^7.2' ]
                 php-version: [ '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3' ]
                 exclude:
                     -   sf-version: '^6.4'
@@ -33,15 +33,15 @@ jobs:
                         php-version: '7.4'
                     -   sf-version: '^6.4'
                         php-version: '8.0'
-                    -   sf-version: '^7.0'
+                    -   sf-version: '^7.2'
                         php-version: '7.2'
-                    -   sf-version: '^7.0'
+                    -   sf-version: '^7.2'
                         php-version: '7.3'
-                    -   sf-version: '^7.0'
+                    -   sf-version: '^7.2'
                         php-version: '7.4'
-                    -   sf-version: '^7.0'
+                    -   sf-version: '^7.2'
                         php-version: '8.0'
-                    -   sf-version: '^7.0'
+                    -   sf-version: '^7.2'
                         php-version: '8.1'
 
         steps:
@@ -58,7 +58,7 @@ jobs:
               run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
             - name: Mount PHP dependencies cache
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               with:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('console/composer.lock') }}
