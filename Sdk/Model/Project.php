@@ -21,16 +21,25 @@ class Project
     /**
      * @see https://github.com/sensiolabs/connect/blob/master/src/SensioLabs/Connect/Api/Entity/Project.php
      */
-    const TYPE_PHP_WEBSITE = 0;
-    const TYPE_PHP_LIBRARY = 1;
-    const TYPE_SYMFONY2_BUNDLE = 2;
-    const TYPE_SYMFONY1_PLUGIN = 4;
-    const TYPE_OTHER = 6;
-    const TYPE_DRUPAL_MODULE = 7;
-    const TYPE_LARAVAL_WEB_PROJECT = 8;
-    const TYPE_SILEX_WEB_PROJECT = 9;
-    const TYPE_SYMFONY2_WEB_PROJECT = 10;
-    const TYPE_SYMFONY1_WEB_PROJECT = 11;
+    public const TYPE_PHP_WEBSITE = 0;
+
+    public const TYPE_PHP_LIBRARY = 1;
+
+    public const TYPE_SYMFONY2_BUNDLE = 2;
+
+    public const TYPE_SYMFONY1_PLUGIN = 4;
+
+    public const TYPE_OTHER = 6;
+
+    public const TYPE_DRUPAL_MODULE = 7;
+
+    public const TYPE_LARAVAL_WEB_PROJECT = 8;
+
+    public const TYPE_SILEX_WEB_PROJECT = 9;
+
+    public const TYPE_SYMFONY2_WEB_PROJECT = 10;
+
+    public const TYPE_SYMFONY1_WEB_PROJECT = 11;
 
     /**
      * @Exclude()
