@@ -17,11 +17,15 @@ use JMS\Serializer\Annotation\XmlList;
 
 class Analysis
 {
-    const STATUS_ORDERED = 'ordered';
-    const STATUS_RUNNING = 'running';
-    const STATUS_MEASURED = 'measured';
-    const STATUS_ANALYZED = 'analyzed';
-    const STATUS_FINISHED = 'finished';
+    public const STATUS_ORDERED = 'ordered';
+
+    public const STATUS_RUNNING = 'running';
+
+    public const STATUS_MEASURED = 'measured';
+
+    public const STATUS_ANALYZED = 'analyzed';
+
+    public const STATUS_FINISHED = 'finished';
 
     /**
      * @Type("array<SensioLabs\Insight\Sdk\Model\Link>")
