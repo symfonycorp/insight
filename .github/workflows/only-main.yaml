@@ -46,4 +46,4 @@ jobs:
 
             - name: Release
               run: |
-                  aws s3 cp build/insight.phar s3://get.insight.symfony.com/insight.phar
+                  aws s3 cp build/insight.phar s3://get.insight.symfony.com/insight.phar --acl public-read
