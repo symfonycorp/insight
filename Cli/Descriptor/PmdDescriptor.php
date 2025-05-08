@@ -7,11 +7,15 @@ use SensioLabs\Insight\Sdk\Model\Violation;
 
 class PmdDescriptor extends AbstractDescriptor
 {
-    const PHPMD_PRIORITY_HIGH = 1;
-    const PHPMD_PRIORITY_MEDIUM_HIGH = 2;
-    const PHPMD_PRIORITY_MEDIUM = 3;
-    const PHPMD_PRIORITY_MEDIUM_LOW = 4;
-    const PHPMD_PRIORITY_LOW = 5;
+    public const PHPMD_PRIORITY_HIGH = 1;
+
+    public const PHPMD_PRIORITY_MEDIUM_HIGH = 2;
+
+    public const PHPMD_PRIORITY_MEDIUM = 3;
+
+    public const PHPMD_PRIORITY_MEDIUM_LOW = 4;
+
+    public const PHPMD_PRIORITY_LOW = 5;
 
     protected function describeAnalysis(Analysis $analysis, array $options = [])
     {
