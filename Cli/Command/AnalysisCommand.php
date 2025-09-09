@@ -12,13 +12,12 @@
 namespace SensioLabs\Insight\Cli\Command;
 
 use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class AnalysisCommand extends Command implements NeedConfigurationInterface
+class AnalysisCommand extends BaseApiCommand
 {
     protected function configure(): void
     {
@@ -32,9 +31,9 @@ class AnalysisCommand extends Command implements NeedConfigurationInterface
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    protected function executeCommand(InputInterface $input, OutputInterface $output): int
     {
-        $api = $this->getApplication()->getApi();
+        $api = $this->getApi();
         $analysis = $api->getProject($input->getArgument('project-uuid'))->getLastAnalysis();
 
         if (!$analysis) {

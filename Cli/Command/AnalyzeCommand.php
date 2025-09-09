@@ -12,15 +12,13 @@
 namespace SensioLabs\Insight\Cli\Command;
 
 use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
-use SensioLabs\Insight\Sdk\Api;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class AnalyzeCommand extends Command implements NeedConfigurationInterface
+class AnalyzeCommand extends BaseApiCommand
 {
     protected function configure(): void
     {
@@ -38,7 +36,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    protected function executeCommand(InputInterface $input, OutputInterface $output): int
     {
         $projectUuid = $input->getArgument('project-uuid');
 
@@ -47,8 +45,7 @@ class AnalyzeCommand extends Command implements NeedConfigurationInterface
             $pollPeriod = 30;
         }
 
-        /** @var Api $api */
-        $api = $this->getApplication()->getApi();
+        $api = $this->getApi();
 
         if (false !== strpos($api->getBaseUrl(), '.sensiolabs.com')) {
             $io = new SymfonyStyle($input, $output);

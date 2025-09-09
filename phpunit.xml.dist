@@ -18,6 +18,9 @@
     </php>
 
     <testsuites>
+        <testsuite name="SensioLabs Insight CLI">
+            <directory>Cli/Tests</directory>
+        </testsuite>
         <testsuite name="SensioLabs Insight Sdk">
             <directory>Sdk/Tests</directory>
         </testsuite>
@@ -25,8 +28,10 @@
 
     <filter>
         <whitelist>
+            <directory>Cli</directory>
             <directory>Sdk</directory>
             <exclude>
+                <directory>Cli/Tests</directory>
                 <directory>Sdk/Tests</directory>
             </exclude>
         </whitelist>
