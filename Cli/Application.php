@@ -27,8 +27,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Application extends SymfonyApplication
 {
-    const APPLICATION_NAME = 'SymfonyInsight CLI';
-    const APPLICATION_VERSION = '1.7.4';
+    public const APPLICATION_NAME = 'SymfonyInsight CLI';
+
+    public const APPLICATION_VERSION = '1.7.4';
 
     private $api;
     private $apiConfig;
