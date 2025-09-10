@@ -4,7 +4,7 @@
     "git-commit": "git-commit",
     "finder": [
         {"in": "bin"},
-        {"in": "Cli"},
+        {"in": "Cli", "exclude": ["Tests"]},
         {"in": "Sdk", "exclude": ["Tests"]},
         {"in": "vendor", "notName": "/LICENSE|.*\\.md|.*\\.dist|Makefile|composer\\.json|composer\\.lock/"}
     ]

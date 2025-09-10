@@ -265,7 +265,7 @@ class Api
         } catch (TransportExceptionInterface $e) {
             $this->logException($e);
 
-            throw new ApiServerException('Something went wrong with upstream', 0, $e);
+            throw $e;
         } catch (ServerExceptionInterface $e) {
             $this->logException($e);
 
@@ -289,12 +289,22 @@ class Api
 
     private function logException(ExceptionInterface $e)
     {
-        $message = sprintf("Exception: Class: \"%s\", Message: \"%s\", Response:\n%s",
-            \get_class($e),
-            $e->getMessage(),
-            $e->getResponse()->getInfo('debug')
-        );
+        if (!$this->logger) {
+            return;
+        }
 
-        $this->logger && $this->logger->error($message, ['exception' => $e]);
+        $parts = [
+            sprintf('Exception: Class: "%s"', \get_class($e)),
+            sprintf('Message: "%s"', $e->getMessage()),
+        ];
+
+        if ($e instanceof HttpExceptionInterface) {
+            $debug = $e->getResponse()->getInfo('debug');
+            if ($debug) {
+                $parts[] = "Response:\n".$debug;
+            }
+        }
+
+        $this->logger->error(implode(', ', $parts), ['exception' => $e]);
     }
 }
