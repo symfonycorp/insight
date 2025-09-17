@@ -10,7 +10,8 @@
         "psr/log": "^1.0",
         "symfony/http-client": "^5.4|^6.4|^7.0",
         "symfony/console": "^5.4|^6.4|^7.0",
-        "symfony/expression-language": "^5.4|^6.4|^7.0"
+        "symfony/expression-language": "^5.4|^6.4|^7.0",
+        "symfony/event-dispatcher": "^5.4|^6.4|^7.0"
     },
     "require-dev": {
         "monolog/monolog": "^1.4",
