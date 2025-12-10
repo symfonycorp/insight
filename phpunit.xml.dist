@@ -18,8 +18,11 @@
     </php>
 
     <testsuites>
-        <testsuite name="SensioLabs Insight Sdk">
+        <testsuite name="Symfony Insight Sdk">
             <directory>Sdk/Tests</directory>
+        </testsuite>
+        <testsuite name="Symfony Insight CLI">
+            <directory>Cli/Tests</directory>
         </testsuite>
     </testsuites>
 
