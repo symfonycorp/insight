@@ -11,6 +11,7 @@
 
 namespace SensioLabs\Insight\Cli\Tests\Command;
 
+use JMS\Serializer\SerializerInterface;
 use PHPUnit\Framework\TestCase;
 use SensioLabs\Insight\Cli\Application;
 use SensioLabs\Insight\Cli\Command\GenerateLLMInputCommand;
@@ -24,26 +25,6 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class GenerateLLMInputCommandTest extends TestCase
 {
-    private $tempDir;
-
-    protected function setUp(): void
-    {
-        $this->tempDir = sys_get_temp_dir().'/insight_test_'.uniqid();
-        mkdir($this->tempDir);
-        chdir($this->tempDir);
-    }
-
-    protected function tearDown(): void
-    {
-        $files = glob($this->tempDir.'/*');
-        foreach ($files as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
-        rmdir($this->tempDir);
-    }
-
     public function testExecuteWithoutSecurityViolationsFiltersThemByDefault(): void
     {
         $violations = $this->createViolationsWithCategories(['performance', 'security', 'bug']);
@@ -55,15 +36,10 @@ class GenerateLLMInputCommandTest extends TestCase
         $this->assertSame(Command::SUCCESS, $commandTester->getStatusCode());
 
         $output = $commandTester->getDisplay();
-        $this->assertStringContainsString('Your LLM prompt is ready', $output);
-
-        $generatedFile = $this->getGeneratedFile();
-        $this->assertFileExists($generatedFile);
-
-        $content = file_get_contents($generatedFile);
-        $this->assertStringContainsString('Performance Violation', $content);
-        $this->assertStringContainsString('Bug Violation', $content);
-        $this->assertStringNotContainsString('Security Violation', $content);
+        $this->assertStringContainsString('Performance Violation', $output);
+        $this->assertStringContainsString('Bug Violation', $output);
+        $this->assertStringNotContainsString('Security Violation', $output);
+        $this->assertStringContainsString('Start your analysis immediately below this line.', $output);
     }
 
     public function testExecuteWithSecurityViolationsWhenConfirmed(): void
@@ -77,12 +53,10 @@ class GenerateLLMInputCommandTest extends TestCase
 
         $this->assertSame(Command::SUCCESS, $commandTester->getStatusCode());
 
-        $generatedFile = $this->getGeneratedFile();
-        $content = file_get_contents($generatedFile);
-
-        $this->assertStringContainsString('Performance Violation', $content);
-        $this->assertStringContainsString('Bug Violation', $content);
-        $this->assertStringContainsString('Security Violation', $content);
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString('Performance Violation', $output);
+        $this->assertStringContainsString('Bug Violation', $output);
+        $this->assertStringContainsString('Security Violation', $output);
     }
 
     public function testExecuteWithSecurityViolationsWhenDeclined(): void
@@ -96,11 +70,9 @@ class GenerateLLMInputCommandTest extends TestCase
 
         $this->assertSame(Command::SUCCESS, $commandTester->getStatusCode());
 
-        $generatedFile = $this->getGeneratedFile();
-        $content = file_get_contents($generatedFile);
-
-        $this->assertStringContainsString('Performance Violation', $content);
-        $this->assertStringNotContainsString('Security Violation', $content);
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString('Performance Violation', $output);
+        $this->assertStringNotContainsString('Security Violation', $output);
     }
 
     public function testExecuteFiltersIgnoredViolationsByDefault(): void
@@ -109,15 +81,13 @@ class GenerateLLMInputCommandTest extends TestCase
         $command = $this->createCommandWithMockedApi($violations);
         $commandTester = new CommandTester($command);
 
-        $commandTester->execute(['project-uuid' => 'test-uuid-123',]);
+        $commandTester->execute(['project-uuid' => 'test-uuid-123']);
 
         $this->assertSame(Command::SUCCESS, $commandTester->getStatusCode());
 
-        $generatedFile = $this->getGeneratedFile();
-        $content = file_get_contents($generatedFile);
-
-        $this->assertStringContainsString('Active Violation', $content);
-        $this->assertStringNotContainsString('Ignored Violation', $content);
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString('Active Violation', $output);
+        $this->assertStringNotContainsString('Ignored Violation', $output);
     }
 
     public function testExecuteShowsIgnoredViolationsWhenOptionSet(): void
@@ -126,15 +96,46 @@ class GenerateLLMInputCommandTest extends TestCase
         $command = $this->createCommandWithMockedApi($violations);
         $commandTester = new CommandTester($command);
 
-        $commandTester->execute(['project-uuid' => 'test-uuid-123', '--show-ignored-violations' => true,]);
+        $commandTester->execute(['project-uuid' => 'test-uuid-123', '--show-ignored-violations' => true]);
 
         $this->assertSame(Command::SUCCESS, $commandTester->getStatusCode());
 
-        $generatedFile = $this->getGeneratedFile();
-        $content = file_get_contents($generatedFile);
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString('Active Violation', $output);
+        $this->assertStringContainsString('Ignored Violation', $output);
+    }
 
-        $this->assertStringContainsString('Active Violation', $content);
-        $this->assertStringContainsString('Ignored Violation', $content);
+    public function testExecuteFormatsMarkdownTableCorrectly(): void
+    {
+        $violation1 = $this->createStub(Violation::class);
+        $violation1->method('getTitle')->willReturn('Title1');
+        $violation1->method('getCategory')->willReturn('Bug');
+        $violation1->method('getSeverity')->willReturn('High');
+        $violation1->method('getMessage')->willReturn("Message1 with | pipe\nand newline");
+        $violation1->method('getResource')->willReturn('src/File1.php');
+        $violation1->method('getLine')->willReturn(10);
+        $violation1->method('isIgnored')->willReturn(false);
+
+        $violation2 = $this->createStub(Violation::class);
+        $violation2->method('getTitle')->willReturn('Title2');
+        $violation2->method('getCategory')->willReturn('Style');
+        $violation2->method('getSeverity')->willReturn('Low');
+        $violation2->method('getMessage')->willReturn("Message2 with | pipe\rCarriageReturn");
+        $violation2->method('getResource')->willReturn('src/File2.php');
+        $violation2->method('getLine')->willReturn(20);
+        $violation2->method('isIgnored')->willReturn(false);
+
+        $violations = $this->generateViolationsMock([$violation1, $violation2]);
+        $command = $this->createCommandWithMockedApi($violations);
+        $commandTester = new CommandTester($command);
+
+        $commandTester->execute(['project-uuid' => 'test-uuid-123']);
+
+        $this->assertSame(Command::SUCCESS, $commandTester->getStatusCode());
+
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString('| Title1 | Bug | High | Message1 with / pipe and newline | src/File1.php | 10 |', $output);
+        $this->assertStringContainsString('| Title2 | Style | Low | Message2 with / pipe CarriageReturn | src/File2.php | 20 |', $output);
     }
 
     private function createCommandWithMockedApi(Violations $violations): GenerateLLMInputCommand
@@ -147,6 +148,7 @@ class GenerateLLMInputCommandTest extends TestCase
 
         $api = $this->createStub(Api::class);
         $api->method('getProject')->willReturn($project);
+        $api->method('getSerializer')->willReturn($this->createStub(SerializerInterface::class));
 
         $application = new class($api) extends Application {
             private $mockedApi;
@@ -247,13 +249,5 @@ class GenerateLLMInputCommandTest extends TestCase
                 $this->items = array_values(array_filter($this->items, $callback));
             }
         };
-    }
-
-    private function getGeneratedFile(): string
-    {
-        $files = glob($this->tempDir.'/symfony_insight_llm_prompt_*.md');
-        $this->assertNotEmpty($files, 'No generated file found');
-
-        return $files[0];
     }
 }

@@ -122,4 +122,3 @@ For each issue, provide ready-to-apply fixes as diffs:
 **Start your analysis immediately below this line.**
 
 ---
-{{analysis_result}}

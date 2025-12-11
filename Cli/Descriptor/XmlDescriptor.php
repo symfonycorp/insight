@@ -11,14 +11,14 @@
 
 namespace SensioLabs\Insight\Cli\Descriptor;
 
-use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerInterface;
 use SensioLabs\Insight\Sdk\Model\Analysis;
 
 class XmlDescriptor extends AbstractDescriptor
 {
     private $serializer;
 
-    public function __construct(Serializer $serializer)
+    public function __construct(SerializerInterface $serializer)
     {
         $this->serializer = $serializer;
     }

@@ -11,10 +11,9 @@
 
 namespace SensioLabs\Insight\Cli\Command;
 
-use SensioLabs\Insight\Cli\Formatter\MarkdownTableBuilder;
+use SensioLabs\Insight\Cli\Helper\DescriptorHelper;
 use SensioLabs\Insight\Sdk\Model\Analysis;
 use SensioLabs\Insight\Sdk\Model\Violation;
-use SensioLabs\Insight\Sdk\Model\Violations;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -24,8 +23,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class GenerateLLMInputCommand extends Command implements NeedConfigurationInterface
 {
-    private const OUTPUT_FILE_NAME = 'symfony_insight_llm_prompt_%s.md';
-
     protected function configure(): void
     {
         $this
@@ -92,10 +89,16 @@ class GenerateLLMInputCommand extends Command implements NeedConfigurationInterf
                 return Command::SUCCESS;
             }
 
-            $promptContent = $this->buildPromptContent($violations);
-            $outputPath = $this->writePromptFile($promptContent);
+            if (!file_exists($promptTemplatePath = __DIR__.'/../Resources/prompt.md')) {
+                throw new \RuntimeException("Prompt template not found at: $promptTemplatePath");
+            }
 
-            $io->writeln(sprintf('<info>Your LLM prompt is ready 🚀 at <href=%1$s/>%1$s</info>', $outputPath));
+            if (($instructions = file_get_contents($promptTemplatePath)) === false) {
+                throw new \RuntimeException('Failed to read prompt template');
+            }
+
+            $output->writeln($instructions);
+            (new DescriptorHelper($api->getSerializer()))->describe($output, $analysis, 'md', true);
 
             return Command::SUCCESS;
         } catch (\Exception $e) {
@@ -103,39 +106,5 @@ class GenerateLLMInputCommand extends Command implements NeedConfigurationInterf
 
             return Command::FAILURE;
         }
-    }
-
-    private function buildPromptContent(Violations $violations): string
-    {
-        $promptTemplatePath = __DIR__.'/../Resources/prompt.md';
-
-        if (!file_exists($promptTemplatePath)) {
-            throw new \RuntimeException(sprintf('Prompt template not found at: %s', $promptTemplatePath));
-        }
-
-        $instructions = file_get_contents($promptTemplatePath);
-
-        if (false === $instructions) {
-            throw new \RuntimeException('Failed to read prompt template');
-        }
-
-        return str_replace('{{analysis_result}}', MarkdownTableBuilder::build($violations), $instructions);
-    }
-
-    private function writePromptFile(string $content): string
-    {
-        $outputPath = sprintf(self::OUTPUT_FILE_NAME, (new \DateTimeImmutable('now'))->format('YmdHis'));
-
-        if (false === file_put_contents($outputPath, $content)) {
-            throw new \RuntimeException(sprintf('Failed to write file: %s', $outputPath));
-        }
-
-        $realPath = realpath($outputPath);
-
-        if (false === $realPath) {
-            throw new \RuntimeException(sprintf('Failed to resolve real path for: %s', $outputPath));
-        }
-
-        return $realPath;
     }
 }
