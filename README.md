@@ -49,6 +49,10 @@ To export an analysis report:
 
     $ php insight.phar analysis UUID --format="xml" # or --format="json" or --format="pmd"
 
+You can also generate a LLM-ready prompt from your last analysis report:
+
+    $ php insight.phar generate-llm-input UUID
+
 Configuration
 -------------
 

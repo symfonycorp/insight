@@ -113,6 +113,7 @@ class Application extends SymfonyApplication
         $defaultCommands[] = new LocalCommand\ConfigureCommand();
         $defaultCommands[] = new LocalCommand\ProjectsCommand();
         $defaultCommands[] = new LocalCommand\SelfUpdateCommand();
+        $defaultCommands[] = new LocalCommand\GenerateLLMInputCommand();
 
         return $defaultCommands;
     }

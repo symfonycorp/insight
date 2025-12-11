@@ -11,9 +11,10 @@
 
 namespace SensioLabs\Insight\Cli\Helper;
 
-use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerInterface;
 use SensioLabs\Insight\Cli\Descriptor\AbstractDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\JsonDescriptor;
+use SensioLabs\Insight\Cli\Descriptor\MarkdownDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\PmdDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\TextDescriptor;
 use SensioLabs\Insight\Cli\Descriptor\XmlDescriptor;
@@ -24,13 +25,14 @@ class DescriptorHelper extends Helper
 {
     private $descriptors = [];
 
-    public function __construct(Serializer $serializer)
+    public function __construct(SerializerInterface $serializer)
     {
         $this
             ->register('json', new JsonDescriptor($serializer))
             ->register('pmd', new PmdDescriptor())
             ->register('txt', new TextDescriptor())
             ->register('xml', new XmlDescriptor($serializer))
+            ->register('md', new MarkdownDescriptor())
         ;
     }
 
